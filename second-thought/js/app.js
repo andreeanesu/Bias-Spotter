@@ -29,7 +29,6 @@ const elements = {
   feedbackWhyHumans: document.getElementById("feedback-why-humans"),
   feedbackReflection: document.getElementById("feedback-reflection"),
   questionProgress: document.getElementById("question-progress"),
-  footerCategory: document.getElementById("footer-category"),
   headerTagline: document.getElementById("header-tagline"),
   btnNext: document.getElementById("btn-next"),
   footerNav: document.getElementById("footer-nav"),

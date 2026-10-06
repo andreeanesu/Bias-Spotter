@@ -32,7 +32,6 @@ export class QuizUI {
     this.el.footerNav?.classList.add("hidden");
     this.el.headerTagline?.classList.remove("hidden");
     this.el.btnNext.hidden = true;
-    this.el.footerCategory.textContent = "";
 
     this.el.onboardingStep1?.classList.toggle("hidden", step !== 1);
     this.el.onboardingStep2?.classList.toggle("hidden", step !== 2);
@@ -57,7 +56,6 @@ export class QuizUI {
     this.el.footerNav?.classList.add("hidden");
     this.el.headerTagline?.classList.add("hidden");
     this.el.btnNext.hidden = true;
-    this.el.footerCategory.textContent = "";
 
     if (!this.el.tierOptions) return;
 
@@ -106,7 +104,6 @@ export class QuizUI {
     this.showQuizScreen();
 
     this.el.scenario.textContent = challenge.statement;
-    this.el.footerCategory.textContent = challenge.biasCategory;
 
     this.el.questionProgress.textContent = `${progress.current}/${progress.total}`;
 
@@ -224,7 +221,6 @@ export class QuizUI {
     this.el.finishScreen.classList.remove("hidden");
     this.el.footerNav?.classList.add("hidden");
     this.el.headerTagline?.classList.add("hidden");
-    this.el.footerCategory.textContent = "";
     this.el.btnNext.hidden = true;
 
     const modeLabel = getModeLabel(playModes, sessionMeta?.mode);
