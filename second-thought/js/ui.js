@@ -76,7 +76,8 @@ export class QuizUI {
           <span class="tier-option-progress">${summary.seenCount} / ${summary.totalCount}</span>
         </span>
         <span class="tier-option-subtitle">${modeInfo?.subtitle ?? ""}</span>
-        <span class="tier-option-meta">${summary.biasCount} biases · questions seen in this level</span>
+        <span class="tier-option-mastery">${summary.masteryLine}</span>
+        <span class="tier-option-meta">${summary.biasCount} biases in this level</span>
       `;
 
       if (complete) {
@@ -218,7 +219,7 @@ export class QuizUI {
     button.querySelector(".answer-text")?.appendChild(icon);
   }
 
-  showFinishScreen(sessionMeta, roundScore, playModes = []) {
+  showFinishScreen(sessionMeta, roundScore, playModes = [], roundMastery = null) {
     this.el.onboardingScreen?.classList.add("hidden");
     this.el.startScreen?.classList.add("hidden");
     this.el.quizScreen.classList.add("hidden");
@@ -245,6 +246,40 @@ export class QuizUI {
       );
     }
 
+    if (this.el.finishRoundMastery) {
+      if (roundMastery) {
+        const practiceBit =
+          roundMastery.toPractice > 0
+            ? `${roundMastery.toPractice} to practice again`
+            : "none to practice again";
+        this.el.finishRoundMastery.textContent = `This round: ${roundMastery.spotted} spotted · ${practiceBit}`;
+        this.el.finishRoundMastery.hidden = false;
+      } else {
+        this.el.finishRoundMastery.textContent = "";
+        this.el.finishRoundMastery.hidden = true;
+      }
+    }
+
+    if (this.el.finishLevelMastery) {
+      if (roundMastery?.masteryLine) {
+        this.el.finishLevelMastery.textContent = `${modeLabel} progress: ${roundMastery.masteryLine}`;
+        this.el.finishLevelMastery.hidden = false;
+      } else {
+        this.el.finishLevelMastery.textContent = "";
+        this.el.finishLevelMastery.hidden = true;
+      }
+    }
+
+    if (this.el.finishPracticeNote) {
+      if (roundMastery?.practiceNames?.length) {
+        this.el.finishPracticeNote.textContent = `Worth another look: ${roundMastery.practiceNames.join(", ")}`;
+        this.el.finishPracticeNote.hidden = false;
+      } else {
+        this.el.finishPracticeNote.textContent = "";
+        this.el.finishPracticeNote.hidden = true;
+      }
+    }
+
     if (sessionMeta && this.el.finishMessage) {
       const { seenCount, totalCount, remainingInPool, sessionSize } = sessionMeta;
 
@@ -253,10 +288,10 @@ export class QuizUI {
           `${modeLabel}: you've seen all ${totalCount} questions here. Next round in this level starts fresh.`;
       } else if (remainingInPool < 5) {
         this.el.finishMessage.textContent =
-          `${modeLabel} progress: ${seenCount} of ${totalCount} seen. ${remainingInPool} new question${remainingInPool === 1 ? "" : "s"} left in this level.`;
+          `${seenCount} of ${totalCount} questions seen. ${remainingInPool} new question${remainingInPool === 1 ? "" : "s"} left in this level.`;
       } else {
         this.el.finishMessage.textContent =
-          `${modeLabel} progress: ${seenCount} of ${totalCount} seen in this level.`;
+          `${seenCount} of ${totalCount} questions seen in this level.`;
       }
 
       if (sessionSize < 5) {

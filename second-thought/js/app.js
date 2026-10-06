@@ -36,6 +36,9 @@ const elements = {
   btnRestart: document.getElementById("btn-restart"),
   btnChangeTier: document.getElementById("btn-change-tier"),
   finishTitle: document.getElementById("finish-title"),
+  finishRoundMastery: document.getElementById("finish-round-mastery"),
+  finishLevelMastery: document.getElementById("finish-level-mastery"),
+  finishPracticeNote: document.getElementById("finish-practice-note"),
   finishMessage: document.getElementById("finish-message"),
   finishScore: document.getElementById("finish-score"),
   quizCharacter: document.getElementById("quiz-character"),
@@ -85,7 +88,12 @@ function handleNext() {
   engine.goNext();
 
   if (engine.isFinished()) {
-    ui.showFinishScreen(engine.getSessionMeta(), engine.getRoundScore(), playModes);
+    ui.showFinishScreen(
+      engine.getSessionMeta(),
+      engine.getRoundScore(),
+      playModes,
+      engine.getRoundMasterySummary()
+    );
     return;
   }
 

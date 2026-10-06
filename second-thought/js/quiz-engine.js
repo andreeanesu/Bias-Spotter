@@ -1,10 +1,11 @@
 /**
  * quiz-engine.js
- * Session logic per play mode (tier), with per-tier progress in localStorage.
+ * Session logic per play mode, with seen-question + bias mastery progress.
  */
 
 const SESSION_SIZE = 5;
 const PROGRESS_KEY = "second-thought-tier-progress";
+const MASTERY_KEY = "second-thought-bias-mastery";
 const LEGACY_PROGRESS_KEY = "second-thought-seen-challenges";
 
 export const PLAY_MODES = ["1", "2", "3", "mix"];
@@ -18,6 +19,10 @@ function shuffleArray(items) {
   return copy;
 }
 
+function emptyModeMap(makeValue) {
+  return Object.fromEntries(PLAY_MODES.map((mode) => [mode, makeValue()]));
+}
+
 function loadAllProgress() {
   try {
     const raw = localStorage.getItem(PROGRESS_KEY);
@@ -29,7 +34,7 @@ function loadAllProgress() {
     // fall through to migration / empty
   }
 
-  const empty = { 1: [], 2: [], 3: [], mix: [] };
+  const empty = emptyModeMap(() => []);
   try {
     const legacy = localStorage.getItem(LEGACY_PROGRESS_KEY);
     if (legacy) {
@@ -61,6 +66,49 @@ function saveSeenSet(progress, mode, seenIds) {
   saveAllProgress(progress);
 }
 
+function loadMastery() {
+  try {
+    const raw = localStorage.getItem(MASTERY_KEY);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      if (parsed && typeof parsed === "object") return parsed;
+    }
+  } catch {
+    // ignore
+  }
+  return emptyModeMap(() => ({}));
+}
+
+function saveMastery(mastery) {
+  localStorage.setItem(MASTERY_KEY, JSON.stringify(mastery));
+}
+
+function getBiasStatus(record, challengeIdsForBias) {
+  if (!record) return "new";
+  if (record.missed) return "practicing";
+
+  const correctIds = Array.isArray(record.correctIds) ? record.correctIds : [];
+  const correctCount = correctIds.filter((id) =>
+    challengeIdsForBias.includes(id)
+  ).length;
+
+  if (challengeIdsForBias.length > 0 && correctCount >= challengeIdsForBias.length) {
+    return "learned";
+  }
+  if (correctCount >= 2) return "familiar";
+  return "practicing";
+}
+
+function formatMasteryCounts(counts) {
+  const parts = [];
+  if (counts.learned) parts.push(`${counts.learned} learned`);
+  if (counts.familiar) parts.push(`${counts.familiar} familiar`);
+  if (counts.practicing) parts.push(`${counts.practicing} practicing`);
+  if (counts.new) parts.push(`${counts.new} new`);
+  if (parts.length === 0) return "No biases in this level yet";
+  return parts.join(" · ");
+}
+
 export class QuizEngine {
   constructor(allChallenges) {
     this.allChallenges = allChallenges;
@@ -71,7 +119,9 @@ export class QuizEngine {
     this.selectedLetter = null;
     this.sessionMeta = null;
     this.correctCount = 0;
+    this.sessionResults = [];
     this.progress = loadAllProgress();
+    this.mastery = loadMastery();
   }
 
   getPoolForMode(mode) {
@@ -81,11 +131,36 @@ export class QuizEngine {
     );
   }
 
+  getChallengeIdsForBias(biasId, mode = this.mode) {
+    return this.getPoolForMode(mode || "mix")
+      .filter((challenge) => challenge.biasId === biasId)
+      .map((challenge) => challenge.challengeId);
+  }
+
+  getMasteryCounts(mode) {
+    const pool = this.getPoolForMode(mode);
+    const biasIds = [...new Set(pool.map((c) => c.biasId))];
+    const modeMastery = this.mastery[mode] || {};
+
+    const counts = { learned: 0, familiar: 0, practicing: 0, new: 0, total: biasIds.length };
+
+    biasIds.forEach((biasId) => {
+      const status = getBiasStatus(
+        modeMastery[biasId],
+        this.getChallengeIdsForBias(biasId, mode)
+      );
+      counts[status] += 1;
+    });
+
+    return counts;
+  }
+
   getProgressSummary(mode) {
     const pool = this.getPoolForMode(mode);
     const seen = getSeenSet(this.progress, mode);
     const seenInPool = pool.filter((c) => seen.has(c.challengeId)).length;
     const biasCount = new Set(pool.map((c) => c.biasId)).size;
+    const mastery = this.getMasteryCounts(mode);
 
     return {
       mode,
@@ -93,6 +168,8 @@ export class QuizEngine {
       totalCount: pool.length,
       biasCount,
       remainingCount: pool.length - seenInPool,
+      mastery,
+      masteryLine: formatMasteryCounts(mastery),
     };
   }
 
@@ -145,12 +222,68 @@ export class QuizEngine {
     this.hasAnswered = false;
     this.selectedLetter = null;
     this.correctCount = 0;
+    this.sessionResults = [];
+  }
+
+  recordBiasResult(challenge, isCorrect) {
+    if (!this.mode || !challenge?.biasId) return;
+
+    if (!this.mastery[this.mode] || typeof this.mastery[this.mode] !== "object") {
+      this.mastery[this.mode] = {};
+    }
+
+    const current = this.mastery[this.mode][challenge.biasId] || {
+      correctIds: [],
+      missed: false,
+    };
+    const correctIds = new Set(
+      Array.isArray(current.correctIds) ? current.correctIds : []
+    );
+
+    if (isCorrect) {
+      correctIds.add(challenge.challengeId);
+      this.mastery[this.mode][challenge.biasId] = {
+        correctIds: [...correctIds],
+        missed: false,
+      };
+    } else {
+      this.mastery[this.mode][challenge.biasId] = {
+        correctIds: [...correctIds],
+        missed: true,
+      };
+    }
+
+    saveMastery(this.mastery);
   }
 
   getRoundScore() {
     return {
       correct: this.correctCount,
       total: this.sessionChallenges.length,
+    };
+  }
+
+  getRoundMasterySummary() {
+    const spotted = this.sessionResults.filter((r) => r.isCorrect).length;
+    const practiceItems = [];
+    const seenPractice = new Set();
+
+    this.sessionResults.forEach((result) => {
+      if (!result.isCorrect && !seenPractice.has(result.biasId)) {
+        seenPractice.add(result.biasId);
+        practiceItems.push(result.biasName);
+      }
+    });
+
+    const mastery = this.getMasteryCounts(this.mode);
+
+    return {
+      spotted,
+      toPractice: practiceItems.length,
+      practiceNames: practiceItems,
+      mastery,
+      masteryLine: formatMasteryCounts(mastery),
+      mode: this.mode,
     };
   }
 
@@ -177,6 +310,13 @@ export class QuizEngine {
 
     const isCorrect = letter === challenge.correctAnswer;
     if (isCorrect) this.correctCount += 1;
+
+    this.recordBiasResult(challenge, isCorrect);
+    this.sessionResults.push({
+      biasId: challenge.biasId,
+      biasName: challenge.biasName,
+      isCorrect,
+    });
 
     return {
       isCorrect,
@@ -215,4 +355,4 @@ export class QuizEngine {
   }
 }
 
-export { SESSION_SIZE };
+export { SESSION_SIZE, formatMasteryCounts, getBiasStatus };

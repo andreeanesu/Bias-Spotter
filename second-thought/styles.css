@@ -292,6 +292,13 @@ body {
   color: #333;
 }
 
+.tier-option-mastery {
+  font-size: 0.82rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--text);
+}
+
 .tier-option-meta {
   font-size: 0.72rem;
   letter-spacing: 0.04em;
@@ -707,6 +714,34 @@ body {
   max-width: 36ch;
   color: #333;
   line-height: 1.65;
+}
+
+.finish-round-mastery,
+.finish-level-mastery {
+  margin: 0 auto 0.45rem;
+  max-width: 38ch;
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.finish-practice-note {
+  margin: 0.35rem auto 0.85rem;
+  max-width: 38ch;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.finish-practice-note[hidden],
+.finish-round-mastery[hidden],
+.finish-level-mastery[hidden] {
+  display: none;
+}
+
+.finish-screen #finish-message {
+  margin: 0.5rem auto 1.5rem;
 }
 
 .btn-restart {
