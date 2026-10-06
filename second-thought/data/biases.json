@@ -2,7 +2,7 @@
   {
     "biasId": "B001",
     "name": "Confirmation Bias",
-    "definition": "We tend to search for, interpret, and recall information that confirms our existing beliefs.",
+    "definition": "The tendency to seek, interpret, favour, and remember information that supports what we already believe, while giving less weight to information that challenges it.",
     "category": "Decision Making",
     "tier": 1,
     "description": "Confirmation bias leads people to favor information that supports what they already think, while ignoring or downplaying evidence that contradicts it.",
@@ -19,7 +19,7 @@
   {
     "biasId": "B002",
     "name": "Anchoring Bias",
-    "definition": "We rely too heavily on the first piece of information offered (the 'anchor') when making decisions.",
+    "definition": "The tendency to rely too heavily on an initial piece of information (an “anchor”) when making estimates or decisions, even when that starting point is arbitrary.",
     "category": "Decision Making",
     "tier": 1,
     "description": "Once an anchor is set, later judgments are made by adjusting away from it, but the adjustment is usually insufficient.",
@@ -35,7 +35,7 @@
   {
     "biasId": "B003",
     "name": "Availability Heuristic",
-    "definition": "We judge the likelihood of events based on how easily examples come to mind.",
+    "definition": "A mental shortcut where we judge how common or likely something is by how easily examples come to mind, which can make vivid or recent events feel more frequent than they are.",
     "category": "Decision Making",
     "tier": 1,
     "description": "Vivid, recent, or emotionally charged events are recalled more easily, so we overestimate how common they are.",
@@ -51,7 +51,7 @@
   {
     "biasId": "B004",
     "name": "Fundamental Attribution Error",
-    "definition": "We judge others' behavior as caused by their character, while excusing our own behavior as caused by circumstances.",
+    "definition": "The tendency to explain other people’s actions mainly by their character or personality, while underestimating the role of the situation they are in.",
     "category": "Social Judgement",
     "tier": 1,
     "description": "When explaining someone else's actions we overweight personality traits and underweight situational factors, but we do the opposite for ourselves.",
@@ -66,7 +66,7 @@
   {
     "biasId": "B005",
     "name": "Self-serving Bias",
-    "definition": "We attribute our successes to our own abilities and our failures to external circumstances.",
+    "definition": "The tendency to credit our successes to our own ability or effort, and to blame our failures on outside circumstances, bad luck, or other people.",
     "category": "Social Judgement",
     "tier": 1,
     "description": "This bias protects self-esteem by crediting ourselves for good outcomes while blaming outside factors for bad ones.",
@@ -81,7 +81,7 @@
   {
     "biasId": "B006",
     "name": "Sunk Cost Fallacy",
-    "definition": "We continue investing in something because of what we've already invested, rather than evaluating future value.",
+    "definition": "The tendency to continue with a plan or investment because of what we have already put in (time, money, or effort), rather than because future benefits still justify it.",
     "category": "Finance",
     "tier": 1,
     "description": "Past costs (time, money, effort) that cannot be recovered still influence decisions, even though only future costs and benefits should matter.",
@@ -96,7 +96,7 @@
   {
     "biasId": "B007",
     "name": "Negativity Bias",
-    "definition": "We give more psychological weight to negative experiences than to positive ones of equal intensity.",
+    "definition": "The tendency for negative events, information, or emotions to affect us more strongly than positive ones of equal intensity.",
     "category": "Emotion",
     "tier": 1,
     "description": "Bad events, criticism, or emotions tend to have a bigger impact on our mood, memory, and decisions than good ones.",
@@ -111,7 +111,7 @@
   {
     "biasId": "B008",
     "name": "Halo Effect",
-    "definition": "Our overall impression of a person influences how we judge their specific traits, so one positive trait makes us assume other positive traits.",
+    "definition": "When a positive overall impression of someone (or something) spills over and makes us rate their other traits more favourably than the evidence supports.",
     "category": "Social Judgement",
     "tier": 1,
     "description": "If someone is attractive, likeable, or competent in one area, we tend to assume they're good in unrelated areas too.",
@@ -126,7 +126,7 @@
   {
     "biasId": "B009",
     "name": "Horn Effect",
-    "definition": "One negative trait about a person leads us to assume other negative traits, the opposite of the halo effect.",
+    "definition": "When a negative overall impression of someone (or something) spills over and makes us rate their other traits more harshly than the evidence supports.",
     "category": "Social Judgement",
     "tier": 1,
     "description": "A single flaw or bad first impression can unfairly color our judgment of someone's other, unrelated qualities.",
@@ -140,7 +140,7 @@
   {
     "biasId": "B010",
     "name": "Survivorship Bias",
-    "definition": "We focus on the people or things that 'survived' a process, while overlooking those that didn't, skewing our conclusions.",
+    "definition": "The tendency to draw conclusions from the people or cases that “made it,” while overlooking those that failed, dropped out, or were never visible — which can distort what we think works.",
     "category": "Decision Making",
     "tier": 1,
     "description": "Because failures are often invisible or unreported, we draw conclusions from an incomplete, success-only sample.",
@@ -155,7 +155,7 @@
   {
     "biasId": "B011",
     "name": "Hindsight Bias",
-    "definition": "After an event happens, we tend to believe we 'knew it all along,' even if we couldn't have predicted it beforehand.",
+    "definition": "The tendency, after an outcome is known, to see it as more predictable than it really was, and to believe we “knew it all along.”",
     "category": "Decision Making",
     "tier": 1,
     "description": "Once we know the outcome, our memory of our own earlier predictions shifts to seem more accurate than they really were.",
@@ -170,7 +170,7 @@
   {
     "biasId": "B012",
     "name": "False Consensus Effect",
-    "definition": "We overestimate how much other people share our beliefs, opinions, and behaviors.",
+    "definition": "The tendency to overestimate how widely others share our beliefs, preferences, and behaviours.",
     "category": "Social Judgement",
     "tier": 1,
     "description": "This bias makes our own views feel more common or 'normal' than they actually are in the wider population.",
@@ -185,7 +185,7 @@
   {
     "biasId": "B013",
     "name": "In-group Bias",
-    "definition": "We favor members of our own group over members of other groups, often unconsciously.",
+    "definition": "The tendency to favour people who belong to our own group — giving them more trust, warmth, or benefit of the doubt than we give outsiders.",
     "category": "Social Judgement",
     "tier": 1,
     "description": "This bias leads to more trust, generosity, and positive judgment toward people we see as 'us' compared to 'them.'",
@@ -200,7 +200,7 @@
   {
     "biasId": "B014",
     "name": "Out-group Homogeneity Bias",
-    "definition": "We tend to see members of other groups as more similar to each other than they really are, while seeing our own group as diverse.",
+    "definition": "The tendency to see people in other groups as more alike than they are, while seeing members of our own group as more varied and individual.",
     "category": "Social Judgement",
     "tier": 1,
     "description": "This bias leads to stereotyping, since we assume 'they're all the same' about outsiders while recognizing individuality within our own group.",
@@ -215,7 +215,7 @@
   {
     "biasId": "B015",
     "name": "Framing Effect",
-    "definition": "Our decisions are influenced by how information is presented (framed), even when the underlying facts are the same.",
+    "definition": "The tendency for the same facts to lead to different choices depending on how they are worded or presented — for example as gains versus losses.",
     "category": "Decision Making",
     "tier": 1,
     "description": "The same statistic or choice can lead to different decisions depending on whether it's framed in terms of gains or losses.",
@@ -230,7 +230,7 @@
   {
     "biasId": "B016",
     "name": "Loss Aversion",
-    "definition": "The pain of losing something feels psychologically stronger than the pleasure of gaining something of equal value.",
+    "definition": "The tendency for losses to feel more painful than gains of the same size feel rewarding, which can make us overly cautious about potential losses.",
     "category": "Finance",
     "tier": 1,
     "description": "This asymmetry means people often make decisions to avoid losses rather than to pursue equivalent gains.",
@@ -245,7 +245,7 @@
   {
     "biasId": "B017",
     "name": "Optimism Bias",
-    "definition": "We tend to overestimate the likelihood of positive events happening to us and underestimate the likelihood of negative ones.",
+    "definition": "The tendency to overestimate how likely good things are to happen to us, and to underestimate our personal risk of bad outcomes compared with other people.",
     "category": "Self-awareness",
     "tier": 1,
     "description": "This bias makes people believe they are less likely than others to experience negative outcomes like illness, accidents, or failure.",
@@ -260,7 +260,7 @@
   {
     "biasId": "B018",
     "name": "Status Quo Bias",
-    "definition": "We prefer things to stay the same, and treat the current state as a reasonable default, even when change might be better.",
+    "definition": "The tendency to prefer the current state of affairs and to treat “keeping things as they are” as the default choice, even when change might be better.",
     "category": "Decision Making",
     "tier": 1,
     "description": "This bias makes people resist switching to new options, defaulting instead to whatever is already in place.",
@@ -275,7 +275,7 @@
   {
     "biasId": "B019",
     "name": "Dunning-Kruger Effect",
-    "definition": "People with limited knowledge or skill in an area tend to overestimate their own competence.",
+    "definition": "A pattern where people with limited skill or knowledge in an area overestimate how competent they are, partly because the same gaps that cause mistakes also hide those mistakes from view.",
     "category": "Self-awareness",
     "tier": 1,
     "description": "A little knowledge can create unearned confidence, while true experts are often more aware of what they don't know.",
@@ -290,7 +290,7 @@
   {
     "biasId": "B020",
     "name": "Authority Bias",
-    "definition": "We tend to attribute greater accuracy and trust to the opinions of an authority figure, regardless of the actual content.",
+    "definition": "The tendency to trust or follow the views of someone seen as an authority more than the strength of their arguments alone would justify.",
     "category": "Social Judgement",
     "tier": 1,
     "description": "A person's title, uniform, or perceived status can make their claims seem more credible, even without supporting evidence.",
@@ -305,7 +305,7 @@
   {
     "biasId": "B021",
     "name": "Planning Fallacy",
-    "definition": "We routinely underestimate how long tasks will take and overestimate how smoothly they will go.",
+    "definition": "The tendency to underestimate how long a task will take and how many obstacles will appear, even when similar tasks have overrun before.",
     "category": "Decision Making",
     "tier": 2,
     "description": "Even with past experience of delays, we often believe this time will be different and plan too optimistically.",
@@ -320,7 +320,7 @@
   {
     "biasId": "B022",
     "name": "Recency Bias",
-    "definition": "We give more weight to recent events than to older ones, even when the older pattern matters more.",
+    "definition": "The tendency to give recent information more weight than older information, even when the longer track record is more informative.",
     "category": "Decision Making",
     "tier": 2,
     "description": "The latest example feels freshest and can overshadow a longer track record of evidence.",
@@ -335,7 +335,7 @@
   {
     "biasId": "B023",
     "name": "Bandwagon Effect",
-    "definition": "We are more likely to adopt a belief or behaviour because many others are doing it.",
+    "definition": "The tendency to adopt a belief or behaviour because many other people are doing so, treating popularity as a signal that it must be right.",
     "category": "Social Judgement",
     "tier": 2,
     "description": "Popularity can feel like proof, even when we have not checked the reasons ourselves.",
@@ -350,7 +350,7 @@
   {
     "biasId": "B024",
     "name": "Mere Exposure Effect",
-    "definition": "We tend to like things more simply because we have encountered them before.",
+    "definition": "The tendency to like people, ideas, or things more simply because we have encountered them before, even without stronger reasons to prefer them.",
     "category": "Social Judgement",
     "tier": 2,
     "description": "Familiarity can create warmth and preference, even without new reasons to prefer something.",
@@ -365,7 +365,7 @@
   {
     "biasId": "B025",
     "name": "Endowment Effect",
-    "definition": "We value things more highly simply because we already own them.",
+    "definition": "The tendency to value something more highly once we own it than we would if the same item belonged to someone else.",
     "category": "Finance",
     "tier": 2,
     "description": "Ownership changes how much something feels worth, compared with an identical item we do not own.",
@@ -380,7 +380,7 @@
   {
     "biasId": "B026",
     "name": "Gambler's Fallacy",
-    "definition": "We expect random events to balance out in the short run, as if past outcomes change future odds.",
+    "definition": "The belief that a random event is “due” after a streak of opposite outcomes, as if chance keeps a short-run balance sheet.",
     "category": "Decision Making",
     "tier": 2,
     "description": "Independent random events do not 'make up' for earlier results, but it can feel like they should.",
@@ -395,7 +395,7 @@
   {
     "biasId": "B027",
     "name": "Clustering Illusion",
-    "definition": "We see meaningful patterns in small sets of random or unrelated events.",
+    "definition": "The tendency to see meaningful patterns or streaks in small samples of random or unrelated events.",
     "category": "Decision Making",
     "tier": 2,
     "description": "A short streak of similar outcomes can feel like a signal, even when it is just noise.",
@@ -410,7 +410,7 @@
   {
     "biasId": "B028",
     "name": "Representativeness Heuristic",
-    "definition": "We judge how likely something is by how much it resembles a stereotype, instead of using actual odds.",
+    "definition": "A mental shortcut where we judge probability by how much something resembles a familiar stereotype or story, instead of using actual base rates.",
     "category": "Decision Making",
     "tier": 2,
     "description": "A good story or familiar type can feel more probable than the base rate suggests.",
@@ -425,7 +425,7 @@
   {
     "biasId": "B029",
     "name": "Base Rate Neglect",
-    "definition": "We ignore general base-rate information and focus on specific, vivid details instead.",
+    "definition": "The tendency to ignore general statistical information about how common something is, and to focus instead on specific, vivid details.",
     "category": "Decision Making",
     "tier": 2,
     "description": "A striking example can overpower the broader statistic about how common something really is.",
@@ -440,7 +440,7 @@
   {
     "biasId": "B030",
     "name": "Peak-End Rule",
-    "definition": "We judge an experience mainly by its most intense moment and how it ended, not the whole duration.",
+    "definition": "The tendency to judge an experience mainly by its most intense moment and how it ended, rather than by the whole duration.",
     "category": "Emotion",
     "tier": 2,
     "description": "A strong ending or peak moment can reshape memory more than hours of ordinary experience.",
@@ -455,7 +455,7 @@
   {
     "biasId": "B031",
     "name": "Choice-Supportive Bias",
-    "definition": "After making a choice, we remember the chosen option more favourably and downplay its downsides.",
+    "definition": "The tendency, after we have chosen an option, to remember it more favourably and to downplay its downsides or the appeal of alternatives.",
     "category": "Decision Making",
     "tier": 2,
     "description": "Once we commit, our memory and judgment tilt toward making that choice look wiser.",
@@ -470,7 +470,7 @@
   {
     "biasId": "B032",
     "name": "Illusion of Control",
-    "definition": "We overestimate how much influence we have over outcomes that are mostly chance or outside our control.",
+    "definition": "The tendency to overestimate how much influence our actions have over outcomes that are largely random or outside our control.",
     "category": "Self-awareness",
     "tier": 2,
     "description": "Small actions can feel like they are steering big results, even when they are not.",
@@ -485,7 +485,7 @@
   {
     "biasId": "B033",
     "name": "Spotlight Effect",
-    "definition": "We overestimate how much other people notice our appearance, mistakes, or behaviour.",
+    "definition": "The tendency to overestimate how much other people notice our appearance, mistakes, or behaviour.",
     "category": "Social Judgement",
     "tier": 2,
     "description": "We are each at the centre of our own attention, but others are usually paying far less attention to us.",
@@ -500,7 +500,7 @@
   {
     "biasId": "B034",
     "name": "Cognitive Dissonance",
-    "definition": "When our actions clash with our beliefs, we often change our beliefs or excuses rather than face the clash.",
+    "definition": "The mental discomfort that arises when our actions conflict with our beliefs, often leading us to justify, minimise, or reframe what we did.",
     "category": "Emotion",
     "tier": 2,
     "description": "Mental discomfort pushes us to justify, minimise, or reframe what we did so it fits who we think we are.",
@@ -515,7 +515,7 @@
   {
     "biasId": "B035",
     "name": "Belief Perseverance",
-    "definition": "We keep believing something even after the evidence supporting it has been weakened or removed.",
+    "definition": "The tendency to hold on to a belief even after the evidence that supported it has been weakened or removed.",
     "category": "Decision Making",
     "tier": 2,
     "description": "Once a belief takes hold, we can defend it with new reasons after the original reasons fall away.",
@@ -530,7 +530,7 @@
   {
     "biasId": "B036",
     "name": "Normalcy Bias",
-    "definition": "We underestimate the chance of disruption and assume things will keep going as they usually do.",
+    "definition": "The tendency to underestimate the likelihood of serious disruption and to assume that life will continue in the usual way.",
     "category": "Decision Making",
     "tier": 2,
     "description": "Familiar routines feel stable, so warnings or unusual signs can be brushed aside too easily.",
@@ -545,7 +545,7 @@
   {
     "biasId": "B037",
     "name": "Curse of Knowledge",
-    "definition": "Once we know something, we find it hard to imagine not knowing it.",
+    "definition": "The difficulty of remembering what it was like not to know something, which can make experts skip steps that beginners still need.",
     "category": "Learning",
     "tier": 2,
     "description": "Experts and experienced people can explain in ways that skip steps obvious to them but not to beginners.",
@@ -560,7 +560,7 @@
   {
     "biasId": "B038",
     "name": "Illusory Correlation",
-    "definition": "We perceive a link between two things when none exists, or see a stronger link than the data supports.",
+    "definition": "The tendency to perceive a relationship between two things when none exists, or to see a stronger link than the evidence supports.",
     "category": "Decision Making",
     "tier": 2,
     "description": "Memorable pairings can feel like cause and effect, especially when we already expect a connection.",
@@ -575,7 +575,7 @@
   {
     "biasId": "B039",
     "name": "Conjunction Fallacy",
-    "definition": "We judge a detailed, specific story as more likely than a broader, more general one.",
+    "definition": "The tendency to judge a detailed, specific scenario as more probable than a broader one, even though added detail usually makes an event less likely.",
     "category": "Decision Making",
     "tier": 2,
     "description": "Extra detail can make a scenario feel more believable, even though specifics always lower the true odds.",
@@ -590,7 +590,7 @@
   {
     "biasId": "B040",
     "name": "Illusory Truth Effect",
-    "definition": "Repeated statements feel more true, even when we know we should check them.",
+    "definition": "The tendency for repeated statements to feel more true, simply because they have become familiar.",
     "category": "Media",
     "tier": 2,
     "description": "Familiar wording creates a sense of accuracy, whether or not the claim has been verified.",
@@ -605,7 +605,7 @@
   {
     "biasId": "B041",
     "name": "Actor-Observer Bias",
-    "definition": "We explain other people's actions by their character, but our own by the situation.",
+    "definition": "The tendency to explain other people’s behaviour by their character, while explaining our own behaviour by the situation we were in.",
     "category": "Social Judgement",
     "tier": 3,
     "description": "The same kind of behaviour gets different stories depending on whether we or someone else did it.",
@@ -620,7 +620,7 @@
   {
     "biasId": "B042",
     "name": "Bias Blind Spot",
-    "definition": "We notice biases in others more easily than in ourselves.",
+    "definition": "The tendency to recognise cognitive biases more easily in other people than in ourselves.",
     "category": "Self-awareness",
     "tier": 3,
     "description": "It can feel obvious that other people are skewed, while our own view still feels objective.",
@@ -635,7 +635,7 @@
   {
     "biasId": "B043",
     "name": "Naive Realism",
-    "definition": "We believe we see reality directly and that reasonable people should agree with us.",
+    "definition": "The belief that we see the world objectively, and that people who disagree with us must be uninformed, irrational, or biased.",
     "category": "Social Judgement",
     "tier": 3,
     "description": "Our own perspective can feel like plain fact, making disagreement seem like bias or bad faith in others.",
@@ -650,7 +650,7 @@
   {
     "biasId": "B044",
     "name": "Just-World Hypothesis",
-    "definition": "We assume people generally get what they deserve, and search for reasons bad outcomes were earned.",
+    "definition": "The tendency to assume the world is fair and that people usually get what they deserve, which can lead us to blame victims or downplay luck.",
     "category": "Social Judgement",
     "tier": 3,
     "description": "The idea of a fair world can make us blame victims or downplay luck and circumstance.",
@@ -665,7 +665,7 @@
   {
     "biasId": "B045",
     "name": "Hostile Attribution Bias",
-    "definition": "We interpret ambiguous actions from others as intentionally hostile or unkind.",
+    "definition": "The tendency to interpret ambiguous actions from others as intentionally hostile, unkind, or personally directed.",
     "category": "Social Judgement",
     "tier": 3,
     "description": "A neutral tone, delay, or mistake can be read as personal attack when the intent is unclear.",
@@ -680,7 +680,7 @@
   {
     "biasId": "B046",
     "name": "Egocentric Bias",
-    "definition": "We remember our own role in events as larger and more central than it was.",
+    "definition": "The tendency to remember our own role, effort, or importance in joint events as larger than it really was.",
     "category": "Self-awareness",
     "tier": 3,
     "description": "Our contribution, importance, or effort can loom larger in memory than in the shared reality.",
@@ -695,7 +695,7 @@
   {
     "biasId": "B047",
     "name": "Illusion of Transparency",
-    "definition": "We overestimate how clearly others can read our emotions and thoughts.",
+    "definition": "The tendency to overestimate how easily other people can read our emotions, thoughts, or internal state.",
     "category": "Social Judgement",
     "tier": 3,
     "description": "What feels obvious inside can be nearly invisible outside, but we often assume people can tell.",
@@ -710,7 +710,7 @@
   {
     "biasId": "B048",
     "name": "Hyperbolic Discounting",
-    "definition": "We prefer smaller rewards now over larger rewards later, more steeply than calm planning would suggest.",
+    "definition": "The tendency to prefer smaller rewards now over larger rewards later, more steeply than a calm long-term plan would suggest.",
     "category": "Finance",
     "tier": 3,
     "description": "The immediate option feels disproportionately attractive compared with a better long-term choice.",
@@ -725,7 +725,7 @@
   {
     "biasId": "B049",
     "name": "Ambiguity Effect",
-    "definition": "We avoid options when the odds of a good outcome are unclear, even if they might be favourable.",
+    "definition": "The tendency to avoid options when the probability of a good outcome is unclear, even if those options could be better than a known alternative.",
     "category": "Decision Making",
     "tier": 3,
     "description": "Known risks can feel safer than unknown ones, so we may stick with the familiar gamble.",
@@ -740,7 +740,7 @@
   {
     "biasId": "B050",
     "name": "Identifiable Victim Effect",
-    "definition": "We respond more strongly to one identifiable person in need than to large, statistical groups.",
+    "definition": "The tendency to feel and give more help in response to one identifiable person in need than to large groups described only with statistics.",
     "category": "Emotion",
     "tier": 3,
     "description": "A single story with a face and name can move us more than numbers describing many people.",
@@ -755,7 +755,7 @@
   {
     "biasId": "B051",
     "name": "Restraint Bias",
-    "definition": "We overestimate our ability to resist temptation in the moment.",
+    "definition": "The tendency to overestimate how well we will resist temptation when the moment actually arrives.",
     "category": "Self-awareness",
     "tier": 3,
     "description": "We predict strong self-control in advance, then struggle when the temptation is actually in front of us.",
@@ -770,7 +770,7 @@
   {
     "biasId": "B052",
     "name": "Reactance",
-    "definition": "When we feel our freedom is threatened, we push back — sometimes by doing the opposite.",
+    "definition": "The tendency to push back when we feel our freedom is being restricted — sometimes by doing the opposite of what we are urged to do.",
     "category": "Emotion",
     "tier": 3,
     "description": "Being told what to do can spark resistance, even when the advice is reasonable.",
@@ -785,7 +785,7 @@
   {
     "biasId": "B053",
     "name": "Ostrich Effect",
-    "definition": "We avoid information that might force us to face an uncomfortable problem.",
+    "definition": "The tendency to avoid looking at information that might confirm a problem we would rather not face.",
     "category": "Finance",
     "tier": 3,
     "description": "Not looking can feel like relief, even though the issue remains and may grow worse unseen.",
@@ -800,7 +800,7 @@
   {
     "biasId": "B054",
     "name": "Zero-Sum Bias",
-    "definition": "We treat situations as if one person's gain must mean another person's loss, even when both could benefit.",
+    "definition": "The tendency to treat a situation as if one person’s gain must mean another person’s loss, even when both could benefit.",
     "category": "Social Judgement",
     "tier": 3,
     "description": "Success, praise, or opportunity can feel like a fixed pie, making cooperation harder to see.",
@@ -815,7 +815,7 @@
   {
     "biasId": "B055",
     "name": "Moral Luck",
-    "definition": "We judge the morality of an action partly by how lucky or unlucky the outcome was.",
+    "definition": "The tendency to judge how good or bad a decision was partly by how lucky or unlucky the outcome turned out to be.",
     "category": "Social Judgement",
     "tier": 3,
     "description": "The same choice can look wise or reckless depending on results that were not fully in the person's control.",
@@ -830,7 +830,7 @@
   {
     "biasId": "B056",
     "name": "Texas Sharpshooter Fallacy",
-    "definition": "We notice a cluster first, then draw a target around it as if we predicted it.",
+    "definition": "The tendency to notice a cluster in data first, then treat that cluster as if it had been predicted — drawing the target after the shots.",
     "category": "Decision Making",
     "tier": 3,
     "description": "Patterns can be invented after the fact, making random data look meaningful.",
@@ -845,7 +845,7 @@
   {
     "biasId": "B057",
     "name": "Overconfidence Effect",
-    "definition": "We are more certain of our judgments than our accuracy usually supports.",
+    "definition": "The tendency to be more confident in our judgments than our actual accuracy usually supports.",
     "category": "Self-awareness",
     "tier": 3,
     "description": "Confidence can feel like proof, even when we are wrong surprisingly often.",
@@ -860,7 +860,7 @@
   {
     "biasId": "B058",
     "name": "Pro-Innovation Bias",
-    "definition": "We assume a new tool or change will help more than it does, and overlook its limits.",
+    "definition": "The tendency to assume a new idea, tool, or innovation will help more than it will, while underestimating its limits and side effects.",
     "category": "Work",
     "tier": 3,
     "description": "Novelty can feel like progress by itself, even before evidence shows it works better.",
@@ -875,7 +875,7 @@
   {
     "biasId": "B059",
     "name": "Semmelweis Reflex",
-    "definition": "We reject new evidence or ideas because they challenge established norms or beliefs.",
+    "definition": "The tendency to reject new evidence or ideas mainly because they challenge established beliefs, habits, or authority.",
     "category": "Learning",
     "tier": 3,
     "description": "Familiar ways of doing things can feel safer than unfamiliar evidence, even when the evidence is strong.",
@@ -890,7 +890,7 @@
   {
     "biasId": "B060",
     "name": "Risk Compensation",
-    "definition": "We take more risks when we feel safer, partly offsetting the protection we gained.",
+    "definition": "The tendency to take greater risks when we feel protected, which can partly cancel out the safety we gained.",
     "category": "Health",
     "tier": 3,
     "description": "Extra safety can lead to looser behaviour, so the overall risk may not fall as much as expected.",

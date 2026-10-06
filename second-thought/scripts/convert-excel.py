@@ -49,6 +49,13 @@ def main() -> None:
                 "commonContexts": [
                     c.strip() for c in str(src["Common Contexts"]).split(",")
                 ],
+                "usuallyConfusedWith": [
+                    c.strip()
+                    for c in str(src.get("Usually Confused With") or "").split(",")
+                    if c.strip()
+                ],
+                "furtherReadingUrl": (src.get("Further Reading URL") or "").strip()
+                or None,
             }
         )
 
