@@ -1,6 +1,9 @@
 /**
  * quiz-engine.js
- * Session logic per play mode, with seen-question + bias mastery progress.
+ * Session logic per play mode, with shared seen-question + bias mastery progress.
+ *
+ * Questions seen and mastery are shared across Beginner / Intermediate /
+ * Advanced / Mix, since they draw from the same challenge and bias bank.
  */
 
 const SESSION_SIZE = 5;
@@ -19,51 +22,58 @@ function shuffleArray(items) {
   return copy;
 }
 
-function emptyModeMap(makeValue) {
-  return Object.fromEntries(PLAY_MODES.map((mode) => [mode, makeValue()]));
-}
+function loadSeenIds() {
+  const seen = new Set();
 
-function loadAllProgress() {
   try {
     const raw = localStorage.getItem(PROGRESS_KEY);
     if (raw) {
       const parsed = JSON.parse(raw);
-      if (parsed && typeof parsed === "object") return parsed;
+      if (parsed && typeof parsed === "object") {
+        if (Array.isArray(parsed.seen)) {
+          parsed.seen.forEach((id) => seen.add(id));
+          return seen;
+        }
+
+        // Legacy per-mode arrays → one shared set
+        PLAY_MODES.forEach((mode) => {
+          const ids = parsed[mode];
+          if (Array.isArray(ids)) ids.forEach((id) => seen.add(id));
+        });
+      }
     }
   } catch {
-    // fall through to migration / empty
+    // fall through
   }
 
-  const empty = emptyModeMap(() => []);
   try {
     const legacy = localStorage.getItem(LEGACY_PROGRESS_KEY);
     if (legacy) {
       const ids = JSON.parse(legacy);
       if (Array.isArray(ids)) {
-        empty.mix = ids;
-        saveAllProgress(empty);
+        ids.forEach((id) => seen.add(id));
         localStorage.removeItem(LEGACY_PROGRESS_KEY);
       }
     }
   } catch {
-    // ignore legacy migration errors
+    // ignore
   }
 
-  return empty;
+  saveSeenIds(seen);
+  return seen;
 }
 
-function saveAllProgress(progress) {
-  localStorage.setItem(PROGRESS_KEY, JSON.stringify(progress));
+function saveSeenIds(seenIds) {
+  localStorage.setItem(
+    PROGRESS_KEY,
+    JSON.stringify({ version: 2, seen: [...seenIds] })
+  );
 }
 
-function getSeenSet(progress, mode) {
-  const ids = progress[mode];
-  return new Set(Array.isArray(ids) ? ids : []);
-}
-
-function saveSeenSet(progress, mode, seenIds) {
-  progress[mode] = [...seenIds];
-  saveAllProgress(progress);
+function isLegacyMasteryShape(parsed) {
+  return PLAY_MODES.some((mode) =>
+    Object.prototype.hasOwnProperty.call(parsed, mode)
+  );
 }
 
 function loadMastery() {
@@ -71,12 +81,38 @@ function loadMastery() {
     const raw = localStorage.getItem(MASTERY_KEY);
     if (raw) {
       const parsed = JSON.parse(raw);
-      if (parsed && typeof parsed === "object") return parsed;
+      if (parsed && typeof parsed === "object") {
+        if (isLegacyMasteryShape(parsed)) {
+          const merged = {};
+          PLAY_MODES.forEach((mode) => {
+            const modeData = parsed[mode];
+            if (!modeData || typeof modeData !== "object") return;
+
+            Object.entries(modeData).forEach(([biasId, record]) => {
+              const existing = merged[biasId] || {
+                correctIds: [],
+                missed: false,
+              };
+              const correctIds = new Set([
+                ...(Array.isArray(existing.correctIds) ? existing.correctIds : []),
+                ...(Array.isArray(record?.correctIds) ? record.correctIds : []),
+              ]);
+              merged[biasId] = {
+                correctIds: [...correctIds],
+                missed: Boolean(existing.missed || record?.missed),
+              };
+            });
+          });
+          saveMastery(merged);
+          return merged;
+        }
+        return parsed;
+      }
     }
   } catch {
     // ignore
   }
-  return emptyModeMap(() => ({}));
+  return {};
 }
 
 function saveMastery(mastery) {
@@ -120,7 +156,7 @@ export class QuizEngine {
     this.sessionMeta = null;
     this.correctCount = 0;
     this.sessionResults = [];
-    this.progress = loadAllProgress();
+    this.seenIds = loadSeenIds();
     this.mastery = loadMastery();
   }
 
@@ -131,8 +167,8 @@ export class QuizEngine {
     );
   }
 
-  getChallengeIdsForBias(biasId, mode = this.mode) {
-    return this.getPoolForMode(mode || "mix")
+  getChallengeIdsForBias(biasId) {
+    return this.allChallenges
       .filter((challenge) => challenge.biasId === biasId)
       .map((challenge) => challenge.challengeId);
   }
@@ -140,14 +176,19 @@ export class QuizEngine {
   getMasteryCounts(mode) {
     const pool = this.getPoolForMode(mode);
     const biasIds = [...new Set(pool.map((c) => c.biasId))];
-    const modeMastery = this.mastery[mode] || {};
 
-    const counts = { learned: 0, familiar: 0, practicing: 0, new: 0, total: biasIds.length };
+    const counts = {
+      learned: 0,
+      familiar: 0,
+      practicing: 0,
+      new: 0,
+      total: biasIds.length,
+    };
 
     biasIds.forEach((biasId) => {
       const status = getBiasStatus(
-        modeMastery[biasId],
-        this.getChallengeIdsForBias(biasId, mode)
+        this.mastery[biasId],
+        this.getChallengeIdsForBias(biasId)
       );
       counts[status] += 1;
     });
@@ -157,8 +198,7 @@ export class QuizEngine {
 
   getProgressSummary(mode) {
     const pool = this.getPoolForMode(mode);
-    const seen = getSeenSet(this.progress, mode);
-    const seenInPool = pool.filter((c) => seen.has(c.challengeId)).length;
+    const seenInPool = pool.filter((c) => this.seenIds.has(c.challengeId)).length;
     const biasCount = new Set(pool.map((c) => c.biasId)).size;
     const mastery = this.getMasteryCounts(mode);
 
@@ -188,12 +228,15 @@ export class QuizEngine {
     if (!this.mode) throw new Error("Play mode not selected");
 
     const pool = this.getPoolForMode(this.mode);
-    let seenIds = getSeenSet(this.progress, this.mode);
-    let available = pool.filter((c) => !seenIds.has(c.challengeId));
+    const poolIdSet = new Set(pool.map((c) => c.challengeId));
+    let available = pool.filter((c) => !this.seenIds.has(c.challengeId));
     let poolReset = false;
 
     if (available.length === 0 && pool.length > 0) {
-      seenIds = new Set();
+      // Start this level's cycle again; clear only this pool from shared seen.
+      this.seenIds = new Set(
+        [...this.seenIds].filter((id) => !poolIdSet.has(id))
+      );
       available = [...pool];
       poolReset = true;
     }
@@ -203,11 +246,11 @@ export class QuizEngine {
     this.sessionChallenges = shuffled.slice(0, sessionCount);
 
     this.sessionChallenges.forEach((challenge) => {
-      seenIds.add(challenge.challengeId);
+      this.seenIds.add(challenge.challengeId);
     });
-    saveSeenSet(this.progress, this.mode, seenIds);
+    saveSeenIds(this.seenIds);
 
-    const seenInPool = pool.filter((c) => seenIds.has(c.challengeId)).length;
+    const seenInPool = pool.filter((c) => this.seenIds.has(c.challengeId)).length;
 
     this.sessionMeta = {
       mode: this.mode,
@@ -226,13 +269,9 @@ export class QuizEngine {
   }
 
   recordBiasResult(challenge, isCorrect) {
-    if (!this.mode || !challenge?.biasId) return;
+    if (!challenge?.biasId) return;
 
-    if (!this.mastery[this.mode] || typeof this.mastery[this.mode] !== "object") {
-      this.mastery[this.mode] = {};
-    }
-
-    const current = this.mastery[this.mode][challenge.biasId] || {
+    const current = this.mastery[challenge.biasId] || {
       correctIds: [],
       missed: false,
     };
@@ -242,12 +281,12 @@ export class QuizEngine {
 
     if (isCorrect) {
       correctIds.add(challenge.challengeId);
-      this.mastery[this.mode][challenge.biasId] = {
+      this.mastery[challenge.biasId] = {
         correctIds: [...correctIds],
         missed: false,
       };
     } else {
-      this.mastery[this.mode][challenge.biasId] = {
+      this.mastery[challenge.biasId] = {
         correctIds: [...correctIds],
         missed: true,
       };
