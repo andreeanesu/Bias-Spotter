@@ -30,6 +30,7 @@ export class QuizUI {
     this.el.quizScreen?.classList.add("hidden");
     this.el.finishScreen?.classList.add("hidden");
     this.el.footerNav?.classList.add("hidden");
+    this.el.headerTagline?.classList.remove("hidden");
     this.el.btnNext.hidden = true;
     this.el.footerCategory.textContent = "";
 
@@ -54,6 +55,7 @@ export class QuizUI {
     this.el.quizScreen?.classList.add("hidden");
     this.el.finishScreen?.classList.add("hidden");
     this.el.footerNav?.classList.add("hidden");
+    this.el.headerTagline?.classList.add("hidden");
     this.el.btnNext.hidden = true;
     this.el.footerCategory.textContent = "";
 
@@ -96,6 +98,7 @@ export class QuizUI {
     this.el.quizScreen.classList.remove("hidden");
     this.el.finishScreen.classList.add("hidden");
     this.el.footerNav?.classList.remove("hidden");
+    this.el.headerTagline?.classList.add("hidden");
     this.el.btnNext.hidden = false;
   }
 
@@ -220,6 +223,7 @@ export class QuizUI {
     this.el.quizScreen.classList.add("hidden");
     this.el.finishScreen.classList.remove("hidden");
     this.el.footerNav?.classList.add("hidden");
+    this.el.headerTagline?.classList.add("hidden");
     this.el.footerCategory.textContent = "";
     this.el.btnNext.hidden = true;
 

@@ -30,6 +30,7 @@ const elements = {
   feedbackReflection: document.getElementById("feedback-reflection"),
   questionProgress: document.getElementById("question-progress"),
   footerCategory: document.getElementById("footer-category"),
+  headerTagline: document.getElementById("header-tagline"),
   btnNext: document.getElementById("btn-next"),
   footerNav: document.getElementById("footer-nav"),
   btnRestart: document.getElementById("btn-restart"),
