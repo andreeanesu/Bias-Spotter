@@ -23,7 +23,54 @@
       </header>
 
       <main class="main" id="main">
-        <section class="start-screen" id="start-screen">
+        <section class="onboarding-screen hidden" id="onboarding-screen" aria-label="Welcome">
+          <div class="onboarding-step" id="onboarding-step-1">
+            <img
+              class="character onboarding-character"
+              src="assets/character.svg"
+              alt=""
+              width="88"
+              height="102"
+            />
+            <p class="onboarding-step-label">1 / 2</p>
+            <h2 class="onboarding-heading">Welcome</h2>
+            <p class="onboarding-body">
+              Everyday situations hide thinking patterns. This short quiz helps you notice them.
+            </p>
+            <button type="button" class="btn-onboarding-primary" id="onboarding-next">
+              Continue →
+            </button>
+            <button type="button" class="btn-onboarding-skip" id="onboarding-skip-1">
+              Skip
+            </button>
+          </div>
+
+          <div class="onboarding-step hidden" id="onboarding-step-2">
+            <img
+              class="character onboarding-character"
+              src="assets/character.svg"
+              alt=""
+              width="88"
+              height="102"
+            />
+            <p class="onboarding-step-label">2 / 2</p>
+            <h2 class="onboarding-heading">How it works</h2>
+            <ul class="onboarding-list">
+              <li>Read a short statement</li>
+              <li>Pick the bias that fits</li>
+              <li>Get a calm explanation and a moment to reflect</li>
+            </ul>
+            <p class="onboarding-note">Five questions per round. Your progress is saved.</p>
+            <button type="button" class="btn-onboarding-primary" id="onboarding-done">
+              Choose your level →
+            </button>
+            <button type="button" class="btn-onboarding-skip" id="onboarding-skip-2">
+              Skip
+            </button>
+          </div>
+        </section>
+
+        <section class="start-screen hidden" id="start-screen">
           <h2 class="start-heading">Choose your level</h2>
           <p class="start-intro">
             Each tier has its own questions. Your progress is saved separately for each one.
@@ -98,7 +145,7 @@
         <span class="footer-category" id="footer-category"></span>
       </footer>
 
-      <nav class="footer-nav" aria-label="Quiz navigation">
+      <nav class="footer-nav hidden" id="footer-nav" aria-label="Quiz navigation">
         <button
           type="button"
           class="btn-next"

@@ -1,14 +1,23 @@
 /**
  * app.js
- * Boots the app: load data → start screen → quiz → finish.
+ * Boots the app: load data → onboarding (first visit) → start screen → quiz → finish.
  */
 
 import { loadQuizData, getPlayModes } from "./data-loader.js";
 import { QuizEngine } from "./quiz-engine.js";
 import { QuizUI } from "./ui.js";
 
+const ONBOARDING_KEY = "second-thought-onboarding-done";
+
 const elements = {
   main: document.getElementById("main"),
+  onboardingScreen: document.getElementById("onboarding-screen"),
+  onboardingStep1: document.getElementById("onboarding-step-1"),
+  onboardingStep2: document.getElementById("onboarding-step-2"),
+  onboardingNext: document.getElementById("onboarding-next"),
+  onboardingDone: document.getElementById("onboarding-done"),
+  onboardingSkip1: document.getElementById("onboarding-skip-1"),
+  onboardingSkip2: document.getElementById("onboarding-skip-2"),
   startScreen: document.getElementById("start-screen"),
   tierOptions: document.getElementById("tier-options"),
   quizScreen: document.getElementById("quiz-screen"),
@@ -22,6 +31,7 @@ const elements = {
   questionProgress: document.getElementById("question-progress"),
   footerCategory: document.getElementById("footer-category"),
   btnNext: document.getElementById("btn-next"),
+  footerNav: document.getElementById("footer-nav"),
   btnRestart: document.getElementById("btn-restart"),
   btnChangeTier: document.getElementById("btn-change-tier"),
   finishTitle: document.getElementById("finish-title"),
@@ -34,6 +44,27 @@ const elements = {
 const ui = new QuizUI(elements);
 const playModes = getPlayModes();
 let engine;
+
+function hasCompletedOnboarding() {
+  try {
+    return localStorage.getItem(ONBOARDING_KEY) === "1";
+  } catch {
+    return false;
+  }
+}
+
+function markOnboardingDone() {
+  try {
+    localStorage.setItem(ONBOARDING_KEY, "1");
+  } catch {
+    // Ignore storage failures; user can still continue.
+  }
+}
+
+function finishOnboarding() {
+  markOnboardingDone();
+  showLevelPicker();
+}
 
 function renderCurrentQuestion() {
   const challenge = engine.getCurrentChallenge();
@@ -74,6 +105,15 @@ function showLevelPicker() {
   ui.showStartScreen(engine.getAllProgressSummaries(), playModes, startRound);
 }
 
+function bindOnboarding() {
+  elements.onboardingNext?.addEventListener("click", () => {
+    ui.showOnboarding(2);
+  });
+  elements.onboardingDone?.addEventListener("click", finishOnboarding);
+  elements.onboardingSkip1?.addEventListener("click", finishOnboarding);
+  elements.onboardingSkip2?.addEventListener("click", finishOnboarding);
+}
+
 async function init() {
   try {
     const data = await loadQuizData();
@@ -83,10 +123,16 @@ async function init() {
     elements.btnNext.addEventListener("click", handleNext);
     elements.btnRestart.addEventListener("click", startNewRound);
     elements.btnChangeTier.addEventListener("click", showLevelPicker);
+    bindOnboarding();
 
-    showLevelPicker();
+    if (hasCompletedOnboarding()) {
+      showLevelPicker();
+    } else {
+      ui.showOnboarding(1);
+    }
   } catch (error) {
     console.error(error);
+    elements.onboardingScreen?.classList.add("hidden");
     elements.startScreen?.classList.add("hidden");
     elements.quizScreen?.classList.add("hidden");
     elements.finishScreen?.classList.remove("hidden");

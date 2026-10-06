@@ -24,10 +24,36 @@ export class QuizUI {
     this.el = elements;
   }
 
+  showOnboarding(step = 1) {
+    this.el.onboardingScreen?.classList.remove("hidden");
+    this.el.startScreen?.classList.add("hidden");
+    this.el.quizScreen?.classList.add("hidden");
+    this.el.finishScreen?.classList.add("hidden");
+    this.el.footerNav?.classList.add("hidden");
+    this.el.btnNext.hidden = true;
+    this.el.footerCategory.textContent = "";
+
+    this.el.onboardingStep1?.classList.toggle("hidden", step !== 1);
+    this.el.onboardingStep2?.classList.toggle("hidden", step !== 2);
+
+    // Re-trigger enter animation when swapping steps
+    const active =
+      step === 1 ? this.el.onboardingStep1 : this.el.onboardingStep2;
+    if (active) {
+      active.style.animation = "none";
+      void active.offsetWidth;
+      active.style.animation = "";
+    }
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
   showStartScreen(summaries, playModes, onSelect) {
+    this.el.onboardingScreen?.classList.add("hidden");
     this.el.startScreen?.classList.remove("hidden");
     this.el.quizScreen?.classList.add("hidden");
     this.el.finishScreen?.classList.add("hidden");
+    this.el.footerNav?.classList.add("hidden");
     this.el.btnNext.hidden = true;
     this.el.footerCategory.textContent = "";
 
@@ -65,9 +91,11 @@ export class QuizUI {
   }
 
   showQuizScreen() {
+    this.el.onboardingScreen?.classList.add("hidden");
     this.el.startScreen?.classList.add("hidden");
     this.el.quizScreen.classList.remove("hidden");
     this.el.finishScreen.classList.add("hidden");
+    this.el.footerNav?.classList.remove("hidden");
     this.el.btnNext.hidden = false;
   }
 
@@ -187,9 +215,11 @@ export class QuizUI {
   }
 
   showFinishScreen(sessionMeta, roundScore, playModes = []) {
+    this.el.onboardingScreen?.classList.add("hidden");
     this.el.startScreen?.classList.add("hidden");
     this.el.quizScreen.classList.add("hidden");
     this.el.finishScreen.classList.remove("hidden");
+    this.el.footerNav?.classList.add("hidden");
     this.el.footerCategory.textContent = "";
     this.el.btnNext.hidden = true;
 
