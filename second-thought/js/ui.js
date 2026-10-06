@@ -110,6 +110,7 @@ export class QuizUI {
     this.el.feedback.classList.add("hidden");
     this.el.feedback.classList.remove("is-visible");
     this.el.feedbackVerdict.textContent = "";
+    if (this.el.feedbackCategory) this.el.feedbackCategory.textContent = "";
     this.el.feedbackWhyHumans.textContent = "";
     this.el.feedbackReflection.textContent = "";
 
@@ -171,6 +172,9 @@ export class QuizUI {
     this.el.feedbackVerdict.className = `feedback-verdict ${
       isCorrect ? "is-correct" : "is-incorrect"
     }`;
+    if (this.el.feedbackCategory) {
+      this.el.feedbackCategory.textContent = challenge.biasCategory || "";
+    }
     this.el.feedbackWhyHumans.textContent = challenge.whyHumansDoThis;
     this.el.feedbackReflection.textContent = challenge.reflectionQuestion;
     this.el.feedback.classList.remove("hidden");

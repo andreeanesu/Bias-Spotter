@@ -576,6 +576,15 @@ body {
   font-weight: 700;
 }
 
+.feedback-category {
+  margin: -0.5rem 0 1.25rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
 .feedback-body {
   border-top: 1px solid #d0d0d0;
   padding-top: 1.5rem;
