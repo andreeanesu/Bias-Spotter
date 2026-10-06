@@ -76,7 +76,7 @@ export class QuizUI {
           <span class="tier-option-progress">${summary.seenCount} / ${summary.totalCount}</span>
         </span>
         <span class="tier-option-subtitle">${modeInfo?.subtitle ?? ""}</span>
-        <span class="tier-option-meta">${summary.biasCount} biases · questions seen in this tier</span>
+        <span class="tier-option-meta">${summary.biasCount} biases · questions seen in this level</span>
       `;
 
       if (complete) {
@@ -250,13 +250,13 @@ export class QuizUI {
 
       if (remainingInPool === 0) {
         this.el.finishMessage.textContent =
-          `${modeLabel}: you've seen all ${totalCount} questions here. Next round in this tier starts fresh.`;
+          `${modeLabel}: you've seen all ${totalCount} questions here. Next round in this level starts fresh.`;
       } else if (remainingInPool < 5) {
         this.el.finishMessage.textContent =
-          `${modeLabel} progress: ${seenCount} of ${totalCount} seen. ${remainingInPool} new question${remainingInPool === 1 ? "" : "s"} left in this tier.`;
+          `${modeLabel} progress: ${seenCount} of ${totalCount} seen. ${remainingInPool} new question${remainingInPool === 1 ? "" : "s"} left in this level.`;
       } else {
         this.el.finishMessage.textContent =
-          `${modeLabel} progress: ${seenCount} of ${totalCount} seen in this tier.`;
+          `${modeLabel} progress: ${seenCount} of ${totalCount} seen in this level.`;
       }
 
       if (sessionSize < 5) {

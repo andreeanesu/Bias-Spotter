@@ -56,10 +56,10 @@ export async function loadQuizData() {
 
 export function getPlayModes() {
   return [
-    { id: "1", label: "Tier 1", subtitle: "Familiar patterns" },
-    { id: "2", label: "Tier 2", subtitle: "A little trickier" },
-    { id: "3", label: "Tier 3", subtitle: "Subtle & nuanced" },
-    { id: "mix", label: "Mix", subtitle: "All tiers together" },
+    { id: "1", label: "Beginner", subtitle: "Familiar patterns" },
+    { id: "2", label: "Intermediate", subtitle: "A little trickier" },
+    { id: "3", label: "Advanced", subtitle: "Subtle & nuanced" },
+    { id: "mix", label: "Mix", subtitle: "All levels together" },
   ];
 }
 
