@@ -18,7 +18,9 @@
   --btn-disabled: #b8b8b8;
   --btn-enabled: #6f6f6f;
   --max-width: 640px;
-  --footer-nav-height: 72px;
+  --footer-nav-height: 88px;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  --font-display: "Satoshi", "IBM Plex Sans", system-ui, sans-serif;
 }
 
 html {
@@ -28,10 +30,20 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-family: var(--font-body);
   background: var(--bg);
   color: var(--text);
-  line-height: 1.5;
+  line-height: 1.55;
+}
+
+.font-display,
+.header-title,
+.onboarding-heading,
+.start-heading,
+.finish-screen h2,
+.finish-score,
+.tier-option-label {
+  font-family: var(--font-display);
 }
 
 .app {
@@ -50,9 +62,9 @@ body {
 
 .header-title {
   margin: 0 0 0.5rem;
-  font-size: 1.35rem;
+  font-size: 1.4rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
@@ -159,7 +171,7 @@ body {
 }
 
 .onboarding-list {
-  margin: 0 auto 1rem;
+  margin: 0 auto 1.75rem;
   padding: 0;
   max-width: 34ch;
   list-style: none;
@@ -306,11 +318,109 @@ body {
   color: var(--text);
 }
 
+.tier-option-bias-progress {
+  width: 100%;
+  text-align: left;
+}
+
+.tier-option-bias-progress .bias-progress-label {
+  margin: 0 0 0.4rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--text);
+}
+
+.tier-option-bias-progress .bias-progress-bar {
+  height: 6px;
+}
+
 .tier-option-meta {
   font-size: 0.72rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--text-muted);
+}
+
+/* Bias mastery: learned / practicing / new */
+.bias-progress {
+  width: 100%;
+  max-width: 28rem;
+}
+
+.bias-progress-label {
+  margin: 0 0 0.55rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.bias-progress-bar {
+  display: flex;
+  width: 100%;
+  height: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border-soft);
+  border-radius: 2px;
+  background: #e8e8e8;
+}
+
+.bias-progress-seg {
+  min-width: 0;
+  flex-shrink: 1;
+}
+
+.bias-progress-seg.is-learned {
+  background: var(--accent-correct);
+}
+
+.bias-progress-seg.is-practicing {
+  background: #c48a3a;
+}
+
+.bias-progress-seg.is-new {
+  background: #d4d4d4;
+}
+
+.bias-progress-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem 1rem;
+  margin: 0.55rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.bias-progress-legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.bias-progress-swatch {
+  display: inline-block;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 1px;
+}
+
+.bias-progress-swatch.is-learned {
+  background: var(--accent-correct);
+}
+
+.bias-progress-swatch.is-practicing {
+  background: #c48a3a;
+}
+
+.bias-progress-swatch.is-new {
+  background: #d4d4d4;
+  border: 1px solid var(--border-soft);
 }
 
 .btn-change-tier {
@@ -433,8 +543,8 @@ body {
   padding: 0;
   border: none;
   font-size: clamp(1.05rem, 2.8vw, 1.35rem);
-  font-weight: 600;
-  line-height: 1.5;
+  font-weight: 500;
+  line-height: 1.55;
   text-align: center;
   align-self: center;
 }
@@ -850,28 +960,87 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: 40;
   display: flex;
   justify-content: center;
-  padding: 0.85rem 1.25rem 1.1rem;
-  background: linear-gradient(to top, var(--bg) 70%, transparent);
+  padding: 0.75rem 1.25rem calc(0.85rem + env(safe-area-inset-bottom, 0px));
+  background: linear-gradient(
+    to top,
+    var(--bg) 0%,
+    var(--bg) 62%,
+    rgba(242, 242, 242, 0)
+  );
   pointer-events: none;
 }
 
+.footer-nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: stretch;
+  gap: 0.65rem;
+  width: 100%;
+  max-width: var(--max-width);
+  pointer-events: none;
+}
+
+.btn-back,
 .btn-next {
   pointer-events: auto;
-  min-width: 180px;
-  padding: 0.85rem 2rem;
-  border: none;
+  padding: 0.85rem 1.5rem;
   border-radius: 2px;
-  background: var(--btn-disabled);
-  color: #fff;
   font: inherit;
   font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.btn-back {
+  flex: 0 0 auto;
+  min-width: 7rem;
+  border: 1.5px solid var(--border-soft);
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--text-muted);
   cursor: not-allowed;
-  transition: background 0.2s ease, transform 0.15s ease;
+  opacity: 0.45;
+}
+
+.btn-back:not(:disabled) {
+  border-color: var(--border);
+  color: var(--text);
+  cursor: pointer;
+  opacity: 1;
+}
+
+.btn-back:not(:disabled):hover {
+  background: #fff;
+}
+
+.btn-back:not(:disabled):active {
+  transform: scale(0.98);
+}
+
+.btn-next {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 220px;
+  border: none;
+  background: var(--btn-disabled);
+  color: #fff;
+  cursor: not-allowed;
+}
+
+@media (max-width: 420px) {
+  .btn-back,
+  .btn-next {
+    padding: 0.85rem 1.1rem;
+  }
+
+  .btn-back {
+    min-width: 5.75rem;
+  }
 }
 
 .btn-next:not(:disabled) {
@@ -929,8 +1098,7 @@ body {
   line-height: 1.65;
 }
 
-.finish-round-mastery,
-.finish-level-mastery {
+.finish-round-mastery {
   margin: 0 auto 0.45rem;
   max-width: 38ch;
   font-size: 0.95rem;
@@ -939,8 +1107,32 @@ body {
   color: var(--text);
 }
 
-.finish-practice-note {
+.finish-level-mastery {
   margin: 0.35rem auto 0.85rem;
+  max-width: 28rem;
+  text-align: center;
+}
+
+.finish-level-mastery .bias-progress-label {
+  margin: 0 auto 0.55rem;
+  max-width: 38ch;
+}
+
+.finish-retry-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0.35rem auto 1rem;
+  max-width: 38ch;
+}
+
+.finish-retry-group[hidden] {
+  display: none;
+}
+
+.finish-practice-note {
+  margin: 0;
   max-width: 38ch;
   font-size: 0.9rem;
   line-height: 1.5;
@@ -974,6 +1166,25 @@ body {
 
 .btn-restart:hover {
   background: var(--surface);
+}
+
+.btn-retry-missed {
+  margin: 0;
+  padding: 0.2rem 0.5rem;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.btn-retry-missed:hover {
+  color: var(--text);
 }
 
 .error-message code {

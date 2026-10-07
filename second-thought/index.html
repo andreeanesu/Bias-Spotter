@@ -2,16 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
     <title>Second Thought</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32" />
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
     <meta name="theme-color" content="#f2f2f2" />
+    <link rel="preconnect" href="https://api.fontshare.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@500,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -62,9 +70,8 @@
             <ul class="onboarding-list">
               <li>Read a short statement</li>
               <li>Pick the bias that fits</li>
-              <li>Get a calm explanation and a moment to reflect</li>
+              <li>Five questions per round</li>
             </ul>
-            <p class="onboarding-note">Five questions per round. Your progress is saved.</p>
             <button type="button" class="btn-onboarding-primary" id="onboarding-done">
               Choose your level →
             </button>
@@ -198,8 +205,13 @@
           <p class="finish-score-label">patterns spotted</p>
           <h2 id="finish-title">You've finished this round</h2>
           <p class="finish-round-mastery" id="finish-round-mastery"></p>
-          <p class="finish-level-mastery" id="finish-level-mastery"></p>
-          <p class="finish-practice-note" id="finish-practice-note"></p>
+          <div class="bias-progress finish-level-mastery" id="finish-level-mastery" hidden></div>
+          <div class="finish-retry-group" id="finish-retry-group" hidden>
+            <p class="finish-practice-note" id="finish-practice-note"></p>
+            <button type="button" class="btn-retry-missed" id="btn-retry-missed">
+              Retry these
+            </button>
+          </div>
           <p id="finish-message">
             Five questions, a little more clarity. When you're ready,
             start another round for fresh ones you haven't seen yet.
@@ -214,14 +226,24 @@
       </main>
 
       <nav class="footer-nav hidden" id="footer-nav" aria-label="Quiz navigation">
-        <button
-          type="button"
-          class="btn-next"
-          id="btn-next"
-          disabled
-        >
-          Next →
-        </button>
+        <div class="footer-nav-inner">
+          <button
+            type="button"
+            class="btn-back"
+            id="btn-back"
+            disabled
+          >
+            ← Back
+          </button>
+          <button
+            type="button"
+            class="btn-next"
+            id="btn-next"
+            disabled
+          >
+            Next →
+          </button>
+        </div>
       </nav>
     </div>
 

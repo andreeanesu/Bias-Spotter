@@ -183,7 +183,7 @@
   {
     "biasId": "B010",
     "name": "Survivorship Bias",
-    "definition": "The tendency to draw conclusions from the people or cases that “made it,” while overlooking those that failed, dropped out, or were never visible — which can distort what we think works.",
+    "definition": "The tendency to draw conclusions from the people or cases that “made it,” while overlooking those that failed, dropped out, or were never visible, which can distort what we think works.",
     "category": "Decision Making",
     "tier": 1,
     "description": "Because failures are often invisible or unreported, we draw conclusions from an incomplete, success-only sample.",
@@ -241,7 +241,7 @@
   {
     "biasId": "B013",
     "name": "In-group Bias",
-    "definition": "The tendency to favour people who belong to our own group — giving them more trust, warmth, or benefit of the doubt than we give outsiders.",
+    "definition": "The tendency to favour people who belong to our own group, giving them more trust, warmth, or benefit of the doubt than we give outsiders.",
     "category": "Social Judgement",
     "tier": 1,
     "description": "This bias leads to more trust, generosity, and positive judgment toward people we see as 'us' compared to 'them.'",
@@ -281,7 +281,7 @@
   {
     "biasId": "B015",
     "name": "Framing Effect",
-    "definition": "The tendency for the same facts to lead to different choices depending on how they are worded or presented — for example as gains versus losses.",
+    "definition": "The tendency for the same facts to lead to different choices depending on how they are worded or presented, for example as gains versus losses.",
     "category": "Decision Making",
     "tier": 1,
     "description": "The same statistic or choice can lead to different decisions depending on whether it's framed in terms of gains or losses.",
@@ -407,7 +407,7 @@
     "category": "Decision Making",
     "tier": 2,
     "description": "Even with past experience of delays, we often believe this time will be different and plan too optimistically.",
-    "everydayTip": "When estimating time, look at how long similar tasks actually took — not how long you hoped they would take.",
+    "everydayTip": "When estimating time, look at how long similar tasks actually took, not how long you hoped they would take.",
     "commonContexts": [
       "Work",
       "Everyday life",
@@ -427,7 +427,7 @@
     "category": "Decision Making",
     "tier": 2,
     "description": "The latest example feels freshest and can overshadow a longer track record of evidence.",
-    "everydayTip": "Before deciding, ask what the full history shows — not just the last week.",
+    "everydayTip": "Before deciding, ask what the full history shows, not just the last week.",
     "commonContexts": [
       "Work",
       "Finance",
@@ -466,7 +466,7 @@
     "category": "Social Judgement",
     "tier": 2,
     "description": "Familiarity can create warmth and preference, even without new reasons to prefer something.",
-    "everydayTip": "Notice when you like something mainly because it feels familiar — not because you have compared it fairly.",
+    "everydayTip": "Notice when you like something mainly because it feels familiar, not because you have compared it fairly.",
     "commonContexts": [
       "Relationships",
       "Media",
@@ -507,7 +507,7 @@
     "category": "Decision Making",
     "tier": 2,
     "description": "Independent random events do not 'make up' for earlier results, but it can feel like they should.",
-    "everydayTip": "Ask whether each new event is truly independent — or whether you are expecting a pattern that randomness does not owe you.",
+    "everydayTip": "Ask whether each new event is truly independent, or whether you are expecting a pattern that randomness does not owe you.",
     "commonContexts": [
       "Everyday life",
       "Finance",
@@ -567,7 +567,7 @@
     "category": "Decision Making",
     "tier": 2,
     "description": "A striking example can overpower the broader statistic about how common something really is.",
-    "everydayTip": "Start with how often something happens in general, then adjust — not the other way around.",
+    "everydayTip": "Start with how often something happens in general, then adjust, not the other way around.",
     "commonContexts": [
       "Health",
       "Media",
@@ -587,7 +587,7 @@
     "category": "Emotion",
     "tier": 2,
     "description": "A strong ending or peak moment can reshape memory more than hours of ordinary experience.",
-    "everydayTip": "When recalling an event, ask what happened in the middle — not only the highlight or the finish.",
+    "everydayTip": "When recalling an event, ask what happened in the middle, not only the highlight or the finish.",
     "commonContexts": [
       "Relationships",
       "Health",
@@ -626,7 +626,7 @@
     "category": "Self-awareness",
     "tier": 2,
     "description": "Small actions can feel like they are steering big results, even when they are not.",
-    "everydayTip": "Ask which parts of the outcome you can actually affect — and which parts are luck or other people.",
+    "everydayTip": "Ask which parts of the outcome you can actually affect, and which parts are luck or other people.",
     "commonContexts": [
       "Everyday life",
       "Work",
@@ -686,7 +686,7 @@
     "category": "Decision Making",
     "tier": 2,
     "description": "Once a belief takes hold, we can defend it with new reasons after the original reasons fall away.",
-    "everydayTip": "Ask what evidence would change your mind — and whether you are still using it honestly.",
+    "everydayTip": "Ask what evidence would change your mind, and whether you are still using it honestly.",
     "commonContexts": [
       "Politics",
       "Work",
@@ -766,7 +766,7 @@
     "category": "Decision Making",
     "tier": 2,
     "description": "Extra detail can make a scenario feel more believable, even though specifics always lower the true odds.",
-    "everydayTip": "Ask whether each added detail makes the story more vivid — or actually more probable.",
+    "everydayTip": "Ask whether each added detail makes the story more vivid, or actually more probable.",
     "commonContexts": [
       "Media",
       "Work",
@@ -785,7 +785,7 @@
     "category": "Media",
     "tier": 2,
     "description": "Familiar wording creates a sense of accuracy, whether or not the claim has been verified.",
-    "everydayTip": "Treat familiarity as a reason to pause — not as proof something is correct.",
+    "everydayTip": "Treat familiarity as a reason to pause, not as proof something is correct.",
     "commonContexts": [
       "Media",
       "Politics",
@@ -805,7 +805,7 @@
     "category": "Social Judgement",
     "tier": 3,
     "description": "The same kind of behaviour gets different stories depending on whether we or someone else did it.",
-    "everydayTip": "When judging someone else, ask what situation might explain it — the way you would for yourself.",
+    "everydayTip": "When judging someone else, ask what situation might explain it, the way you would for yourself.",
     "commonContexts": [
       "Work",
       "Relationships",
@@ -925,7 +925,7 @@
     "category": "Social Judgement",
     "tier": 3,
     "description": "What feels obvious inside can be nearly invisible outside, but we often assume people can tell.",
-    "everydayTip": "If something matters, say it plainly — do not assume your feelings are showing clearly.",
+    "everydayTip": "If something matters, say it plainly, do not assume your feelings are showing clearly.",
     "commonContexts": [
       "Work",
       "Relationships",
@@ -945,7 +945,7 @@
     "category": "Finance",
     "tier": 3,
     "description": "The immediate option feels disproportionately attractive compared with a better long-term choice.",
-    "everydayTip": "Ask what future-you would prefer — not only what right-now-you wants.",
+    "everydayTip": "Ask what future-you would prefer, not only what right-now-you wants.",
     "commonContexts": [
       "Finance",
       "Health",
@@ -1021,11 +1021,11 @@
   {
     "biasId": "B052",
     "name": "Reactance",
-    "definition": "The tendency to push back when we feel our freedom is being restricted — sometimes by doing the opposite of what we are urged to do.",
+    "definition": "The tendency to push back when we feel our freedom is being restricted, sometimes by doing the opposite of what we are urged to do.",
     "category": "Emotion",
     "tier": 3,
     "description": "Being told what to do can spark resistance, even when the advice is reasonable.",
-    "everydayTip": "Notice when you are saying no mainly because someone told you yes — or the reverse.",
+    "everydayTip": "Notice when you are saying no mainly because someone told you yes, or the reverse.",
     "commonContexts": [
       "Relationships",
       "Work",
@@ -1099,11 +1099,11 @@
   {
     "biasId": "B056",
     "name": "Texas Sharpshooter Fallacy",
-    "definition": "The tendency to notice a cluster in data first, then treat that cluster as if it had been predicted — drawing the target after the shots.",
+    "definition": "The tendency to notice a cluster in data first, then treat that cluster as if it had been predicted, drawing the target after the shots.",
     "category": "Decision Making",
     "tier": 3,
     "description": "Patterns can be invented after the fact, making random data look meaningful.",
-    "everydayTip": "Ask whether you are finding a pattern because you looked for it — or because you predicted it beforehand.",
+    "everydayTip": "Ask whether you are finding a pattern because you looked for it, or because you predicted it beforehand.",
     "commonContexts": [
       "Work",
       "Media",
@@ -1143,7 +1143,7 @@
     "category": "Work",
     "tier": 3,
     "description": "Novelty can feel like progress by itself, even before evidence shows it works better.",
-    "everydayTip": "Ask what problem the new thing solves — and what it might break.",
+    "everydayTip": "Ask what problem the new thing solves, and what it might break.",
     "commonContexts": [
       "Work",
       "Health",
