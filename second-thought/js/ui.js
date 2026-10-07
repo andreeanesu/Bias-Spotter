@@ -543,22 +543,39 @@ export class QuizUI {
       }
     }
 
-    if (sessionMeta && this.el.finishMessage) {
-      const { seenCount, totalCount, remainingInPool, sessionSize } = sessionMeta;
-
-      if (remainingInPool === 0) {
-        this.el.finishMessage.textContent =
-          `${modeLabel}: you've seen all ${totalCount} questions here. Next round in this level starts fresh.`;
-      } else if (remainingInPool < 5) {
-        this.el.finishMessage.textContent =
-          `${seenCount} of ${totalCount} questions seen. ${remainingInPool} new question${remainingInPool === 1 ? "" : "s"} left in this level.`;
-      } else {
-        this.el.finishMessage.textContent =
-          `${seenCount} of ${totalCount} questions seen in this level.`;
+    const canRetry = Boolean(roundMastery?.practiceBiasIds?.length);
+    if (this.el.btnRetryMissed) {
+      this.el.btnRetryMissed.hidden = !canRetry;
+      if (canRetry) {
+        const count = roundMastery.practiceBiasIds.length;
+        this.el.btnRetryMissed.textContent =
+          count === 1 ? "Retry this →" : "Retry these →";
       }
+    }
+    this.el.finishScreen?.classList.toggle("has-retry", canRetry);
 
-      if (sessionSize < 5) {
-        this.el.finishMessage.textContent += ` (This round had ${sessionSize} questions.)`;
+    if (sessionMeta && this.el.finishMessage) {
+      if (sessionMeta.isRetry) {
+        this.el.finishMessage.textContent = canRetry
+          ? "Still a couple that slipped by. Retry again, or start a fresh round when you're ready."
+          : "Nice recovery. When you're ready, start another round for fresh questions.";
+      } else {
+        const { seenCount, totalCount, remainingInPool, sessionSize } = sessionMeta;
+
+        if (remainingInPool === 0) {
+          this.el.finishMessage.textContent =
+            `${modeLabel}: you've seen all ${totalCount} questions here. Next round in this level starts fresh.`;
+        } else if (remainingInPool < 5) {
+          this.el.finishMessage.textContent =
+            `${seenCount} of ${totalCount} questions seen. ${remainingInPool} new question${remainingInPool === 1 ? "" : "s"} left in this level.`;
+        } else {
+          this.el.finishMessage.textContent =
+            `${seenCount} of ${totalCount} questions seen in this level.`;
+        }
+
+        if (sessionSize < 5) {
+          this.el.finishMessage.textContent += ` (This round had ${sessionSize} questions.)`;
+        }
       }
     }
 

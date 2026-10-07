@@ -46,6 +46,7 @@ const elements = {
   btnBack: document.getElementById("btn-back"),
   btnNext: document.getElementById("btn-next"),
   footerNav: document.getElementById("footer-nav"),
+  btnRetryMissed: document.getElementById("btn-retry-missed"),
   btnRestart: document.getElementById("btn-restart"),
   btnChangeTier: document.getElementById("btn-change-tier"),
   finishTitle: document.getElementById("finish-title"),
@@ -143,6 +144,11 @@ function startNewRound() {
   startRound(engine.mode);
 }
 
+function startRetryRound() {
+  if (!engine.startRetrySession()) return;
+  renderCurrentQuestion();
+}
+
 function showLevelPicker() {
   ui.showStartScreen(engine.getAllProgressSummaries(), playModes, startRound);
 }
@@ -164,6 +170,7 @@ async function init() {
     ui.bindAnswerHandler(handleAnswer);
     elements.btnBack?.addEventListener("click", handleBack);
     elements.btnNext.addEventListener("click", handleNext);
+    elements.btnRetryMissed?.addEventListener("click", startRetryRound);
     elements.btnRestart.addEventListener("click", startNewRound);
     elements.btnChangeTier.addEventListener("click", showLevelPicker);
     bindOnboarding();
