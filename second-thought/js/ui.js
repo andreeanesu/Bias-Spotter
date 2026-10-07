@@ -4,7 +4,6 @@
  */
 
 import { getCorrectFeedbackHtml, getIncorrectFeedbackHtml } from "./data-loader.js";
-import { playCharacterMotion } from "./character.js";
 import { formatBiasProgressLabel } from "./quiz-engine.js";
 
 function getRoundEncouragement(correct, total) {
@@ -201,8 +200,6 @@ export class QuizUI {
       active.style.animation = "none";
       void active.offsetWidth;
       active.style.animation = "";
-      const character = active.querySelector(".character");
-      playCharacterMotion(character, "eye-roll");
     }
 
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -217,11 +214,6 @@ export class QuizUI {
     this.el.headerTagline?.classList.add("hidden");
     if (this.el.btnBack) this.el.btnBack.hidden = true;
     this.el.btnNext.hidden = true;
-
-    playCharacterMotion(
-      this.el.startScreen?.querySelector(".character"),
-      "eye-roll"
-    );
 
     if (!this.el.tierOptions) return;
 
@@ -456,7 +448,18 @@ export class QuizUI {
   }
 
   playCharacterReaction(isCorrect) {
-    playCharacterMotion(this.el.quizCharacter, isCorrect ? "nod" : "ponder");
+    const character = this.el.quizCharacter;
+    if (!character) return;
+
+    character.classList.remove("is-nod", "is-ponder");
+    void character.offsetWidth;
+    character.classList.add(isCorrect ? "is-nod" : "is-ponder");
+
+    const clear = () => {
+      character.classList.remove("is-nod", "is-ponder");
+      character.removeEventListener("animationend", clear);
+    };
+    character.addEventListener("animationend", clear);
   }
 
   markAnswer(button, state, label) {
@@ -580,11 +583,17 @@ export class QuizUI {
   }
 
   playFinishCharacterReaction(roundScore) {
-    if (!roundScore) return;
+    const character = this.el.finishCharacter;
+    if (!character || !roundScore) return;
+
     const ratio = roundScore.total ? roundScore.correct / roundScore.total : 0;
-    playCharacterMotion(
-      this.el.finishCharacter,
-      ratio >= 0.8 ? "nod" : "settle"
-    );
+    character.classList.remove("is-nod", "is-settle");
+    void character.offsetWidth;
+
+    if (ratio >= 0.8) {
+      character.classList.add("is-nod");
+    } else {
+      character.classList.add("is-settle");
+    }
   }
 }
