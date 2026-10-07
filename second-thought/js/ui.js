@@ -8,10 +8,10 @@ import { formatBiasProgressLabel } from "./quiz-engine.js";
 
 function getRoundEncouragement(correct, total) {
   if (total === 0) return "";
-  if (correct === total) return "Sharp eye this round — you spotted them all.";
+  if (correct === total) return "Sharp eye this round. You spotted them all.";
   if (correct >= total - 1) return "Strong round. One to sit with.";
   if (correct >= Math.ceil(total / 2)) {
-    return "Good progress — noticing these patterns takes practice.";
+    return "Good progress. Noticing these patterns takes practice.";
   }
   return "Every miss is a chance to learn. No rush.";
 }
