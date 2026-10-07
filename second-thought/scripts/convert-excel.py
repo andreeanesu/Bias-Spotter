@@ -51,10 +51,10 @@ def main() -> None:
                 ],
                 "usuallyConfusedWith": [
                     c.strip()
-                    for c in str(src.get("Usually Confused With") or "").split(",")
+                    for c in str(src.get("Confused With") or "").split(",")
                     if c.strip()
                 ],
-                "furtherReadingUrl": (src.get("Further Reading URL") or "").strip()
+                "furtherReadingUrl": (src.get("Further Reading") or "").strip()
                 or None,
             }
         )
