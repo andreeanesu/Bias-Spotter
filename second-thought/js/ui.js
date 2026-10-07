@@ -202,7 +202,7 @@ export class QuizUI {
       void active.offsetWidth;
       active.style.animation = "";
       const character = active.querySelector(".character");
-      playCharacterMotion(character, "jiggle");
+      playCharacterMotion(character, "eye-roll");
     }
 
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -220,7 +220,7 @@ export class QuizUI {
 
     playCharacterMotion(
       this.el.startScreen?.querySelector(".character"),
-      "jiggle"
+      "eye-roll"
     );
 
     if (!this.el.tierOptions) return;
@@ -310,8 +310,6 @@ export class QuizUI {
     this.el.btnNext.disabled = true;
     this.el.btnNext.textContent = "Next →";
     if (this.el.btnBack) this.el.btnBack.disabled = true;
-
-    playCharacterMotion(this.el.quizCharacter, "glance");
 
     window.scrollTo({ top: 0, behavior: "smooth" });
   }

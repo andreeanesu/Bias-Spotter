@@ -1,14 +1,14 @@
 /**
  * character.js
  * Inlines the companion SVG so we can animate the pupil, and
- * plays short one-shot motions. Flip CHARACTER_MOTION_ENABLED to
- * false to disable all character motion quickly.
+ * plays a single eye-roll motion. Flip CHARACTER_MOTION_ENABLED
+ * to false to disable it quickly.
  */
 
-/** Set to false to turn off jiggle / glance / reaction motion. */
+/** Set to false to turn off character eye-roll / reaction motion. */
 export const CHARACTER_MOTION_ENABLED = true;
 
-const MOTION_CLASSES = ["is-jiggle", "is-glance", "is-nod", "is-ponder", "is-settle"];
+const MOTION_CLASSES = ["is-eye-roll", "is-nod", "is-ponder", "is-settle"];
 
 function prefersReducedMotion() {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -48,7 +48,7 @@ export async function hydrateCharacterIcons() {
 /**
  * Play a short named motion on a character element.
  * @param {Element | null} el
- * @param {"jiggle" | "glance" | "nod" | "ponder" | "settle"} motion
+ * @param {"eye-roll" | "nod" | "ponder" | "settle"} motion
  */
 export function playCharacterMotion(el, motion) {
   if (!CHARACTER_MOTION_ENABLED || !el || prefersReducedMotion()) return;
@@ -59,8 +59,8 @@ export function playCharacterMotion(el, motion) {
   el.classList.add(className);
 
   const clear = (event) => {
-    // Glance animates the pupil; other motions animate the root SVG.
-    if (motion === "glance") {
+    // Eye-roll animates the pupil; body reactions animate the root SVG.
+    if (motion === "eye-roll") {
       if (!event.target.classList?.contains("character-pupil")) return;
     } else if (event.target !== el) {
       return;

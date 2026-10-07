@@ -454,12 +454,9 @@ body {
   transform-origin: center;
 }
 
-.character.is-jiggle {
-  animation: character-jiggle 0.55s ease;
-}
-
-.character.is-glance .character-pupil {
-  animation: character-glance 0.55s ease;
+/* One signature move: climb upward as if looping, then fall back to looking down */
+.character.is-eye-roll .character-pupil {
+  animation: character-eye-roll 0.95s cubic-bezier(0.4, 0.05, 0.2, 1);
 }
 
 .quiz-character.is-nod,
@@ -471,40 +468,31 @@ body {
   animation: character-ponder 0.75s ease;
 }
 
-.quiz-character.is-ponder .character-pupil {
-  animation: character-glance 0.75s ease;
-}
-
 .finish-character.is-settle {
   animation: character-settle 1s ease;
 }
 
-@keyframes character-jiggle {
-  0%,
-  100% {
-    transform: rotate(0deg);
-  }
-  25% {
-    transform: rotate(-2.4deg);
-  }
-  55% {
-    transform: rotate(2deg);
-  }
-  75% {
-    transform: rotate(-1deg);
-  }
-}
-
-@keyframes character-glance {
-  0%,
-  100% {
+@keyframes character-eye-roll {
+  0% {
     transform: translate(0, 0);
   }
-  35% {
-    transform: translate(2.5px, -1px);
+  22% {
+    transform: translate(2px, -5px);
   }
-  70% {
-    transform: translate(-1.5px, 1px);
+  42% {
+    transform: translate(0.5px, -10px);
+  }
+  55% {
+    transform: translate(-3px, -9px);
+  }
+  68% {
+    transform: translate(-2px, -5px);
+  }
+  84% {
+    transform: translate(0, 1.5px);
+  }
+  100% {
+    transform: translate(0, 0);
   }
 }
 
@@ -542,11 +530,9 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .character.is-jiggle,
-  .character.is-glance .character-pupil,
+  .character.is-eye-roll .character-pupil,
   .quiz-character.is-nod,
   .quiz-character.is-ponder,
-  .quiz-character.is-ponder .character-pupil,
   .finish-character.is-nod,
   .finish-character.is-settle,
   .feedback.is-visible {
