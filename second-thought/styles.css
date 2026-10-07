@@ -1136,34 +1136,6 @@ body {
   margin: 0.5rem auto 1.5rem;
 }
 
-.btn-retry-missed {
-  margin: 0 0 0.65rem;
-  padding: 0.85rem 1.75rem;
-  border: 1.5px solid var(--border);
-  border-radius: 2px;
-  background: var(--text);
-  color: #fff;
-  font: inherit;
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background 0.2s ease, transform 0.15s ease;
-}
-
-.btn-retry-missed:hover {
-  background: #333;
-}
-
-.btn-retry-missed:active {
-  transform: scale(0.98);
-}
-
-.btn-retry-missed[hidden] {
-  display: none;
-}
-
 .btn-restart {
   padding: 0.85rem 1.75rem;
   border: 1.5px solid var(--border);
@@ -1183,9 +1155,27 @@ body {
   background: var(--surface);
 }
 
-.finish-screen.has-retry .btn-restart {
-  border-color: var(--border-soft);
+.btn-retry-missed {
+  margin-top: 0.65rem;
+  padding: 0.75rem 1.25rem;
+  border: none;
+  background: transparent;
   color: var(--text-muted);
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.btn-retry-missed:hover {
+  color: var(--text);
+}
+
+.btn-retry-missed[hidden] {
+  display: none;
 }
 
 .error-message code {

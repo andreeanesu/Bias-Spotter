@@ -549,10 +549,9 @@ export class QuizUI {
       if (canRetry) {
         const count = roundMastery.practiceBiasIds.length;
         this.el.btnRetryMissed.textContent =
-          count === 1 ? "Retry this →" : "Retry these →";
+          count === 1 ? "Retry this" : "Retry these";
       }
     }
-    this.el.finishScreen?.classList.toggle("has-retry", canRetry);
 
     if (sessionMeta && this.el.finishMessage) {
       if (sessionMeta.isRetry) {
