@@ -533,8 +533,12 @@ export class QuizUI {
       }
     }
 
+    const canRetry = Boolean(roundMastery?.practiceBiasIds?.length);
+    if (this.el.finishRetryGroup) {
+      this.el.finishRetryGroup.hidden = !canRetry;
+    }
     if (this.el.finishPracticeNote) {
-      if (roundMastery?.practiceNames?.length) {
+      if (canRetry && roundMastery?.practiceNames?.length) {
         this.el.finishPracticeNote.textContent = `Worth another look: ${roundMastery.practiceNames.join(", ")}`;
         this.el.finishPracticeNote.hidden = false;
       } else {
@@ -542,15 +546,10 @@ export class QuizUI {
         this.el.finishPracticeNote.hidden = true;
       }
     }
-
-    const canRetry = Boolean(roundMastery?.practiceBiasIds?.length);
-    if (this.el.btnRetryMissed) {
-      this.el.btnRetryMissed.hidden = !canRetry;
-      if (canRetry) {
-        const count = roundMastery.practiceBiasIds.length;
-        this.el.btnRetryMissed.textContent =
-          count === 1 ? "Retry this" : "Retry these";
-      }
+    if (this.el.btnRetryMissed && canRetry) {
+      const count = roundMastery.practiceBiasIds.length;
+      this.el.btnRetryMissed.textContent =
+        count === 1 ? "Retry this" : "Retry these";
     }
 
     if (sessionMeta && this.el.finishMessage) {

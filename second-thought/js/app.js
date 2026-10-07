@@ -52,6 +52,7 @@ const elements = {
   finishTitle: document.getElementById("finish-title"),
   finishRoundMastery: document.getElementById("finish-round-mastery"),
   finishLevelMastery: document.getElementById("finish-level-mastery"),
+  finishRetryGroup: document.getElementById("finish-retry-group"),
   finishPracticeNote: document.getElementById("finish-practice-note"),
   finishMessage: document.getElementById("finish-message"),
   finishScore: document.getElementById("finish-score"),
