@@ -452,11 +452,12 @@ body {
 .character .character-pupil {
   transform-box: fill-box;
   transform-origin: center;
+  will-change: transform;
 }
 
-/* One signature move: climb upward as if looping, then fall back to looking down */
+/* Soft arc up (almost a loop), then an easy fall back to looking down */
 .character.is-eye-roll .character-pupil {
-  animation: character-eye-roll 0.95s cubic-bezier(0.4, 0.05, 0.2, 1);
+  animation: character-eye-roll 1.2s cubic-bezier(0.4, 0.0, 0.2, 1) both;
 }
 
 .quiz-character.is-nod,
@@ -474,25 +475,28 @@ body {
 
 @keyframes character-eye-roll {
   0% {
-    transform: translate(0, 0);
+    transform: translate3d(0, 0, 0);
   }
-  22% {
-    transform: translate(2px, -5px);
+  18% {
+    transform: translate3d(1.2px, -3.2px, 0);
   }
-  42% {
-    transform: translate(0.5px, -10px);
+  36% {
+    transform: translate3d(1.6px, -6.8px, 0);
   }
-  55% {
-    transform: translate(-3px, -9px);
+  50% {
+    transform: translate3d(0, -9px, 0);
   }
-  68% {
-    transform: translate(-2px, -5px);
+  62% {
+    transform: translate3d(-1.8px, -8.2px, 0);
   }
-  84% {
-    transform: translate(0, 1.5px);
+  76% {
+    transform: translate3d(-1.4px, -4.2px, 0);
+  }
+  88% {
+    transform: translate3d(-0.4px, -1.2px, 0);
   }
   100% {
-    transform: translate(0, 0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
