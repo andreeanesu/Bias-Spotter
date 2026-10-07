@@ -98,9 +98,9 @@ function escapeHtml(text) {
 }
 
 export function getCorrectFeedbackHtml(biasName) {
-  return `Nice spot — this is <strong>${escapeHtml(biasName)}</strong>.`;
+  return `Nice spot. This is <strong>${escapeHtml(biasName)}</strong>.`;
 }
 
 export function getIncorrectFeedbackHtml(biasName) {
-  return `Not quite — the pattern here is <strong>${escapeHtml(biasName)}</strong>.`;
+  return `Not quite. The pattern here is <strong>${escapeHtml(biasName)}</strong>.`;
 }
