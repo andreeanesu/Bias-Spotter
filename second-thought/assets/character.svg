@@ -1,10 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 140" fill="none" aria-hidden="true">
   <!-- Hand-drawn whimsical companion from the Second Thought mockup -->
-  <path d="M18 52 Q12 70 18 88" stroke="#1a1a1a" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-  <path d="M102 52 Q108 70 102 88" stroke="#1a1a1a" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-  <ellipse cx="60" cy="72" rx="34" ry="36" stroke="#1a1a1a" stroke-width="2.4" fill="#f7f7f7"/>
-  <circle cx="60" cy="68" r="14" stroke="#1a1a1a" stroke-width="2.2" fill="#fff"/>
-  <circle cx="64" cy="65" r="4.5" fill="#1a1a1a"/>
-  <path d="M52 108 L48 124" stroke="#1a1a1a" stroke-width="2.2" stroke-linecap="round"/>
-  <path d="M68 108 L72 124" stroke="#1a1a1a" stroke-width="2.2" stroke-linecap="round"/>
+  <g class="character-body">
+    <path d="M18 52 Q12 70 18 88" stroke="#1a1a1a" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+    <path d="M102 52 Q108 70 102 88" stroke="#1a1a1a" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+    <ellipse cx="60" cy="72" rx="34" ry="36" stroke="#1a1a1a" stroke-width="2.4" fill="#f7f7f7"/>
+    <circle class="character-eye" cx="60" cy="68" r="14" stroke="#1a1a1a" stroke-width="2.2" fill="#fff"/>
+    <circle class="character-pupil" cx="64" cy="65" r="4.5" fill="#1a1a1a"/>
+    <path d="M52 108 L48 124" stroke="#1a1a1a" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M68 108 L72 124" stroke="#1a1a1a" stroke-width="2.2" stroke-linecap="round"/>
+  </g>
 </svg>

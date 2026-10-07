@@ -446,6 +446,20 @@ body {
   display: block;
   margin: 0.5rem auto 1rem;
   transform-origin: center bottom;
+  overflow: visible;
+}
+
+.character .character-pupil {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.character.is-jiggle {
+  animation: character-jiggle 0.55s ease;
+}
+
+.character.is-glance .character-pupil {
+  animation: character-glance 0.55s ease;
 }
 
 .quiz-character.is-nod,
@@ -457,8 +471,41 @@ body {
   animation: character-ponder 0.75s ease;
 }
 
+.quiz-character.is-ponder .character-pupil {
+  animation: character-glance 0.75s ease;
+}
+
 .finish-character.is-settle {
   animation: character-settle 1s ease;
+}
+
+@keyframes character-jiggle {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-2.4deg);
+  }
+  55% {
+    transform: rotate(2deg);
+  }
+  75% {
+    transform: rotate(-1deg);
+  }
+}
+
+@keyframes character-glance {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  35% {
+    transform: translate(2.5px, -1px);
+  }
+  70% {
+    transform: translate(-1.5px, 1px);
+  }
 }
 
 @keyframes character-nod {
@@ -495,8 +542,11 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .character.is-jiggle,
+  .character.is-glance .character-pupil,
   .quiz-character.is-nod,
   .quiz-character.is-ponder,
+  .quiz-character.is-ponder .character-pupil,
   .finish-character.is-nod,
   .finish-character.is-settle,
   .feedback.is-visible {

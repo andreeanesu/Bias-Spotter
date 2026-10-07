@@ -4,6 +4,7 @@
  */
 
 import { getCorrectFeedbackHtml, getIncorrectFeedbackHtml } from "./data-loader.js";
+import { playCharacterMotion } from "./character.js";
 import { formatBiasProgressLabel } from "./quiz-engine.js";
 
 function getRoundEncouragement(correct, total) {
@@ -200,6 +201,8 @@ export class QuizUI {
       active.style.animation = "none";
       void active.offsetWidth;
       active.style.animation = "";
+      const character = active.querySelector(".character");
+      playCharacterMotion(character, "jiggle");
     }
 
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -214,6 +217,11 @@ export class QuizUI {
     this.el.headerTagline?.classList.add("hidden");
     if (this.el.btnBack) this.el.btnBack.hidden = true;
     this.el.btnNext.hidden = true;
+
+    playCharacterMotion(
+      this.el.startScreen?.querySelector(".character"),
+      "jiggle"
+    );
 
     if (!this.el.tierOptions) return;
 
@@ -302,6 +310,8 @@ export class QuizUI {
     this.el.btnNext.disabled = true;
     this.el.btnNext.textContent = "Next →";
     if (this.el.btnBack) this.el.btnBack.disabled = true;
+
+    playCharacterMotion(this.el.quizCharacter, "glance");
 
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
@@ -448,18 +458,7 @@ export class QuizUI {
   }
 
   playCharacterReaction(isCorrect) {
-    const character = this.el.quizCharacter;
-    if (!character) return;
-
-    character.classList.remove("is-nod", "is-ponder");
-    void character.offsetWidth;
-    character.classList.add(isCorrect ? "is-nod" : "is-ponder");
-
-    const clear = () => {
-      character.classList.remove("is-nod", "is-ponder");
-      character.removeEventListener("animationend", clear);
-    };
-    character.addEventListener("animationend", clear);
+    playCharacterMotion(this.el.quizCharacter, isCorrect ? "nod" : "ponder");
   }
 
   markAnswer(button, state, label) {
@@ -583,17 +582,11 @@ export class QuizUI {
   }
 
   playFinishCharacterReaction(roundScore) {
-    const character = this.el.finishCharacter;
-    if (!character || !roundScore) return;
-
+    if (!roundScore) return;
     const ratio = roundScore.total ? roundScore.correct / roundScore.total : 0;
-    character.classList.remove("is-nod", "is-settle");
-    void character.offsetWidth;
-
-    if (ratio >= 0.8) {
-      character.classList.add("is-nod");
-    } else {
-      character.classList.add("is-settle");
-    }
+    playCharacterMotion(
+      this.el.finishCharacter,
+      ratio >= 0.8 ? "nod" : "settle"
+    );
   }
 }
