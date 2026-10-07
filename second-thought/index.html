@@ -122,7 +122,42 @@
                 </div>
                 <div class="learn-more-block" id="learn-more-confused-block">
                   <h3 class="learn-more-heading">Confused with</h3>
-                  <p class="learn-more-confused" id="learn-more-confused"></p>
+                  <p class="confused-chips-hint">
+                    Tap or hover a name to see its definition.
+                  </p>
+                  <div
+                    class="confused-chips"
+                    id="learn-more-confused"
+                    role="list"
+                    aria-label="Related biases"
+                  ></div>
+                  <div
+                    class="confused-popover hidden"
+                    id="confused-popover"
+                    role="dialog"
+                    aria-modal="true"
+                    aria-labelledby="confused-popover-title"
+                    hidden
+                  >
+                    <div class="confused-popover-top">
+                      <h4 class="confused-popover-title" id="confused-popover-title"></h4>
+                      <button
+                        type="button"
+                        class="confused-popover-close"
+                        id="confused-popover-close"
+                      >
+                        Close
+                      </button>
+                    </div>
+                    <p
+                      class="confused-popover-definition"
+                      id="confused-popover-definition"
+                    ></p>
+                    <p class="confused-popover-dismiss-hint">
+                      Tap <strong>Close</strong> or outside this card to dismiss.
+                      On a keyboard, press Esc.
+                    </p>
+                  </div>
                 </div>
                 <p class="learn-more-reading" id="learn-more-reading">
                   <a

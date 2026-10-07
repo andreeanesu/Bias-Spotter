@@ -22,6 +22,117 @@ function getModeLabel(playModes, mode) {
 export class QuizUI {
   constructor(elements) {
     this.el = elements;
+    this.activeConfusedChip = null;
+    this.supportsHoverPreview = window.matchMedia(
+      "(hover: hover) and (pointer: fine)"
+    ).matches;
+    this.bindConfusedPopover();
+  }
+
+  bindConfusedPopover() {
+    if (!this.el.learnMoreConfused || !this.el.confusedPopover) return;
+
+    this.el.learnMoreConfused.addEventListener("click", (event) => {
+      const chip = event.target.closest(".confused-chip");
+      if (!chip || !this.el.learnMoreConfused.contains(chip)) return;
+
+      event.stopPropagation();
+
+      if (this.activeConfusedChip === chip && this.isConfusedPopoverOpen()) {
+        this.closeConfusedPopover();
+        return;
+      }
+      this.openConfusedPopover(chip);
+    });
+
+    this.el.confusedPopover?.addEventListener("click", (event) => {
+      event.stopPropagation();
+    });
+
+    if (this.supportsHoverPreview) {
+      this.el.learnMoreConfused.addEventListener("mouseover", (event) => {
+        const chip = event.target.closest(".confused-chip");
+        if (!chip || !this.el.learnMoreConfused.contains(chip)) return;
+        this.openConfusedPopover(chip, { fromHover: true });
+      });
+
+      this.el.learnMoreConfusedBlock?.addEventListener("mouseleave", () => {
+        this.closeConfusedPopover({ restoreFocus: false });
+      });
+    }
+
+    this.el.confusedPopoverClose?.addEventListener("click", () => {
+      this.closeConfusedPopover();
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!this.isConfusedPopoverOpen()) return;
+      const inChip = event.target.closest(".confused-chip");
+      const inPopover = event.target.closest("#confused-popover");
+      if (inChip || inPopover) return;
+      this.closeConfusedPopover({ restoreFocus: false });
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && this.isConfusedPopoverOpen()) {
+        this.closeConfusedPopover();
+      }
+    });
+  }
+
+  isConfusedPopoverOpen() {
+    return Boolean(
+      this.el.confusedPopover && !this.el.confusedPopover.hidden
+    );
+  }
+
+  openConfusedPopover(chip, { fromHover = false } = {}) {
+    const name = chip.dataset.biasName || chip.textContent.trim();
+    const definition = chip.dataset.biasDefinition || "";
+    if (!this.el.confusedPopover) return;
+
+    if (this.el.confusedPopoverTitle) {
+      this.el.confusedPopoverTitle.textContent = name;
+    }
+    if (this.el.confusedPopoverDefinition) {
+      this.el.confusedPopoverDefinition.textContent =
+        definition || "Definition coming soon.";
+    }
+
+    this.el.confusedPopover.hidden = false;
+    this.el.confusedPopover.classList.remove("hidden");
+
+    this.el.learnMoreConfused
+      ?.querySelectorAll(".confused-chip")
+      .forEach((button) => {
+        button.setAttribute("aria-expanded", button === chip ? "true" : "false");
+      });
+
+    this.activeConfusedChip = chip;
+
+    if (!fromHover) {
+      this.el.confusedPopoverClose?.focus();
+    }
+  }
+
+  closeConfusedPopover({ restoreFocus = true } = {}) {
+    if (!this.el.confusedPopover) return;
+
+    this.el.confusedPopover.hidden = true;
+    this.el.confusedPopover.classList.add("hidden");
+
+    this.el.learnMoreConfused
+      ?.querySelectorAll(".confused-chip")
+      .forEach((button) => {
+        button.setAttribute("aria-expanded", "false");
+      });
+
+    const chip = this.activeConfusedChip;
+    this.activeConfusedChip = null;
+
+    if (restoreFocus && chip) {
+      chip.focus();
+    }
   }
 
   showOnboarding(step = 1) {
@@ -193,6 +304,7 @@ export class QuizUI {
 
   resetLearnMore() {
     if (!this.el.learnMore) return;
+    this.closeConfusedPopover({ restoreFocus: false });
     this.el.learnMore.open = false;
     this.el.learnMore.hidden = true;
     if (this.el.learnMoreBiasName) {
@@ -202,7 +314,7 @@ export class QuizUI {
       this.el.learnMoreDefinition.textContent = "";
     }
     if (this.el.learnMoreConfused) {
-      this.el.learnMoreConfused.textContent = "";
+      this.el.learnMoreConfused.innerHTML = "";
     }
     if (this.el.learnMoreLink) {
       this.el.learnMoreLink.href = "#";
@@ -216,18 +328,22 @@ export class QuizUI {
     if (!this.el.learnMore) return;
 
     const definition = challenge.biasDefinition?.trim() || "";
-    const confused = Array.isArray(challenge.usuallyConfusedWith)
-      ? challenge.usuallyConfusedWith.filter(Boolean)
-      : [];
+    const confusedDetails = Array.isArray(challenge.usuallyConfusedWithDetails)
+      ? challenge.usuallyConfusedWithDetails.filter((item) => item?.name)
+      : (challenge.usuallyConfusedWith || []).map((name) => ({
+          name,
+          definition: "",
+        }));
     const url = challenge.furtherReadingUrl?.trim() || "";
 
-    if (!definition && confused.length === 0 && !url) {
+    if (!definition && confusedDetails.length === 0 && !url) {
       this.resetLearnMore();
       return;
     }
 
     this.el.learnMore.hidden = false;
     this.el.learnMore.open = false;
+    this.closeConfusedPopover({ restoreFocus: false });
 
     if (this.el.learnMoreBiasName) {
       this.el.learnMoreBiasName.textContent = challenge.biasName || "this bias";
@@ -239,11 +355,27 @@ export class QuizUI {
     this.el.learnMoreDefinitionBlock?.classList.toggle("hidden", !definition);
 
     if (this.el.learnMoreConfused) {
-      this.el.learnMoreConfused.textContent = confused.join(", ");
+      this.el.learnMoreConfused.innerHTML = "";
+      confusedDetails.forEach((item) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "confused-chip";
+        button.setAttribute("role", "listitem");
+        button.setAttribute("aria-expanded", "false");
+        button.setAttribute("aria-controls", "confused-popover");
+        button.dataset.biasName = item.name;
+        button.dataset.biasDefinition = item.definition || "";
+        button.textContent = item.name;
+        button.setAttribute(
+          "aria-label",
+          `${item.name}. Show definition.`
+        );
+        this.el.learnMoreConfused.appendChild(button);
+      });
     }
     this.el.learnMoreConfusedBlock?.classList.toggle(
       "hidden",
-      confused.length === 0
+      confusedDetails.length === 0
     );
 
     if (this.el.learnMoreLink && this.el.learnMoreReading) {

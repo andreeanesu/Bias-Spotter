@@ -22,6 +22,7 @@ export async function loadQuizData() {
   ]);
 
   const biasById = Object.fromEntries(biases.map((bias) => [bias.biasId, bias]));
+  const biasByName = Object.fromEntries(biases.map((bias) => [bias.name, bias]));
 
   const enrichedChallenges = challenges.map((challenge) => {
     const bias = biasById[challenge.biasId];
@@ -35,14 +36,20 @@ export async function loadQuizData() {
       console.warn(`Invalid correct answer for challenge ${challenge.challengeId}`);
     }
 
+    const usuallyConfusedWith = Array.isArray(bias?.usuallyConfusedWith)
+      ? bias.usuallyConfusedWith
+      : [];
+
     return {
       ...challenge,
       biasCategory: bias?.category ?? "Uncategorized",
       tier: bias?.tier ?? 1,
       biasDefinition: bias?.definition ?? "",
-      usuallyConfusedWith: Array.isArray(bias?.usuallyConfusedWith)
-        ? bias.usuallyConfusedWith
-        : [],
+      usuallyConfusedWith,
+      usuallyConfusedWithDetails: usuallyConfusedWith.map((name) => ({
+        name,
+        definition: biasByName[name]?.definition ?? "",
+      })),
       furtherReadingUrl: bias?.furtherReadingUrl ?? null,
       correctOptionText,
       optionList: LETTERS.map((key) => ({
