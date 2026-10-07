@@ -446,18 +446,6 @@ body {
   display: block;
   margin: 0.5rem auto 1rem;
   transform-origin: center bottom;
-  overflow: visible;
-}
-
-.character .character-pupil {
-  transform-box: fill-box;
-  transform-origin: center;
-  will-change: transform;
-}
-
-/* Soft arc up (almost a loop), then an easy fall back to looking down */
-.character.is-eye-roll .character-pupil {
-  animation: character-eye-roll 1.2s cubic-bezier(0.4, 0.0, 0.2, 1) both;
 }
 
 .quiz-character.is-nod,
@@ -471,33 +459,6 @@ body {
 
 .finish-character.is-settle {
   animation: character-settle 1s ease;
-}
-
-@keyframes character-eye-roll {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  18% {
-    transform: translate3d(1.2px, -3.2px, 0);
-  }
-  36% {
-    transform: translate3d(1.6px, -6.8px, 0);
-  }
-  50% {
-    transform: translate3d(0, -9px, 0);
-  }
-  62% {
-    transform: translate3d(-1.8px, -8.2px, 0);
-  }
-  76% {
-    transform: translate3d(-1.4px, -4.2px, 0);
-  }
-  88% {
-    transform: translate3d(-0.4px, -1.2px, 0);
-  }
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
 }
 
 @keyframes character-nod {
@@ -534,7 +495,6 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .character.is-eye-roll .character-pupil,
   .quiz-character.is-nod,
   .quiz-character.is-ponder,
   .finish-character.is-nod,

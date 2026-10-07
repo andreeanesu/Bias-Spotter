@@ -4,7 +4,6 @@
  */
 
 import { loadQuizData, getPlayModes } from "./data-loader.js";
-import { hydrateCharacterIcons } from "./character.js";
 import { QuizEngine } from "./quiz-engine.js";
 import { QuizUI } from "./ui.js";
 
@@ -166,10 +165,6 @@ function bindOnboarding() {
 
 async function init() {
   try {
-    await hydrateCharacterIcons();
-    elements.quizCharacter = document.getElementById("quiz-character");
-    elements.finishCharacter = document.getElementById("finish-character");
-
     const data = await loadQuizData();
     engine = new QuizEngine(data.challenges);
 
