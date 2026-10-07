@@ -141,7 +141,8 @@ export class QuizUI {
     this.el.quizScreen?.classList.add("hidden");
     this.el.finishScreen?.classList.add("hidden");
     this.el.footerNav?.classList.add("hidden");
-    this.el.headerTagline?.classList.remove("hidden");
+    // Welcome body already says this; keep the header line for step 2 only.
+    this.el.headerTagline?.classList.toggle("hidden", step === 1);
     this.el.btnNext.hidden = true;
 
     this.el.onboardingStep1?.classList.toggle("hidden", step !== 1);
