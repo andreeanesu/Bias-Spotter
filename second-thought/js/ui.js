@@ -114,6 +114,7 @@ export class QuizUI {
     if (this.el.feedbackCategory) this.el.feedbackCategory.textContent = "";
     this.el.feedbackWhyHumans.textContent = "";
     this.el.feedbackReflection.textContent = "";
+    this.resetLearnMore();
 
     this.el.answers.innerHTML = "";
     challenge.optionList.forEach((option) => {
@@ -178,6 +179,7 @@ export class QuizUI {
     }
     this.el.feedbackWhyHumans.textContent = challenge.whyHumansDoThis;
     this.el.feedbackReflection.textContent = challenge.reflectionQuestion;
+    this.renderLearnMore(challenge);
     this.el.feedback.classList.remove("hidden");
     this.el.feedback.classList.add("is-visible");
 
@@ -187,6 +189,72 @@ export class QuizUI {
     requestAnimationFrame(() => {
       this.el.feedback.scrollIntoView({ behavior: "smooth", block: "start" });
     });
+  }
+
+  resetLearnMore() {
+    if (!this.el.learnMore) return;
+    this.el.learnMore.open = false;
+    this.el.learnMore.hidden = true;
+    if (this.el.learnMoreBiasName) {
+      this.el.learnMoreBiasName.textContent = "this bias";
+    }
+    if (this.el.learnMoreDefinition) {
+      this.el.learnMoreDefinition.textContent = "";
+    }
+    if (this.el.learnMoreConfused) {
+      this.el.learnMoreConfused.textContent = "";
+    }
+    if (this.el.learnMoreLink) {
+      this.el.learnMoreLink.href = "#";
+    }
+    this.el.learnMoreDefinitionBlock?.classList.add("hidden");
+    this.el.learnMoreConfusedBlock?.classList.add("hidden");
+    this.el.learnMoreReading?.classList.add("hidden");
+  }
+
+  renderLearnMore(challenge) {
+    if (!this.el.learnMore) return;
+
+    const definition = challenge.biasDefinition?.trim() || "";
+    const confused = Array.isArray(challenge.usuallyConfusedWith)
+      ? challenge.usuallyConfusedWith.filter(Boolean)
+      : [];
+    const url = challenge.furtherReadingUrl?.trim() || "";
+
+    if (!definition && confused.length === 0 && !url) {
+      this.resetLearnMore();
+      return;
+    }
+
+    this.el.learnMore.hidden = false;
+    this.el.learnMore.open = false;
+
+    if (this.el.learnMoreBiasName) {
+      this.el.learnMoreBiasName.textContent = challenge.biasName || "this bias";
+    }
+
+    if (this.el.learnMoreDefinition) {
+      this.el.learnMoreDefinition.textContent = definition;
+    }
+    this.el.learnMoreDefinitionBlock?.classList.toggle("hidden", !definition);
+
+    if (this.el.learnMoreConfused) {
+      this.el.learnMoreConfused.textContent = confused.join(", ");
+    }
+    this.el.learnMoreConfusedBlock?.classList.toggle(
+      "hidden",
+      confused.length === 0
+    );
+
+    if (this.el.learnMoreLink && this.el.learnMoreReading) {
+      if (url) {
+        this.el.learnMoreLink.href = url;
+        this.el.learnMoreReading.classList.remove("hidden");
+      } else {
+        this.el.learnMoreLink.href = "#";
+        this.el.learnMoreReading.classList.add("hidden");
+      }
+    }
   }
 
   playCharacterReaction(isCorrect) {

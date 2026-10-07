@@ -39,6 +39,11 @@ export async function loadQuizData() {
       ...challenge,
       biasCategory: bias?.category ?? "Uncategorized",
       tier: bias?.tier ?? 1,
+      biasDefinition: bias?.definition ?? "",
+      usuallyConfusedWith: Array.isArray(bias?.usuallyConfusedWith)
+        ? bias.usuallyConfusedWith
+        : [],
+      furtherReadingUrl: bias?.furtherReadingUrl ?? null,
       correctOptionText,
       optionList: LETTERS.map((key) => ({
         letter: key,

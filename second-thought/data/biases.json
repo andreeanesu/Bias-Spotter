@@ -14,7 +14,12 @@
       "News",
       "Health",
       "Social Media"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Belief Perseverance",
+      "Choice-Supportive Bias"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Confirmation_bias"
   },
   {
     "biasId": "B002",
@@ -30,7 +35,11 @@
       "Salary discussions",
       "Real estate",
       "Everyday life"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Framing Effect"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Anchoring_(cognitive_bias)"
   },
   {
     "biasId": "B003",
@@ -46,7 +55,12 @@
       "Safety",
       "Everyday life",
       "News"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Recency Bias",
+      "Representativeness Heuristic"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Availability_heuristic"
   },
   {
     "biasId": "B004",
@@ -61,7 +75,12 @@
       "Relationships",
       "Driving",
       "Social situations"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Actor-Observer Bias",
+      "Hostile Attribution Bias"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Fundamental_attribution_error"
   },
   {
     "biasId": "B005",
@@ -76,7 +95,12 @@
       "Sport",
       "Academics",
       "Relationships"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Actor-Observer Bias",
+      "Egocentric Bias"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Self-serving_bias"
   },
   {
     "biasId": "B006",
@@ -91,7 +115,13 @@
       "Relationships",
       "Work",
       "Everyday life"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Loss Aversion",
+      "Status Quo Bias",
+      "Endowment Effect"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Sunk_cost#Loss_aversion_and_the_sunk_cost_fallacy"
   },
   {
     "biasId": "B007",
@@ -106,7 +136,11 @@
       "Relationships",
       "Media",
       "Self-awareness"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Loss Aversion"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Negativity_bias"
   },
   {
     "biasId": "B008",
@@ -121,7 +155,12 @@
       "Media",
       "Social situations",
       "Politics"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Horn Effect",
+      "Authority Bias"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Halo_effect"
   },
   {
     "biasId": "B009",
@@ -135,7 +174,11 @@
       "Work",
       "Social situations",
       "Media"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Halo Effect"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Horn_effect"
   },
   {
     "biasId": "B010",
@@ -150,7 +193,11 @@
       "Media",
       "Finance",
       "Learning"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Availability Heuristic"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Survivorship_bias"
   },
   {
     "biasId": "B011",
@@ -165,7 +212,11 @@
       "Sport",
       "Politics",
       "Work"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Overconfidence Effect"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Hindsight_bias"
   },
   {
     "biasId": "B012",
@@ -180,7 +231,12 @@
       "Social Media",
       "Work",
       "Everyday life"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "In-group Bias",
+      "Naive Realism"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/False_consensus_effect"
   },
   {
     "biasId": "B013",
@@ -195,7 +251,12 @@
       "Politics",
       "Sport",
       "Social situations"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Out-group Homogeneity Bias",
+      "False Consensus Effect"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/In-group_favoritism"
   },
   {
     "biasId": "B014",
@@ -210,7 +271,12 @@
       "Social situations",
       "Politics",
       "Media"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "In-group Bias",
+      "Representativeness Heuristic"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Out-group_homogeneity"
   },
   {
     "biasId": "B015",
@@ -225,7 +291,12 @@
       "Finance",
       "Marketing",
       "Politics"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Anchoring Bias",
+      "Loss Aversion"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Framing_effect_(psychology)"
   },
   {
     "biasId": "B016",
@@ -240,7 +311,13 @@
       "Negotiation",
       "Everyday life",
       "Work"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Sunk Cost Fallacy",
+      "Endowment Effect",
+      "Negativity Bias"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Loss_aversion"
   },
   {
     "biasId": "B017",
@@ -255,7 +332,13 @@
       "Finance",
       "Work",
       "Everyday life"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Overconfidence Effect",
+      "Planning Fallacy",
+      "Illusion of Control"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Optimism_bias"
   },
   {
     "biasId": "B018",
@@ -270,7 +353,13 @@
       "Finance",
       "Everyday life",
       "Politics"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Sunk Cost Fallacy",
+      "Endowment Effect",
+      "Normalcy Bias"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Status_quo_bias"
   },
   {
     "biasId": "B019",
@@ -285,7 +374,11 @@
       "Learning",
       "Everyday life",
       "Health"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Overconfidence Effect"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Dunning%E2%80%93Kruger_effect"
   },
   {
     "biasId": "B020",
@@ -300,7 +393,12 @@
       "Health",
       "Media",
       "Politics"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Halo Effect",
+      "Bandwagon Effect"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Authority_bias"
   },
   {
     "biasId": "B021",
@@ -315,7 +413,12 @@
       "Everyday life",
       "Learning",
       "Health"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Optimism Bias",
+      "Overconfidence Effect"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Planning_fallacy"
   },
   {
     "biasId": "B022",
@@ -330,7 +433,11 @@
       "Finance",
       "Relationships",
       "Media"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Availability Heuristic"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Recency_bias"
   },
   {
     "biasId": "B023",
@@ -345,7 +452,12 @@
       "Work",
       "Politics",
       "Everyday life"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Authority Bias",
+      "In-group Bias"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Bandwagon_effect"
   },
   {
     "biasId": "B024",
@@ -360,7 +472,12 @@
       "Media",
       "Work",
       "Everyday life"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Status Quo Bias",
+      "Illusory Truth Effect"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Mere-exposure_effect"
   },
   {
     "biasId": "B025",
@@ -375,7 +492,13 @@
       "Everyday life",
       "Work",
       "Negotiation"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Loss Aversion",
+      "Status Quo Bias",
+      "Sunk Cost Fallacy"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Endowment_effect"
   },
   {
     "biasId": "B026",
@@ -390,7 +513,12 @@
       "Finance",
       "Sport",
       "Decision Making"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Clustering Illusion",
+      "Illusion of Control"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Gambler%27s_fallacy"
   },
   {
     "biasId": "B027",
@@ -405,7 +533,12 @@
       "Health",
       "Sport",
       "Everyday life"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Gambler's Fallacy",
+      "Illusory Correlation"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Clustering_illusion"
   },
   {
     "biasId": "B028",
@@ -420,7 +553,12 @@
       "Learning",
       "Media",
       "Everyday life"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Base Rate Neglect",
+      "Availability Heuristic"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Representativeness_heuristic"
   },
   {
     "biasId": "B029",
@@ -435,7 +573,12 @@
       "Media",
       "Work",
       "Finance"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Representativeness Heuristic",
+      "Availability Heuristic"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Base_rate_fallacy"
   },
   {
     "biasId": "B030",
@@ -450,7 +593,11 @@
       "Health",
       "Work",
       "Everyday life"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Negativity Bias"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Peak%E2%80%93end_rule"
   },
   {
     "biasId": "B031",
@@ -465,7 +612,12 @@
       "Relationships",
       "Work",
       "Everyday life"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Confirmation Bias",
+      "Cognitive Dissonance"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Choice-supportive_bias"
   },
   {
     "biasId": "B032",
@@ -480,7 +632,12 @@
       "Work",
       "Health",
       "Finance"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Optimism Bias",
+      "Gambler's Fallacy"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Illusion_of_control"
   },
   {
     "biasId": "B033",
@@ -495,7 +652,12 @@
       "Relationships",
       "Everyday life",
       "Learning"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Illusion of Transparency",
+      "Egocentric Bias"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Spotlight_effect"
   },
   {
     "biasId": "B034",
@@ -510,7 +672,12 @@
       "Relationships",
       "Work",
       "Everyday life"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Choice-Supportive Bias",
+      "Belief Perseverance"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Cognitive_dissonance"
   },
   {
     "biasId": "B035",
@@ -525,7 +692,12 @@
       "Work",
       "Relationships",
       "Media"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Confirmation Bias",
+      "Semmelweis Reflex"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Belief_perseverance"
   },
   {
     "biasId": "B036",
@@ -540,7 +712,12 @@
       "Everyday life",
       "Work",
       "Finance"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Status Quo Bias",
+      "Optimism Bias"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Normalcy_bias"
   },
   {
     "biasId": "B037",
@@ -555,7 +732,12 @@
       "Learning",
       "Relationships",
       "Everyday life"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "False Consensus Effect",
+      "Egocentric Bias"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Curse_of_knowledge"
   },
   {
     "biasId": "B038",
@@ -570,7 +752,12 @@
       "Everyday life",
       "Work",
       "Relationships"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Clustering Illusion",
+      "Confirmation Bias"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Illusory_correlation"
   },
   {
     "biasId": "B039",
@@ -585,7 +772,11 @@
       "Work",
       "Learning",
       "Everyday life"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Representativeness Heuristic"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Conjunction_fallacy"
   },
   {
     "biasId": "B040",
@@ -600,7 +791,12 @@
       "Politics",
       "Social Media",
       "Health"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Mere Exposure Effect",
+      "Confirmation Bias"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Illusory_truth_effect"
   },
   {
     "biasId": "B041",
@@ -615,7 +811,12 @@
       "Relationships",
       "Driving",
       "Everyday life"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Fundamental Attribution Error",
+      "Self-serving Bias"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Actor%E2%80%93observer_asymmetry"
   },
   {
     "biasId": "B042",
@@ -630,7 +831,12 @@
       "Relationships",
       "Politics",
       "Everyday life"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Naive Realism",
+      "Overconfidence Effect"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Bias_blind_spot"
   },
   {
     "biasId": "B043",
@@ -645,7 +851,12 @@
       "Work",
       "Relationships",
       "Media"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "False Consensus Effect",
+      "Bias Blind Spot"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Na%C3%AFve_realism_(psychology)"
   },
   {
     "biasId": "B044",
@@ -660,7 +871,12 @@
       "Relationships",
       "Work",
       "Politics"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Fundamental Attribution Error",
+      "Hindsight Bias"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Just-world_hypothesis"
   },
   {
     "biasId": "B045",
@@ -675,7 +891,12 @@
       "Work",
       "Everyday life",
       "Social Media"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Fundamental Attribution Error",
+      "Negativity Bias"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Hostile_attribution_bias"
   },
   {
     "biasId": "B046",
@@ -690,7 +911,12 @@
       "Relationships",
       "Learning",
       "Everyday life"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Self-serving Bias",
+      "Spotlight Effect"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Egocentric_bias"
   },
   {
     "biasId": "B047",
@@ -705,7 +931,12 @@
       "Relationships",
       "Learning",
       "Everyday life"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Spotlight Effect",
+      "Egocentric Bias"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Illusion_of_transparency"
   },
   {
     "biasId": "B048",
@@ -720,7 +951,12 @@
       "Health",
       "Everyday life",
       "Work"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Optimism Bias",
+      "Restraint Bias"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Hyperbolic_discounting"
   },
   {
     "biasId": "B049",
@@ -735,7 +971,12 @@
       "Work",
       "Health",
       "Everyday life"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Status Quo Bias",
+      "Loss Aversion"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Ambiguity_effect"
   },
   {
     "biasId": "B050",
@@ -750,7 +991,12 @@
       "Politics",
       "Health",
       "Everyday life"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Availability Heuristic",
+      "Negativity Bias"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Identifiable_victim_effect"
   },
   {
     "biasId": "B051",
@@ -765,7 +1011,12 @@
       "Everyday life",
       "Finance",
       "Work"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Overconfidence Effect",
+      "Optimism Bias"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Restraint_bias"
   },
   {
     "biasId": "B052",
@@ -780,7 +1031,11 @@
       "Work",
       "Health",
       "Everyday life"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Status Quo Bias"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Reactance_(psychology)"
   },
   {
     "biasId": "B053",
@@ -795,7 +1050,12 @@
       "Health",
       "Work",
       "Relationships"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Optimism Bias",
+      "Normalcy Bias"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Ostrich_effect"
   },
   {
     "biasId": "B054",
@@ -810,7 +1070,11 @@
       "Relationships",
       "Politics",
       "Everyday life"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "In-group Bias"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Zero-sum_thinking"
   },
   {
     "biasId": "B055",
@@ -825,7 +1089,12 @@
       "Driving",
       "Relationships",
       "Everyday life"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Hindsight Bias",
+      "Fundamental Attribution Error"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Moral_luck"
   },
   {
     "biasId": "B056",
@@ -840,7 +1109,12 @@
       "Media",
       "Finance",
       "Health"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Clustering Illusion",
+      "Illusory Correlation"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Texas_sharpshooter_fallacy"
   },
   {
     "biasId": "B057",
@@ -855,7 +1129,12 @@
       "Learning",
       "Finance",
       "Everyday life"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Dunning-Kruger Effect",
+      "Optimism Bias"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Overconfidence_effect"
   },
   {
     "biasId": "B058",
@@ -870,7 +1149,12 @@
       "Health",
       "Learning",
       "Everyday life"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Optimism Bias",
+      "Authority Bias"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Pro-innovation_bias"
   },
   {
     "biasId": "B059",
@@ -885,7 +1169,12 @@
       "Health",
       "Learning",
       "Politics"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Belief Perseverance",
+      "Confirmation Bias"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Semmelweis_reflex"
   },
   {
     "biasId": "B060",
@@ -900,6 +1189,11 @@
       "Driving",
       "Everyday life",
       "Work"
-    ]
+    ],
+    "usuallyConfusedWith": [
+      "Optimism Bias",
+      "Illusion of Control"
+    ],
+    "furtherReadingUrl": "https://en.wikipedia.org/wiki/Risk_compensation"
   }
 ]
