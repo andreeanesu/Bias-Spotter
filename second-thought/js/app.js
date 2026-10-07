@@ -43,13 +43,16 @@ const elements = {
   learnMoreLink: document.getElementById("learn-more-link"),
   questionProgress: document.getElementById("question-progress"),
   headerTagline: document.getElementById("header-tagline"),
+  btnBack: document.getElementById("btn-back"),
   btnNext: document.getElementById("btn-next"),
   footerNav: document.getElementById("footer-nav"),
+  btnRetryMissed: document.getElementById("btn-retry-missed"),
   btnRestart: document.getElementById("btn-restart"),
   btnChangeTier: document.getElementById("btn-change-tier"),
   finishTitle: document.getElementById("finish-title"),
   finishRoundMastery: document.getElementById("finish-round-mastery"),
   finishLevelMastery: document.getElementById("finish-level-mastery"),
+  finishRetryGroup: document.getElementById("finish-retry-group"),
   finishPracticeNote: document.getElementById("finish-practice-note"),
   finishMessage: document.getElementById("finish-message"),
   finishScore: document.getElementById("finish-score"),
@@ -82,16 +85,30 @@ function finishOnboarding() {
   showLevelPicker();
 }
 
+function updateNavState() {
+  ui.setNavState({
+    canGoBack: engine.canGoBack(),
+    canGoNext: engine.canGoNext(),
+  });
+}
+
 function renderCurrentQuestion() {
   const challenge = engine.getCurrentChallenge();
   if (!challenge) return;
   ui.renderQuestion(challenge, engine.getProgress());
+
+  const priorFeedback = engine.getFeedbackForIndex(engine.currentIndex);
+  if (priorFeedback) {
+    ui.showFeedback(priorFeedback, { animateCharacter: false });
+  }
+  updateNavState();
 }
 
 function handleAnswer(letter) {
   const result = engine.selectAnswer(letter);
   if (!result) return;
   ui.showFeedback(result);
+  updateNavState();
 }
 
 function handleNext() {
@@ -112,6 +129,12 @@ function handleNext() {
   renderCurrentQuestion();
 }
 
+function handleBack() {
+  if (!engine.canGoBack()) return;
+  engine.goBack();
+  renderCurrentQuestion();
+}
+
 function startRound(mode) {
   engine.setMode(mode);
   engine.startSession();
@@ -120,6 +143,11 @@ function startRound(mode) {
 
 function startNewRound() {
   startRound(engine.mode);
+}
+
+function startRetryRound() {
+  if (!engine.startRetrySession()) return;
+  renderCurrentQuestion();
 }
 
 function showLevelPicker() {
@@ -141,7 +169,9 @@ async function init() {
     engine = new QuizEngine(data.challenges);
 
     ui.bindAnswerHandler(handleAnswer);
+    elements.btnBack?.addEventListener("click", handleBack);
     elements.btnNext.addEventListener("click", handleNext);
+    elements.btnRetryMissed?.addEventListener("click", startRetryRound);
     elements.btnRestart.addEventListener("click", startNewRound);
     elements.btnChangeTier.addEventListener("click", showLevelPicker);
     bindOnboarding();

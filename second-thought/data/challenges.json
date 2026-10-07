@@ -3,7 +3,7 @@
     "challengeId": "C001",
     "biasId": "B001",
     "biasName": "Confirmation Bias",
-    "statement": "\"I only read news that agrees with what I already believe — the rest feels untrustworthy.\"",
+    "statement": "\"I only read news that agrees with what I already believe. The rest feels untrustworthy.\"",
     "options": {
       "A": "Halo Effect",
       "B": "Confirmation Bias",
@@ -12,8 +12,8 @@
     },
     "correctAnswer": "B",
     "explanation": "Sources get dismissed for disagreeing, not because they're wrong.",
-    "reflectionQuestion": "When did you last listen to a view you disagreed with — on purpose?",
-    "whyHumansDoThis": "We lean toward what fits what we already think. It feels safer and easier — but it can narrow what we're willing to hear.",
+    "reflectionQuestion": "When did you last listen to a view you disagreed with, on purpose?",
+    "whyHumansDoThis": "We lean toward what fits what we already think. It feels safer and easier, but it can narrow what we're willing to hear.",
     "realWorldContext": "Politics",
     "difficulty": "Recognition",
     "learningObjective": "Learn that seeking confirming evidence feels natural but can limit better decisions."
@@ -22,7 +22,7 @@
     "challengeId": "C002",
     "biasId": "B001",
     "biasName": "Confirmation Bias",
-    "statement": "\"After I bought a stock, I only followed analysts who said it would rise — and ignored warnings about debt.\"",
+    "statement": "\"After I bought a stock, I only followed analysts who said it would rise, and ignored warnings about debt.\"",
     "options": {
       "A": "Anchoring Bias",
       "B": "Availability Heuristic",
@@ -31,8 +31,8 @@
     },
     "correctAnswer": "D",
     "explanation": "After deciding, only the good news gets noticed.",
-    "reflectionQuestion": "After you decide something, do you look for doubts — or proof you were right?",
-    "whyHumansDoThis": "Once we've committed, we want to feel we made the right call. Doubt is uncomfortable — so we often skip it.",
+    "reflectionQuestion": "After you decide something, do you look for doubts, or proof you were right?",
+    "whyHumansDoThis": "Once we've committed, we want to feel we made the right call. Doubt is uncomfortable, so we often skip it.",
     "realWorldContext": "Investing",
     "difficulty": "Application",
     "learningObjective": "Learn to actively look for disconfirming evidence after making decisions, not just before."
@@ -41,7 +41,7 @@
     "challengeId": "C003",
     "biasId": "B001",
     "biasName": "Confirmation Bias",
-    "statement": "\"My feed is full of posts I agree with — so it feels like everyone thinks the same way.\"",
+    "statement": "\"My feed is full of posts I agree with, so it feels like everyone thinks the same way.\"",
     "options": {
       "A": "Halo Effect",
       "B": "Confirmation Bias",
@@ -51,7 +51,7 @@
     "correctAnswer": "B",
     "explanation": "A curated feed gets mistaken for how most people think.",
     "reflectionQuestion": "Does your feed challenge you, or mostly agree with you?",
-    "whyHumansDoThis": "We engage more with what we agree with. Platforms show us more of it — and the loop can feel like reality.",
+    "whyHumansDoThis": "We engage more with what we agree with. Platforms show us more of it, and the loop can feel like reality.",
     "realWorldContext": "Social Media",
     "difficulty": "Ambiguous",
     "learningObjective": "Learn how confirmation bias interacts with algorithms to create feedback loops that feel like reality."
@@ -70,7 +70,7 @@
     "correctAnswer": "A",
     "explanation": "The listing price becomes the anchor for every offer.",
     "reflectionQuestion": "Has a first price ever shaped what felt 'fair' to you?",
-    "whyHumansDoThis": "The first number we see sticks. We adjust from there — but rarely far enough.",
+    "whyHumansDoThis": "The first number we see sticks. We adjust from there, but rarely far enough.",
     "realWorldContext": "Real Estate",
     "difficulty": "Recognition",
     "learningObjective": "Learn to recognize when a starting number is shaping your judgment instead of the actual value."
@@ -79,7 +79,7 @@
     "challengeId": "C005",
     "biasId": "B002",
     "biasName": "Anchoring Bias",
-    "statement": "\"A jacket was $300, now $150 — feels like a steal, even if $150 is still a lot.\"",
+    "statement": "\"A jacket was $300, now $150, and it feels like a steal, even if $150 is still a lot.\"",
     "options": {
       "A": "Status Quo Bias",
       "B": "Confirmation Bias",
@@ -88,7 +88,7 @@
     },
     "correctAnswer": "C",
     "explanation": "The old price makes the discount feel bigger than it is.",
-    "reflectionQuestion": "Next 'sale' tag you see — what's the item actually worth?",
+    "reflectionQuestion": "Next 'sale' tag you see, what's the item actually worth?",
     "whyHumansDoThis": "We focus on the drop, not the real value. The starting price quietly pulls our judgment.",
     "realWorldContext": "Shopping",
     "difficulty": "Application",
@@ -98,7 +98,7 @@
     "challengeId": "C006",
     "biasId": "B002",
     "biasName": "Anchoring Bias",
-    "statement": "\"In a job interview, they ask for my salary first — and that number ends up anchoring the whole negotiation.\"",
+    "statement": "\"In a job interview, they ask for my salary first, and that number ends up anchoring the whole negotiation.\"",
     "options": {
       "A": "Anchoring Bias",
       "B": "Framing Effect",
@@ -108,7 +108,7 @@
     "correctAnswer": "A",
     "explanation": "The first number spoken becomes the reference for everything after.",
     "reflectionQuestion": "Have you ever felt stuck near a number you said early on?",
-    "whyHumansDoThis": "Early numbers are hard to let go of — even when new info suggests we should move on.",
+    "whyHumansDoThis": "Early numbers are hard to let go of, even when new info suggests we should move on.",
     "realWorldContext": "Salary discussions",
     "difficulty": "Ambiguous",
     "learningObjective": "Learn that anchors set early in a conversation can quietly control the entire negotiation."
@@ -117,7 +117,7 @@
     "challengeId": "C007",
     "biasId": "B003",
     "biasName": "Availability Heuristic",
-    "statement": "\"After a few plane-crash stories in the news, flying feels terrifying — even though stats say driving is riskier.\"",
+    "statement": "\"After a few plane-crash stories in the news, flying feels terrifying, even though stats say driving is riskier.\"",
     "options": {
       "A": "Confirmation Bias",
       "B": "Negativity Bias",
@@ -136,7 +136,7 @@
     "challengeId": "C008",
     "biasId": "B003",
     "biasName": "Availability Heuristic",
-    "statement": "\"I saw one viral post about a rare vaccine side effect — and it stuck more than the disease risks I ignored.\"",
+    "statement": "\"I saw one viral post about a rare vaccine side effect, and it stuck more than the disease risks I ignored.\"",
     "options": {
       "A": "Survivorship Bias",
       "B": "Availability Heuristic",
@@ -155,7 +155,7 @@
     "challengeId": "C009",
     "biasId": "B003",
     "biasName": "Availability Heuristic",
-    "statement": "\"After a friend's house was burgled, burglaries suddenly feel common here — even though crime has been falling.\"",
+    "statement": "\"After a friend's house was burgled, burglaries suddenly feel common here, even though crime has been falling.\"",
     "options": {
       "A": "Confirmation Bias",
       "B": "Negativity Bias",
@@ -165,7 +165,7 @@
     "correctAnswer": "D",
     "explanation": "One close story outweighed the wider trend.",
     "reflectionQuestion": "Has one person's story ever changed how safe you feel?",
-    "whyHumansDoThis": "Stories from people we know feel real and relevant — more than numbers on a page.",
+    "whyHumansDoThis": "Stories from people we know feel real and relevant, more than numbers on a page.",
     "realWorldContext": "Everyday life",
     "difficulty": "Ambiguous",
     "learningObjective": "Learn to distinguish between a personally vivid story and an actual trend."
@@ -174,7 +174,7 @@
     "challengeId": "C010",
     "biasId": "B004",
     "biasName": "Fundamental Attribution Error",
-    "statement": "\"A colleague was late to the meeting. Everyone assumed they're lazy — not knowing their car broke down.\"",
+    "statement": "\"A colleague was late to the meeting. Everyone assumed they're lazy, not knowing their car broke down.\"",
     "options": {
       "A": "Halo Effect",
       "B": "Horn Effect",
@@ -183,7 +183,7 @@
     },
     "correctAnswer": "C",
     "explanation": "Character got blamed before circumstances were considered.",
-    "reflectionQuestion": "Next time someone's late — what situation might explain it?",
+    "reflectionQuestion": "Next time someone's late, what situation might explain it?",
     "whyHumansDoThis": "We don't see others' full context, so we fill the gap with personality labels.",
     "realWorldContext": "Work",
     "difficulty": "Recognition",
@@ -193,7 +193,7 @@
     "challengeId": "C011",
     "biasId": "B004",
     "biasName": "Fundamental Attribution Error",
-    "statement": "\"Someone cut me off in traffic. I thought 'what a jerk' — without wondering if they had an emergency.\"",
+    "statement": "\"Someone cut me off in traffic. I thought 'what a jerk' without wondering if they had an emergency.\"",
     "options": {
       "A": "Fundamental Attribution Error",
       "B": "Self-serving Bias",
@@ -212,7 +212,7 @@
     "challengeId": "C012",
     "biasId": "B004",
     "biasName": "Fundamental Attribution Error",
-    "statement": "\"A friend cancelled last minute again. I decided they're unreliable — maybe it was just a run of bad luck.\"",
+    "statement": "\"A friend cancelled last minute again. I decided they're unreliable. Maybe it was just a run of bad luck.\"",
     "options": {
       "A": "Halo Effect",
       "B": "Horn Effect",
@@ -231,7 +231,7 @@
     "challengeId": "C013",
     "biasId": "B005",
     "biasName": "Self-serving Bias",
-    "statement": "\"I passed because I'm smart — but failed last time because the questions were unfair.\"",
+    "statement": "\"I passed because I'm smart, but failed last time because the questions were unfair.\"",
     "options": {
       "A": "Halo Effect",
       "B": "Self-serving Bias",
@@ -240,7 +240,7 @@
     },
     "correctAnswer": "B",
     "explanation": "Success went to me; failure went to outside factors.",
-    "reflectionQuestion": "Your last win and loss — did you explain them the same way?",
+    "reflectionQuestion": "Your last win and loss, did you explain them the same way?",
     "whyHumansDoThis": "Crediting ourselves for wins and blaming outside forces for losses protects how we feel about ourselves.",
     "realWorldContext": "Academics",
     "difficulty": "Recognition",
@@ -269,7 +269,7 @@
     "challengeId": "C015",
     "biasId": "B005",
     "biasName": "Self-serving Bias",
-    "statement": "\"A manager took credit when a project worked — and blamed the team when a similar one failed.\"",
+    "statement": "\"A manager took credit when a project worked, and blamed the team when a similar one failed.\"",
     "options": {
       "A": "Halo Effect",
       "B": "Self-serving Bias",
@@ -278,7 +278,7 @@
     },
     "correctAnswer": "B",
     "explanation": "Success was personal; failure was shifted away.",
-    "reflectionQuestion": "When your project fails — how much do you own versus blame others?",
+    "reflectionQuestion": "When your project fails, how much do you own versus blame others?",
     "whyHumansDoThis": "Protecting our sense of competence is easier than sharing responsibility for failure.",
     "realWorldContext": "Work",
     "difficulty": "Ambiguous",
@@ -288,7 +288,7 @@
     "challengeId": "C016",
     "biasId": "B006",
     "biasName": "Sunk Cost Fallacy",
-    "statement": "\"I keep holding a failing stock because I've already put so much into it — hoping it'll bounce back.\"",
+    "statement": "\"I keep holding a failing stock because I've already put so much into it, hoping it'll bounce back.\"",
     "options": {
       "A": "Sunk Cost Fallacy",
       "B": "Loss Aversion",
@@ -298,7 +298,7 @@
     "correctAnswer": "A",
     "explanation": "Past money spent is driving the choice, not future prospects.",
     "reflectionQuestion": "If you were deciding fresh today, would you still hold it?",
-    "whyHumansDoThis": "Walking away feels like admitting a mistake. Staying avoids that pain — even when it costs more.",
+    "whyHumansDoThis": "Walking away feels like admitting a mistake. Staying avoids that pain, even when it costs more.",
     "realWorldContext": "Finance",
     "difficulty": "Recognition",
     "learningObjective": "Learn to evaluate decisions based on future outcomes, not past investment."
@@ -307,7 +307,7 @@
     "challengeId": "C017",
     "biasId": "B006",
     "biasName": "Sunk Cost Fallacy",
-    "statement": "\"I've spent five years in this relationship. I can't leave now — even though I'm unhappy.\"",
+    "statement": "\"I've spent five years in this relationship. I can't leave now, even though I'm unhappy.\"",
     "options": {
       "A": "Status Quo Bias",
       "B": "Optimism Bias",
@@ -326,7 +326,7 @@
     "challengeId": "C018",
     "biasId": "B006",
     "biasName": "Sunk Cost Fallacy",
-    "statement": "\"We keep eating a mediocre meal we already paid for — even though we could stop.\"",
+    "statement": "\"We keep eating a mediocre meal we already paid for, even though we could stop.\"",
     "options": {
       "A": "Sunk Cost Fallacy",
       "B": "Loss Aversion",
@@ -336,7 +336,7 @@
     "correctAnswer": "A",
     "explanation": "Money already spent shouldn't change whether we keep eating.",
     "reflectionQuestion": "Does having paid change how much you 'should' finish?",
-    "whyHumansDoThis": "We mix up 'already spent' with 'what to do next' — even when they're separate decisions.",
+    "whyHumansDoThis": "We mix up 'already spent' with 'what to do next', even when they're separate decisions.",
     "realWorldContext": "Everyday life",
     "difficulty": "Ambiguous",
     "learningObjective": "Learn to separate a past, unrecoverable cost from the decision in front of you right now."
@@ -345,7 +345,7 @@
     "challengeId": "C019",
     "biasId": "B007",
     "biasName": "Negativity Bias",
-    "statement": "\"Nine compliments and one criticism in my review — and I obsessed over the criticism all week.\"",
+    "statement": "\"Nine compliments and one criticism in my review, and I obsessed over the criticism all week.\"",
     "options": {
       "A": "Availability Heuristic",
       "B": "Loss Aversion",
@@ -354,7 +354,7 @@
     },
     "correctAnswer": "D",
     "explanation": "One negative note outweighed nine positive ones.",
-    "reflectionQuestion": "Last feedback you got — praise or criticism stuck more?",
+    "reflectionQuestion": "Last feedback you got, praise or criticism stuck more?",
     "whyHumansDoThis": "Bad news used to signal danger. Our brains still give it extra weight.",
     "realWorldContext": "Work",
     "difficulty": "Recognition",
@@ -364,7 +364,7 @@
     "challengeId": "C020",
     "biasId": "B007",
     "biasName": "Negativity Bias",
-    "statement": "\"News runs more bad stories than good ones — because negative headlines get more clicks.\"",
+    "statement": "\"News runs more bad stories than good ones, because negative headlines get more clicks.\"",
     "options": {
       "A": "Optimism Bias",
       "B": "Negativity Bias",
@@ -402,7 +402,7 @@
     "challengeId": "C022",
     "biasId": "B008",
     "biasName": "Halo Effect",
-    "statement": "\"A polished, articulate candidate seemed competent at the technical work too — without any proof.\"",
+    "statement": "\"A polished, articulate candidate seemed competent at the technical work too, without any proof.\"",
     "options": {
       "A": "Authority Bias",
       "B": "Fundamental Attribution Error",
@@ -421,7 +421,7 @@
     "challengeId": "C023",
     "biasId": "B008",
     "biasName": "Halo Effect",
-    "statement": "\"A celebrity endorsed a health product — so fans assumed it works, because they like the celebrity.\"",
+    "statement": "\"A celebrity endorsed a health product, so fans assumed it works, because they like the celebrity.\"",
     "options": {
       "A": "Halo Effect",
       "B": "Horn Effect",
@@ -440,7 +440,7 @@
     "challengeId": "C024",
     "biasId": "B008",
     "biasName": "Halo Effect",
-    "statement": "\"A charismatic colleague got promoted fast — and people assumed all their ideas were good, untested ones included.\"",
+    "statement": "\"A charismatic colleague got promoted fast, and people assumed all their ideas were good, untested ones included.\"",
     "options": {
       "A": "Authority Bias",
       "B": "Fundamental Attribution Error",
@@ -450,7 +450,7 @@
     "correctAnswer": "C",
     "explanation": "Likeability stretched to ideas without evidence.",
     "reflectionQuestion": "How do you separate liking someone from trusting their untested ideas?",
-    "whyHumansDoThis": "A strong first impression is hard to update — even when proof is missing.",
+    "whyHumansDoThis": "A strong first impression is hard to update, even when proof is missing.",
     "realWorldContext": "Social situations",
     "difficulty": "Ambiguous",
     "learningObjective": "Learn that likeability and idea quality are two separate things, even if they feel linked."
@@ -478,7 +478,7 @@
     "challengeId": "C026",
     "biasId": "B009",
     "biasName": "Horn Effect",
-    "statement": "\"Someone mispronounced a word in a talk — and the audience doubted whether they know the topic at all.\"",
+    "statement": "\"Someone mispronounced a word in a talk, and the audience doubted whether they know the topic at all.\"",
     "options": {
       "A": "Halo Effect",
       "B": "Fundamental Attribution Error",
@@ -488,7 +488,7 @@
     "correctAnswer": "D",
     "explanation": "A small slip was stretched into a competence judgment.",
     "reflectionQuestion": "Judged someone's expertise over an unrelated small mistake?",
-    "whyHumansDoThis": "Our brain wants one consistent story — and one flaw builds a negative one fast.",
+    "whyHumansDoThis": "Our brain wants one consistent story, and one flaw builds a negative one fast.",
     "realWorldContext": "Social situations",
     "difficulty": "Application",
     "learningObjective": "Learn to judge competence based on relevant evidence, not unrelated small errors."
@@ -497,7 +497,7 @@
     "challengeId": "C027",
     "biasId": "B009",
     "biasName": "Horn Effect",
-    "statement": "\"A public figure got one fact wrong — and viewers dismissed everything else they said, even the solid parts.\"",
+    "statement": "\"A public figure got one fact wrong, and viewers dismissed everything else they said, even the solid parts.\"",
     "options": {
       "A": "Negativity Bias",
       "B": "Horn Effect",
@@ -507,7 +507,7 @@
     "correctAnswer": "B",
     "explanation": "One error discredited the whole message.",
     "reflectionQuestion": "When someone errs once, do you dismiss everything they say?",
-    "whyHumansDoThis": "One clear mistake feels like reliable evidence — even when it isn't about everything else.",
+    "whyHumansDoThis": "One clear mistake feels like reliable evidence, even when it isn't about everything else.",
     "realWorldContext": "Media",
     "difficulty": "Ambiguous",
     "learningObjective": "Learn to evaluate each claim on its own evidence rather than by association with an unrelated error."
@@ -516,7 +516,7 @@
     "challengeId": "C028",
     "biasId": "B010",
     "biasName": "Survivorship Bias",
-    "statement": "\"Success books interview winning entrepreneurs — not the many who tried the same thing and failed.\"",
+    "statement": "\"Success books interview winning entrepreneurs, not the many who tried the same thing and failed.\"",
     "options": {
       "A": "Survivorship Bias",
       "B": "Availability Heuristic",
@@ -525,7 +525,7 @@
     },
     "correctAnswer": "A",
     "explanation": "We only hear from survivors, so strategies look more reliable than they are.",
-    "reflectionQuestion": "Reading a success story — do you ask who tried the same and failed?",
+    "reflectionQuestion": "Reading a success story, do you ask who tried the same and failed?",
     "whyHumansDoThis": "Failures are quieter, less visible, and less fun to talk about.",
     "realWorldContext": "Work",
     "difficulty": "Recognition",
@@ -535,7 +535,7 @@
     "challengeId": "C029",
     "biasId": "B010",
     "biasName": "Survivorship Bias",
-    "statement": "\"'These five habits made CEOs successful' — with no check on failed CEOs who had the same habits.\"",
+    "statement": "\"'These five habits made CEOs successful,' with no check on failed CEOs who had the same habits.\"",
     "options": {
       "A": "Optimism Bias",
       "B": "Confirmation Bias",
@@ -554,7 +554,7 @@
     "challengeId": "C030",
     "biasId": "B010",
     "biasName": "Survivorship Bias",
-    "statement": "\"Everyone still in the course says it's easy — but the people who struggled already dropped out.\"",
+    "statement": "\"Everyone still in the course says it's easy, but the people who struggled already dropped out.\"",
     "options": {
       "A": "Survivorship Bias",
       "B": "Availability Heuristic",
@@ -564,7 +564,7 @@
     "correctAnswer": "A",
     "explanation": "Only survivors are in the sample you're hearing from.",
     "reflectionQuestion": "Whose voices might be missing from the feedback you hear?",
-    "whyHumansDoThis": "We hear from who's left — and forget who already walked away.",
+    "whyHumansDoThis": "We hear from who's left, and forget who already walked away.",
     "realWorldContext": "Learning",
     "difficulty": "Ambiguous",
     "learningObjective": "Learn to consider who is missing from a sample before drawing a conclusion."
@@ -573,7 +573,7 @@
     "challengeId": "C031",
     "biasId": "B011",
     "biasName": "Hindsight Bias",
-    "statement": "\"After a stock crashed, I said 'I knew that would happen' — though I'd bought more the week before.\"",
+    "statement": "\"After a stock crashed, I said 'I knew that would happen', though I'd bought more the week before.\"",
     "options": {
       "A": "Confirmation Bias",
       "B": "Self-serving Bias",
@@ -582,8 +582,8 @@
     },
     "correctAnswer": "D",
     "explanation": "Memory of what we believed shifted to match the outcome.",
-    "reflectionQuestion": "Claimed you 'knew' something — despite acting the opposite before?",
-    "whyHumansDoThis": "Once we know the ending, it feels inevitable — and our memory bends to match.",
+    "reflectionQuestion": "Claimed you 'knew' something, despite acting the opposite before?",
+    "whyHumansDoThis": "Once we know the ending, it feels inevitable, and our memory bends to match.",
     "realWorldContext": "Finance",
     "difficulty": "Recognition",
     "learningObjective": "Learn to check your past predictions honestly instead of assuming you always saw it coming."
@@ -592,7 +592,7 @@
     "challengeId": "C032",
     "biasId": "B011",
     "biasName": "Hindsight Bias",
-    "statement": "\"After the loss, I insisted 'I knew we'd lose' — though I'd predicted a win the day before.\"",
+    "statement": "\"After the loss, I insisted 'I knew we'd lose', though I'd predicted a win the day before.\"",
     "options": {
       "A": "Optimism Bias",
       "B": "Hindsight Bias",
@@ -601,7 +601,7 @@
     },
     "correctAnswer": "B",
     "explanation": "Recollection of the prediction was rewritten after the fact.",
-    "reflectionQuestion": "Could you find what you actually predicted — versus what you claim now?",
+    "reflectionQuestion": "Could you find what you actually predicted. Versus what you claim now?",
     "whyHumansDoThis": "We rebuild past beliefs to fit what we know now.",
     "realWorldContext": "Sport",
     "difficulty": "Application",
@@ -611,7 +611,7 @@
     "challengeId": "C033",
     "biasId": "B011",
     "biasName": "Hindsight Bias",
-    "statement": "\"After a project failed, the team said 'the risks were obvious from the start' — though nobody flagged them in planning.\"",
+    "statement": "\"After a project failed, the team said 'the risks were obvious from the start', though nobody flagged them in planning.\"",
     "options": {
       "A": "Confirmation Bias",
       "B": "Self-serving Bias",
@@ -630,7 +630,7 @@
     "challengeId": "C034",
     "biasId": "B012",
     "biasName": "False Consensus Effect",
-    "statement": "\"I assume most people share my political view — because everyone in my circle does.\"",
+    "statement": "\"I assume most people share my political view, because everyone in my circle does.\"",
     "options": {
       "A": "In-group Bias",
       "B": "Availability Heuristic",
@@ -639,7 +639,7 @@
     },
     "correctAnswer": "C",
     "explanation": "My bubble was mistaken for the whole population.",
-    "reflectionQuestion": "How would you check if most people agree — beyond your circle?",
+    "reflectionQuestion": "How would you check if most people agree. Beyond your circle?",
     "whyHumansDoThis": "We're surrounded by similar people, so their views feel like everyone's.",
     "realWorldContext": "Politics",
     "difficulty": "Recognition",
@@ -649,7 +649,7 @@
     "challengeId": "C035",
     "biasId": "B012",
     "biasName": "False Consensus Effect",
-    "statement": "\"I posted a hot take online and got slammed — I'd assumed 'everyone thinks this.'\"",
+    "statement": "\"I posted a hot take online and got slammed. I'd assumed 'everyone thinks this.'\"",
     "options": {
       "A": "False Consensus Effect",
       "B": "Confirmation Bias",
@@ -659,7 +659,7 @@
     "correctAnswer": "A",
     "explanation": "My bubble felt like consensus.",
     "reflectionQuestion": "Online backlash that surprised you because you thought your view was common?",
-    "whyHumansDoThis": "Our own beliefs feel normal — so we assume others share them.",
+    "whyHumansDoThis": "Our own beliefs feel normal, so we assume others share them.",
     "realWorldContext": "Social Media",
     "difficulty": "Application",
     "learningObjective": "Learn that a view feeling normal to you doesn't mean it's widely shared."
@@ -668,7 +668,7 @@
     "challengeId": "C036",
     "biasId": "B012",
     "biasName": "False Consensus Effect",
-    "statement": "\"Two people agreed in a meeting — so the manager assumed the whole team supports the policy.\"",
+    "statement": "\"Two people agreed in a meeting, so the manager assumed the whole team supports the policy.\"",
     "options": {
       "A": "In-group Bias",
       "B": "Availability Heuristic",
@@ -677,7 +677,7 @@
     },
     "correctAnswer": "C",
     "explanation": "A vocal few stood in for everyone.",
-    "reflectionQuestion": "When few speak up — what can you really conclude about the rest?",
+    "reflectionQuestion": "When few speak up, what can you really conclude about the rest?",
     "whyHumansDoThis": "Loud agreement is easy to notice. Silent disagreement is invisible.",
     "realWorldContext": "Work",
     "difficulty": "Ambiguous",
@@ -687,7 +687,7 @@
     "challengeId": "C037",
     "biasId": "B013",
     "biasName": "In-group Bias",
-    "statement": "\"Same mistake from my department gets a pass — from another department, it's a serious problem.\"",
+    "statement": "\"Same mistake from my department gets a pass, from another department, it's a serious problem.\"",
     "options": {
       "A": "False Consensus Effect",
       "B": "In-group Bias",
@@ -714,9 +714,9 @@
       "D": "In-group Bias"
     },
     "correctAnswer": "D",
-    "explanation": "Same action, different story — depending on the team.",
+    "explanation": "Same action, different story, depending on the team.",
     "reflectionQuestion": "Would you see it the same way if the teams were swapped?",
-    "whyHumansDoThis": "Loyalty shapes how we read ambiguous actions — we favor our side.",
+    "whyHumansDoThis": "Loyalty shapes how we read ambiguous actions. We favor our side.",
     "realWorldContext": "Sport",
     "difficulty": "Application",
     "learningObjective": "Learn to test your judgment by imagining the same action from the 'other side.'"
@@ -725,7 +725,7 @@
     "challengeId": "C039",
     "biasId": "B013",
     "biasName": "In-group Bias",
-    "statement": "\"I excuse a scandal from my party — but I'm outraged by the same thing from the other side.\"",
+    "statement": "\"I excuse a scandal from my party, but I'm outraged by the same thing from the other side.\"",
     "options": {
       "A": "False Consensus Effect",
       "B": "In-group Bias",
@@ -744,7 +744,7 @@
     "challengeId": "C040",
     "biasId": "B014",
     "biasName": "Out-group Homogeneity Bias",
-    "statement": "\"Marketing sees lots of personalities in marketing — but assumes everyone in engineering is the same.\"",
+    "statement": "\"Marketing sees lots of personalities in marketing, but assumes everyone in engineering is the same.\"",
     "options": {
       "A": "Out-group Homogeneity Bias",
       "B": "In-group Bias",
@@ -753,7 +753,7 @@
     },
     "correctAnswer": "A",
     "explanation": "Diversity inside my group; sameness assumed outside it.",
-    "reflectionQuestion": "Which groups do you see as diverse — and which do you lump together?",
+    "reflectionQuestion": "Which groups do you see as diverse, and which do you lump together?",
     "whyHumansDoThis": "We know individuals in our group. Other groups we only see from a distance.",
     "realWorldContext": "Work",
     "difficulty": "Recognition",
@@ -763,7 +763,7 @@
     "challengeId": "C041",
     "biasId": "B014",
     "biasName": "Out-group Homogeneity Bias",
-    "statement": "\"I've never lived there — but I'm sure people from that country all think the same on this issue.\"",
+    "statement": "\"I've never lived there, but I'm sure people from that country all think the same on this issue.\"",
     "options": {
       "A": "Halo Effect",
       "B": "Fundamental Attribution Error",
@@ -782,7 +782,7 @@
     "challengeId": "C042",
     "biasId": "B014",
     "biasName": "Out-group Homogeneity Bias",
-    "statement": "\"A headline says 'young people today' all think one way — but we'd never describe our own generation that simply.\"",
+    "statement": "\"A headline says 'young people today' all think one way, but we'd never describe our own generation that simply.\"",
     "options": {
       "A": "Out-group Homogeneity Bias",
       "B": "In-group Bias",
@@ -820,7 +820,7 @@
     "challengeId": "C044",
     "biasId": "B015",
     "biasName": "Framing Effect",
-    "statement": "\"'90% fat free' sells better than '10% fat' — same product on the label.\"",
+    "statement": "\"'90% fat free' sells better than '10% fat', same product on the label.\"",
     "options": {
       "A": "Confirmation Bias",
       "B": "Framing Effect",
@@ -830,7 +830,7 @@
     "correctAnswer": "B",
     "explanation": "Positive wording beat equivalent negative wording.",
     "reflectionQuestion": "Chosen a product because of the label, not the content?",
-    "whyHumansDoThis": "Positive-sounding words trigger a warmer gut reaction — facts aside.",
+    "whyHumansDoThis": "Positive-sounding words trigger a warmer gut reaction. Facts aside.",
     "realWorldContext": "Marketing",
     "difficulty": "Application",
     "learningObjective": "Learn to check the actual numbers behind marketing language, not just the wording used."
@@ -839,7 +839,7 @@
     "challengeId": "C045",
     "biasId": "B015",
     "biasName": "Framing Effect",
-    "statement": "\"One side says a policy saves 200 lives. The other says it fails to save 100 — same outcome, different frame.\"",
+    "statement": "\"One side says a policy saves 200 lives. The other says it fails to save 100, same outcome, different frame.\"",
     "options": {
       "A": "Anchoring Bias",
       "B": "Loss Aversion",
@@ -858,7 +858,7 @@
     "challengeId": "C046",
     "biasId": "B016",
     "biasName": "Loss Aversion",
-    "statement": "\"Losing $1,000 hurts more than gaining $1,000 feels good — same amount.\"",
+    "statement": "\"Losing $1,000 hurts more than gaining $1,000 feels good, same amount.\"",
     "options": {
       "A": "Status Quo Bias",
       "B": "Framing Effect",
@@ -886,8 +886,8 @@
     },
     "correctAnswer": "A",
     "explanation": "Losing what we have feels worse than gaining the same amount.",
-    "reflectionQuestion": "Last negotiation — fighting harder to keep or to gain?",
-    "whyHumansDoThis": "Losses are felt more intensely than equivalent gains — often about twice as much.",
+    "reflectionQuestion": "Last negotiation, fighting harder to keep or to gain?",
+    "whyHumansDoThis": "Losses are felt more intensely than equivalent gains, often about twice as much.",
     "realWorldContext": "Negotiation",
     "difficulty": "Application",
     "learningObjective": "Learn to evaluate gains and losses of equal size with the same level of effort."
@@ -896,7 +896,7 @@
     "challengeId": "C048",
     "biasId": "B016",
     "biasName": "Loss Aversion",
-    "statement": "\"I keep a gym membership I never use — canceling feels like losing something.\"",
+    "statement": "\"I keep a gym membership I never use. Canceling feels like losing something.\"",
     "options": {
       "A": "Status Quo Bias",
       "B": "Framing Effect",
@@ -905,8 +905,8 @@
     },
     "correctAnswer": "C",
     "explanation": "Avoiding the feeling of loss beats the logic of stopping payment.",
-    "reflectionQuestion": "Keeping something unused — value, or just fear of losing it?",
-    "whyHumansDoThis": "'Losing' something — even unused — can outweigh the clear case for letting go.",
+    "reflectionQuestion": "Keeping something unused. Value, or just fear of losing it?",
+    "whyHumansDoThis": "'Losing' something, even unused, can outweigh the clear case for letting go.",
     "realWorldContext": "Everyday life",
     "difficulty": "Ambiguous",
     "learningObjective": "Learn to separate the feeling of loss from the actual future costs and benefits of a decision."
@@ -915,7 +915,7 @@
     "challengeId": "C049",
     "biasId": "B017",
     "biasName": "Optimism Bias",
-    "statement": "\"I smoke but tell myself I'm less likely to get sick than other smokers — no real reason why.\"",
+    "statement": "\"I smoke but tell myself I'm less likely to get sick than other smokers, with no real reason why.\"",
     "options": {
       "A": "Dunning-Kruger Effect",
       "B": "Optimism Bias",
@@ -934,7 +934,7 @@
     "challengeId": "C050",
     "biasId": "B017",
     "biasName": "Optimism Bias",
-    "statement": "\"We always estimate projects will finish early — despite a long history of running late.\"",
+    "statement": "\"We always estimate projects will finish early, despite a long history of running late.\"",
     "options": {
       "A": "Self-serving Bias",
       "B": "Status Quo Bias",
@@ -943,7 +943,7 @@
     },
     "correctAnswer": "D",
     "explanation": "Past delays get ignored for a hopeful new estimate.",
-    "reflectionQuestion": "Does planning use real history — or just this project's best case?",
+    "reflectionQuestion": "Does planning use real history, or just this project's best case?",
     "whyHumansDoThis": "We picture the best outcome for our own plans and discount past slip-ups.",
     "realWorldContext": "Work",
     "difficulty": "Application",
@@ -953,7 +953,7 @@
     "challengeId": "C051",
     "biasId": "B017",
     "biasName": "Optimism Bias",
-    "statement": "\"I'm not saving for retirement — I'll 'figure it out later' and assume I'll earn more than stats suggest.\"",
+    "statement": "\"I'm not saving for retirement. I'll 'figure it out later' and assume I'll earn more than stats suggest.\"",
     "options": {
       "A": "Dunning-Kruger Effect",
       "B": "Optimism Bias",
@@ -962,7 +962,7 @@
     },
     "correctAnswer": "B",
     "explanation": "A rosier-than-average future assumed without proof.",
-    "reflectionQuestion": "Is your plan based on realistic odds — or a hoped-for best case?",
+    "reflectionQuestion": "Is your plan based on realistic odds, or a hoped-for best case?",
     "whyHumansDoThis": "An optimistic future feels easier than facing uncertain odds.",
     "realWorldContext": "Finance",
     "difficulty": "Ambiguous",
@@ -972,7 +972,7 @@
     "challengeId": "C052",
     "biasId": "B018",
     "biasName": "Status Quo Bias",
-    "statement": "\"I stayed in my company's default retirement plan — even though a better one needed just one form.\"",
+    "statement": "\"I stayed in my company's default retirement plan, even though a better one needed just one form.\"",
     "options": {
       "A": "Status Quo Bias",
       "B": "Loss Aversion",
@@ -991,7 +991,7 @@
     "challengeId": "C053",
     "biasId": "B018",
     "biasName": "Status Quo Bias",
-    "statement": "\"We keep outdated software because switching feels risky — though the new system would clearly save time and money.\"",
+    "statement": "\"We keep outdated software because switching feels risky, though the new system would clearly save time and money.\"",
     "options": {
       "A": "Sunk Cost Fallacy",
       "B": "Optimism Bias",
@@ -1010,7 +1010,7 @@
     "challengeId": "C054",
     "biasId": "B018",
     "biasName": "Status Quo Bias",
-    "statement": "\"I've kept my phone's default settings for years — assuming the manufacturer picked the best ones.\"",
+    "statement": "\"I've kept my phone's default settings for years, assuming the manufacturer picked the best ones.\"",
     "options": {
       "A": "Status Quo Bias",
       "B": "Loss Aversion",
@@ -1019,7 +1019,7 @@
     },
     "correctAnswer": "A",
     "explanation": "Default was treated as best without checking.",
-    "reflectionQuestion": "Default settings you've never questioned — phone, habits, anything?",
+    "reflectionQuestion": "Default settings you've never questioned. Phone, habits, anything?",
     "whyHumansDoThis": "Defaults feel like a recommendation. Changing them takes mental effort.",
     "realWorldContext": "Everyday life",
     "difficulty": "Ambiguous",
@@ -1067,7 +1067,7 @@
     "challengeId": "C057",
     "biasId": "B019",
     "biasName": "Dunning-Kruger Effect",
-    "statement": "\"A few articles online — and I felt more sure about my symptoms than the doctor with thousands of cases.\"",
+    "statement": "\"A few articles online, and I felt more sure about my symptoms than the doctor with thousands of cases.\"",
     "options": {
       "A": "Optimism Bias",
       "B": "Self-serving Bias",
@@ -1076,7 +1076,7 @@
     },
     "correctAnswer": "D",
     "explanation": "Surface reading felt like real expertise.",
-    "reflectionQuestion": "When is your own research enough — and when do you need a pro?",
+    "reflectionQuestion": "When is your own research enough, and when do you need a pro?",
     "whyHumansDoThis": "A little information can feel complete when depth is still missing.",
     "realWorldContext": "Health",
     "difficulty": "Ambiguous",
@@ -1086,7 +1086,7 @@
     "challengeId": "C058",
     "biasId": "B020",
     "biasName": "Authority Bias",
-    "statement": "\"I trusted a diet tip from my doctor — even though it wasn't their area of expertise.\"",
+    "statement": "\"I trusted a diet tip from my doctor, even though it wasn't their area of expertise.\"",
     "options": {
       "A": "Framing Effect",
       "B": "Confirmation Bias",
@@ -1096,7 +1096,7 @@
     "correctAnswer": "C",
     "explanation": "General authority stretched to a specific claim.",
     "reflectionQuestion": "Does their authority actually match this specific advice?",
-    "whyHumansDoThis": "Titles and status become shortcuts for trust — instead of checking each claim.",
+    "whyHumansDoThis": "Titles and status become shortcuts for trust, instead of checking each claim.",
     "realWorldContext": "Health",
     "difficulty": "Recognition",
     "learningObjective": "Learn to check whether someone's authority is actually relevant to the specific claim they're making."
@@ -1124,7 +1124,7 @@
     "challengeId": "C060",
     "biasId": "B020",
     "biasName": "Authority Bias",
-    "statement": "\"An actor who played a doctor on TV comments on real medicine — and viewers partly trust them because of the role.\"",
+    "statement": "\"An actor who played a doctor on TV comments on real medicine, and viewers partly trust them because of the role.\"",
     "options": {
       "A": "Framing Effect",
       "B": "Confirmation Bias",
@@ -1162,7 +1162,7 @@
     "challengeId": "C062",
     "biasId": "B021",
     "biasName": "Planning Fallacy",
-    "statement": "\"We left for the airport 'with plenty of time' — and still sprinted to the gate because packing took longer than expected.\"",
+    "statement": "\"We left for the airport 'with plenty of time', and still sprinted to the gate because packing took longer than expected.\"",
     "options": {
       "A": "Normalcy Bias",
       "B": "Planning Fallacy",
@@ -1181,7 +1181,7 @@
     "challengeId": "C063",
     "biasId": "B021",
     "biasName": "Planning Fallacy",
-    "statement": "\"'I'll just tidy the kitchen before guests arrive' — then the whole evening slipped because small jobs kept appearing.\"",
+    "statement": "\"'I'll just tidy the kitchen before guests arrive', then the whole evening slipped because small jobs kept appearing.\"",
     "options": {
       "A": "Planning Fallacy",
       "B": "Sunk Cost Fallacy",
@@ -1200,7 +1200,7 @@
     "challengeId": "C064",
     "biasId": "B022",
     "biasName": "Recency Bias",
-    "statement": "\"One bad week at work made me feel like I'm failing — even though the last six months went well.\"",
+    "statement": "\"One bad week at work made me feel like I'm failing, even though the last six months went well.\"",
     "options": {
       "A": "Negativity Bias",
       "B": "Recency Bias",
@@ -1219,7 +1219,7 @@
     "challengeId": "C065",
     "biasId": "B022",
     "biasName": "Recency Bias",
-    "statement": "\"After one great month of saving, I felt rich — and spent more, forgetting the tighter months before.\"",
+    "statement": "\"After one great month of saving, I felt rich, and spent more, forgetting the tighter months before.\"",
     "options": {
       "A": "Optimism Bias",
       "B": "Recency Bias",
@@ -1238,7 +1238,7 @@
     "challengeId": "C066",
     "biasId": "B022",
     "biasName": "Recency Bias",
-    "statement": "\"My friend cancelled once last week, so I thought they were pulling away — though they'd been reliable for years.\"",
+    "statement": "\"My friend cancelled once last week, so I thought they were pulling away, though they'd been reliable for years.\"",
     "options": {
       "A": "Fundamental Attribution Error",
       "B": "Recency Bias",
@@ -1257,7 +1257,7 @@
     "challengeId": "C067",
     "biasId": "B023",
     "biasName": "Bandwagon Effect",
-    "statement": "\"Everyone at work switched to a new app, so I did too — without checking if it actually helped me.\"",
+    "statement": "\"Everyone at work switched to a new app, so I did too, without checking if it actually helped me.\"",
     "options": {
       "A": "Bandwagon Effect",
       "B": "Authority Bias",
@@ -1267,7 +1267,7 @@
     "correctAnswer": "A",
     "explanation": "Popularity became the reason to join in.",
     "reflectionQuestion": "Have you adopted something mainly because others already had?",
-    "whyHumansDoThis": "If many people are doing it, it can feel validated — even before we test it ourselves.",
+    "whyHumansDoThis": "If many people are doing it, it can feel validated, even before we test it ourselves.",
     "realWorldContext": "Work",
     "difficulty": "Recognition",
     "learningObjective": "Learn to separate 'everyone is doing it' from 'this is right for me.'"
@@ -1276,7 +1276,7 @@
     "challengeId": "C068",
     "biasId": "B023",
     "biasName": "Bandwagon Effect",
-    "statement": "\"I bought the coat everyone was posting online — and only later wondered if I actually liked it.\"",
+    "statement": "\"I bought the coat everyone was posting online, and only later wondered if I actually liked it.\"",
     "options": {
       "A": "Halo Effect",
       "B": "Confirmation Bias",
@@ -1295,7 +1295,7 @@
     "challengeId": "C069",
     "biasId": "B023",
     "biasName": "Bandwagon Effect",
-    "statement": "\"The whole group wanted the same restaurant, so I went along — even though I wanted something quieter.\"",
+    "statement": "\"The whole group wanted the same restaurant, so I went along, even though I wanted something quieter.\"",
     "options": {
       "A": "False Consensus Effect",
       "B": "In-group Bias",
@@ -1333,7 +1333,7 @@
     "challengeId": "C071",
     "biasId": "B024",
     "biasName": "Mere Exposure Effect",
-    "statement": "\"The new colleague seemed awkward at first — then likeable after a few lunches together.\"",
+    "statement": "\"The new colleague seemed awkward at first, then likeable after a few lunches together.\"",
     "options": {
       "A": "Halo Effect",
       "B": "Mere Exposure Effect",
@@ -1352,7 +1352,7 @@
     "challengeId": "C072",
     "biasId": "B024",
     "biasName": "Mere Exposure Effect",
-    "statement": "\"I chose the logo design we'd seen in every mock-up — not because it was best, but because it felt right.\"",
+    "statement": "\"I chose the logo design we'd seen in every mock-up, not because it was best, but because it felt right.\"",
     "options": {
       "A": "Status Quo Bias",
       "B": "Choice-Supportive Bias",
@@ -1371,7 +1371,7 @@
     "challengeId": "C073",
     "biasId": "B025",
     "biasName": "Endowment Effect",
-    "statement": "\"I wouldn't pay £80 for that mug in a shop — but I also don't want to sell mine for £80.\"",
+    "statement": "\"I wouldn't pay £80 for that mug in a shop, but I also don't want to sell mine for £80.\"",
     "options": {
       "A": "Sunk Cost Fallacy",
       "B": "Endowment Effect",
@@ -1409,7 +1409,7 @@
     "challengeId": "C075",
     "biasId": "B025",
     "biasName": "Endowment Effect",
-    "statement": "\"I priced my childhood books higher than identical copies online — because they had been on my shelf.\"",
+    "statement": "\"I priced my childhood books higher than identical copies online, because they had been on my shelf.\"",
     "options": {
       "A": "Anchoring Bias",
       "B": "Endowment Effect",
@@ -1447,7 +1447,7 @@
     "challengeId": "C077",
     "biasId": "B026",
     "biasName": "Gambler's Fallacy",
-    "statement": "\"After three rainy weekends, I packed for sun — because it 'had to' change soon.\"",
+    "statement": "\"After three rainy weekends, I packed for sun, because it 'had to' change soon.\"",
     "options": {
       "A": "Gambler's Fallacy",
       "B": "Optimism Bias",
@@ -1466,7 +1466,7 @@
     "challengeId": "C078",
     "biasId": "B026",
     "biasName": "Gambler's Fallacy",
-    "statement": "\"Our team lost twice, so I felt the next match was almost guaranteed — as if losses had to be repaid.\"",
+    "statement": "\"Our team lost twice, so I felt the next match was almost guaranteed, as if losses had to be repaid.\"",
     "options": {
       "A": "Optimism Bias",
       "B": "Gambler's Fallacy",
@@ -1504,7 +1504,7 @@
     "challengeId": "C080",
     "biasId": "B027",
     "biasName": "Clustering Illusion",
-    "statement": "\"Two buses arrived together, so I concluded the schedule was broken — though it might have been chance.\"",
+    "statement": "\"Two buses arrived together, so I concluded the schedule was broken, though it might have been chance.\"",
     "options": {
       "A": "Gambler's Fallacy",
       "B": "Clustering Illusion",
@@ -1523,7 +1523,7 @@
     "challengeId": "C081",
     "biasId": "B027",
     "biasName": "Clustering Illusion",
-    "statement": "\"Three friends got colds the same week, so I blamed the restaurant — with no real link.\"",
+    "statement": "\"Three friends got colds the same week, so I blamed the restaurant, with no real link.\"",
     "options": {
       "A": "Illusory Correlation",
       "B": "Base Rate Neglect",
@@ -1542,7 +1542,7 @@
     "challengeId": "C082",
     "biasId": "B028",
     "biasName": "Representativeness Heuristic",
-    "statement": "\"Quiet, careful, loves reading — I guessed librarian, not salesperson, without checking the odds.\"",
+    "statement": "\"Quiet, careful, loves reading: I guessed librarian, not salesperson, without checking the odds.\"",
     "options": {
       "A": "Base Rate Neglect",
       "B": "Representativeness Heuristic",
@@ -1561,7 +1561,7 @@
     "challengeId": "C083",
     "biasId": "B028",
     "biasName": "Representativeness Heuristic",
-    "statement": "\"The polished speaker seemed like a great analyst — though their numbers did not hold up.\"",
+    "statement": "\"The polished speaker seemed like a great analyst, though their numbers did not hold up.\"",
     "options": {
       "A": "Halo Effect",
       "B": "Representativeness Heuristic",
@@ -1580,7 +1580,7 @@
     "challengeId": "C084",
     "biasId": "B028",
     "biasName": "Representativeness Heuristic",
-    "statement": "\"A startup with a sleek office felt destined to succeed — more than a scrappy one with better sales.\"",
+    "statement": "\"A startup with a sleek office felt destined to succeed, more than a scrappy one with better sales.\"",
     "options": {
       "A": "Halo Effect",
       "B": "Survivorship Bias",
@@ -1599,7 +1599,7 @@
     "challengeId": "C085",
     "biasId": "B029",
     "biasName": "Base Rate Neglect",
-    "statement": "\"After one dramatic news story, I worried the problem was everywhere — though it is actually rare.\"",
+    "statement": "\"After one dramatic news story, I worried the problem was everywhere, though it is actually rare.\"",
     "options": {
       "A": "Availability Heuristic",
       "B": "Base Rate Neglect",
@@ -1618,7 +1618,7 @@
     "challengeId": "C086",
     "biasId": "B029",
     "biasName": "Base Rate Neglect",
-    "statement": "\"The test came back positive, and I panicked — forgetting how often false positives happen in screening.\"",
+    "statement": "\"The test came back positive, and I panicked, forgetting how often false positives happen in screening.\"",
     "options": {
       "A": "Availability Heuristic",
       "B": "Base Rate Neglect",
@@ -1637,7 +1637,7 @@
     "challengeId": "C087",
     "biasId": "B029",
     "biasName": "Base Rate Neglect",
-    "statement": "\"She matched the profile perfectly, so I was sure she was the right hire — though most strong profiles still fail.\"",
+    "statement": "\"She matched the profile perfectly, so I was sure she was the right hire, though most strong profiles still fail.\"",
     "options": {
       "A": "Representativeness Heuristic",
       "B": "Halo Effect",
@@ -1675,7 +1675,7 @@
     "challengeId": "C089",
     "biasId": "B030",
     "biasName": "Peak-End Rule",
-    "statement": "\"The dentist visit hurt most at the end, so I remembered it as painful — though most of it was fine.\"",
+    "statement": "\"The dentist visit hurt most at the end, so I remembered it as painful, though most of it was fine.\"",
     "options": {
       "A": "Negativity Bias",
       "B": "Peak-End Rule",
@@ -1694,7 +1694,7 @@
     "challengeId": "C090",
     "biasId": "B030",
     "biasName": "Peak-End Rule",
-    "statement": "\"One amazing dessert at the end made me rave about a restaurant — even though the main course was average.\"",
+    "statement": "\"One amazing dessert at the end made me rave about a restaurant, even though the main course was average.\"",
     "options": {
       "A": "Halo Effect",
       "B": "Peak-End Rule",
@@ -1713,7 +1713,7 @@
     "challengeId": "C091",
     "biasId": "B031",
     "biasName": "Choice-Supportive Bias",
-    "statement": "\"After buying the car, I kept noticing perks — and forgot the flaws I worried about in the showroom.\"",
+    "statement": "\"After buying the car, I kept noticing perks, and forgot the flaws I worried about in the showroom.\"",
     "options": {
       "A": "Confirmation Bias",
       "B": "Choice-Supportive Bias",
@@ -1723,7 +1723,7 @@
     "correctAnswer": "B",
     "explanation": "Memory tilted toward making the purchase look smarter after it was made.",
     "reflectionQuestion": "After a big purchase, did you start defending it more than you questioned it beforehand?",
-    "whyHumansDoThis": "Once we choose, we want to feel we chose well — so the mind edits the story.",
+    "whyHumansDoThis": "Once we choose, we want to feel we chose well, so the mind edits the story.",
     "realWorldContext": "Finance",
     "difficulty": "Recognition",
     "learningObjective": "Learn that post-choice memory often flatters the option you picked."
@@ -1732,7 +1732,7 @@
     "challengeId": "C092",
     "biasId": "B031",
     "biasName": "Choice-Supportive Bias",
-    "statement": "\"I moved cities and told everyone it was perfect — though I had serious doubts the week before.\"",
+    "statement": "\"I moved cities and told everyone it was perfect, though I had serious doubts the week before.\"",
     "options": {
       "A": "Optimism Bias",
       "B": "Choice-Supportive Bias",
@@ -1751,7 +1751,7 @@
     "challengeId": "C093",
     "biasId": "B031",
     "biasName": "Choice-Supportive Bias",
-    "statement": "\"The holiday I picked now feels like the best option — even though the other plans looked just as good.\"",
+    "statement": "\"The holiday I picked now feels like the best option, even though the other plans looked just as good.\"",
     "options": {
       "A": "Choice-Supportive Bias",
       "B": "Peak-End Rule",
@@ -1808,7 +1808,7 @@
     "challengeId": "C096",
     "biasId": "B032",
     "biasName": "Illusion of Control",
-    "statement": "\"When my team is losing, I change seats — as if where I sit could affect the score.\"",
+    "statement": "\"When my team is losing, I change seats, as if where I sit could affect the score.\"",
     "options": {
       "A": "Optimism Bias",
       "B": "Illusion of Control",
@@ -1827,7 +1827,7 @@
     "challengeId": "C097",
     "biasId": "B033",
     "biasName": "Spotlight Effect",
-    "statement": "\"I spilled coffee on my shirt and felt everyone stared — but nobody mentioned it all day.\"",
+    "statement": "\"I spilled coffee on my shirt and felt everyone stared, but nobody mentioned it all day.\"",
     "options": {
       "A": "Negativity Bias",
       "B": "Spotlight Effect",
@@ -1846,7 +1846,7 @@
     "challengeId": "C098",
     "biasId": "B033",
     "biasName": "Spotlight Effect",
-    "statement": "\"I thought my bad haircut was obvious to everyone — my friends said they hadn't noticed.\"",
+    "statement": "\"I thought my bad haircut was obvious to everyone. My friends said they hadn't noticed.\"",
     "options": {
       "A": "Spotlight Effect",
       "B": "Negativity Bias",
@@ -1865,7 +1865,7 @@
     "challengeId": "C099",
     "biasId": "B033",
     "biasName": "Spotlight Effect",
-    "statement": "\"I stumbled over one word in a talk and replayed it for days — the audience moved on in seconds.\"",
+    "statement": "\"I stumbled over one word in a talk and replayed it for days. The audience moved on in seconds.\"",
     "options": {
       "A": "Negativity Bias",
       "B": "Spotlight Effect",
@@ -1884,7 +1884,7 @@
     "challengeId": "C100",
     "biasId": "B034",
     "biasName": "Cognitive Dissonance",
-    "statement": "\"I said I'd cut back on sugar — then told myself one biscuit 'doesn't count' after a hard day.\"",
+    "statement": "\"I said I'd cut back on sugar, then told myself one biscuit 'doesn't count' after a hard day.\"",
     "options": {
       "A": "Self-serving Bias",
       "B": "Cognitive Dissonance",
@@ -1903,7 +1903,7 @@
     "challengeId": "C101",
     "biasId": "B034",
     "biasName": "Cognitive Dissonance",
-    "statement": "\"I spent a lot on a course I rarely use — so I started saying it is 'investing in myself.'\"",
+    "statement": "\"I spent a lot on a course I rarely use, so I started saying it is 'investing in myself.'\"",
     "options": {
       "A": "Sunk Cost Fallacy",
       "B": "Choice-Supportive Bias",
@@ -2036,7 +2036,7 @@
     "challengeId": "C108",
     "biasId": "B036",
     "biasName": "Normalcy Bias",
-    "statement": "\"People said the company was struggling, but I ignored it — we'd been stable for years.\"",
+    "statement": "\"People said the company was struggling, but I ignored it, we'd been stable for years.\"",
     "options": {
       "A": "Confirmation Bias",
       "B": "Normalcy Bias",
@@ -2055,7 +2055,7 @@
     "challengeId": "C109",
     "biasId": "B037",
     "biasName": "Curse of Knowledge",
-    "statement": "\"I explained the form in two minutes — then watched a new starter get lost on step one.\"",
+    "statement": "\"I explained the form in two minutes, then watched a new starter get lost on step one.\"",
     "options": {
       "A": "Curse of Knowledge",
       "B": "Dunning-Kruger Effect",
@@ -2074,7 +2074,7 @@
     "challengeId": "C110",
     "biasId": "B037",
     "biasName": "Curse of Knowledge",
-    "statement": "\"My parent kept asking basic phone questions, and I got impatient — forgetting I once needed the same help.\"",
+    "statement": "\"My parent kept asking basic phone questions, and I got impatient, forgetting I once needed the same help.\"",
     "options": {
       "A": "Fundamental Attribution Error",
       "B": "Curse of Knowledge",
@@ -2093,7 +2093,7 @@
     "challengeId": "C111",
     "biasId": "B037",
     "biasName": "Curse of Knowledge",
-    "statement": "\"The teacher said the maths was 'obvious' — but half the class was still lost on the first step.\"",
+    "statement": "\"The teacher said the maths was 'obvious', but half the class was still lost on the first step.\"",
     "options": {
       "A": "Authority Bias",
       "B": "Curse of Knowledge",
@@ -2112,7 +2112,7 @@
     "challengeId": "C112",
     "biasId": "B038",
     "biasName": "Illusory Correlation",
-    "statement": "\"Every time I wear this shirt, meetings go well — so now I call it my lucky shirt.\"",
+    "statement": "\"Every time I wear this shirt, meetings go well, so now I call it my lucky shirt.\"",
     "options": {
       "A": "Illusory Correlation",
       "B": "Clustering Illusion",
@@ -2131,7 +2131,7 @@
     "challengeId": "C113",
     "biasId": "B038",
     "biasName": "Illusory Correlation",
-    "statement": "\"I ate sugar and got a headache — so I blamed sugar, ignoring the many sweet days with no headache.\"",
+    "statement": "\"I ate sugar and got a headache, so I blamed sugar, ignoring the many sweet days with no headache.\"",
     "options": {
       "A": "Availability Heuristic",
       "B": "Illusory Correlation",
@@ -2226,7 +2226,7 @@
     "challengeId": "C118",
     "biasId": "B040",
     "biasName": "Illusory Truth Effect",
-    "statement": "\"I'd heard the health claim so many times that it started sounding true — even though I never checked it.\"",
+    "statement": "\"I'd heard the health claim so many times that it started sounding true, even though I never checked it.\"",
     "options": {
       "A": "Confirmation Bias",
       "B": "Illusory Truth Effect",
@@ -2245,7 +2245,7 @@
     "challengeId": "C119",
     "biasId": "B040",
     "biasName": "Illusory Truth Effect",
-    "statement": "\"The same rumour kept appearing in my feed, so I began to believe it — no source ever checked out.\"",
+    "statement": "\"The same rumour kept appearing in my feed, so I began to believe it, no source ever checked out.\"",
     "options": {
       "A": "Bandwagon Effect",
       "B": "Illusory Truth Effect",
@@ -2264,7 +2264,7 @@
     "challengeId": "C120",
     "biasId": "B040",
     "biasName": "Illusory Truth Effect",
-    "statement": "\"A catchy slogan from the ad campaign stuck in my head — and later felt like a fact.\"",
+    "statement": "\"A catchy slogan from the ad campaign stuck in my head, and later felt like a fact.\"",
     "options": {
       "A": "Framing Effect",
       "B": "Illusory Truth Effect",
@@ -2302,7 +2302,7 @@
     "challengeId": "C122",
     "biasId": "B041",
     "biasName": "Actor-Observer Bias",
-    "statement": "\"My colleague snapped and I called them difficult — but when I snapped, it was stress.\"",
+    "statement": "\"My colleague snapped and I called them difficult, but when I snapped, it was stress.\"",
     "options": {
       "A": "Hostile Attribution Bias",
       "B": "Actor-Observer Bias",
@@ -2340,7 +2340,7 @@
     "challengeId": "C124",
     "biasId": "B042",
     "biasName": "Bias Blind Spot",
-    "statement": "\"My friends are so confirmation-biased — I, on the other hand, just look at facts.\"",
+    "statement": "\"My friends are so confirmation-biased. I, on the other hand, just look at facts.\"",
     "options": {
       "A": "Naive Realism",
       "B": "Bias Blind Spot",
@@ -2359,7 +2359,7 @@
     "challengeId": "C125",
     "biasId": "B042",
     "biasName": "Bias Blind Spot",
-    "statement": "\"Everyone at the meeting was being political — except me, I was just being honest.\"",
+    "statement": "\"Everyone at the meeting was being political. Except me, I was just being honest.\"",
     "options": {
       "A": "Naive Realism",
       "B": "In-group Bias",
@@ -2378,7 +2378,7 @@
     "challengeId": "C126",
     "biasId": "B042",
     "biasName": "Bias Blind Spot",
-    "statement": "\"I can list five biases my partner has — but struggle to name one I might share.\"",
+    "statement": "\"I can list five biases my partner has, but struggle to name one I might share.\"",
     "options": {
       "A": "Bias Blind Spot",
       "B": "Fundamental Attribution Error",
@@ -2416,7 +2416,7 @@
     "challengeId": "C128",
     "biasId": "B043",
     "biasName": "Naive Realism",
-    "statement": "\"If people were thinking clearly, they'd agree with me on this — disagreement means they're biased.\"",
+    "statement": "\"If people were thinking clearly, they'd agree with me on this, disagreement means they're biased.\"",
     "options": {
       "A": "Bias Blind Spot",
       "B": "Naive Realism",
@@ -2435,7 +2435,7 @@
     "challengeId": "C129",
     "biasId": "B043",
     "biasName": "Naive Realism",
-    "statement": "\"The facts are right in front of us — I don't see how there are two sides to this.\"",
+    "statement": "\"The facts are right in front of us. I don't see how there are two sides to this.\"",
     "options": {
       "A": "Confirmation Bias",
       "B": "Naive Realism",
@@ -2454,7 +2454,7 @@
     "challengeId": "C130",
     "biasId": "B044",
     "biasName": "Just-World Hypothesis",
-    "statement": "\"After the theft, people asked what he did to make himself a target — instead of blaming the thief.\"",
+    "statement": "\"After the theft, people asked what he did to make himself a target, instead of blaming the thief.\"",
     "options": {
       "A": "Hostile Attribution Bias",
       "B": "Just-World Hypothesis",
@@ -2492,7 +2492,7 @@
     "challengeId": "C132",
     "biasId": "B044",
     "biasName": "Just-World Hypothesis",
-    "statement": "\"The successful neighbour 'must have earned it' — the struggling one 'must have made bad choices.'\"",
+    "statement": "\"The successful neighbour 'must have earned it'. The struggling one 'must have made bad choices.'\"",
     "options": {
       "A": "Halo Effect",
       "B": "Just-World Hypothesis",
@@ -2511,7 +2511,7 @@
     "challengeId": "C133",
     "biasId": "B045",
     "biasName": "Hostile Attribution Bias",
-    "statement": "\"Their short email felt deliberately cold — though they might just have been busy.\"",
+    "statement": "\"Their short email felt deliberately cold, though they might just have been busy.\"",
     "options": {
       "A": "Negativity Bias",
       "B": "Hostile Attribution Bias",
@@ -2549,7 +2549,7 @@
     "challengeId": "C135",
     "biasId": "B045",
     "biasName": "Hostile Attribution Bias",
-    "statement": "\"Someone bumped me in the shop and I assumed they did it on purpose — they were just distracted.\"",
+    "statement": "\"Someone bumped me in the shop and I assumed they did it on purpose. They were just distracted.\"",
     "options": {
       "A": "Fundamental Attribution Error",
       "B": "Hostile Attribution Bias",
@@ -2568,7 +2568,7 @@
     "challengeId": "C136",
     "biasId": "B046",
     "biasName": "Egocentric Bias",
-    "statement": "\"Looking back, I remember doing most of the group project — my teammates remember differently.\"",
+    "statement": "\"Looking back, I remember doing most of the group project, my teammates remember differently.\"",
     "options": {
       "A": "Self-serving Bias",
       "B": "Egocentric Bias",
@@ -2587,7 +2587,7 @@
     "challengeId": "C137",
     "biasId": "B046",
     "biasName": "Egocentric Bias",
-    "statement": "\"I tell the story like I saved the day — though three people handled the crisis together.\"",
+    "statement": "\"I tell the story like I saved the day, though three people handled the crisis together.\"",
     "options": {
       "A": "Egocentric Bias",
       "B": "Self-serving Bias",
@@ -2625,7 +2625,7 @@
     "challengeId": "C139",
     "biasId": "B047",
     "biasName": "Illusion of Transparency",
-    "statement": "\"I was nervous giving the toast and felt everyone could tell — they said they had no idea.\"",
+    "statement": "\"I was nervous giving the toast and felt everyone could tell. They said they had no idea.\"",
     "options": {
       "A": "Spotlight Effect",
       "B": "Illusion of Transparency",
@@ -2644,7 +2644,7 @@
     "challengeId": "C140",
     "biasId": "B047",
     "biasName": "Illusion of Transparency",
-    "statement": "\"I thought my disappointment was obvious in the meeting, so I didn't say anything — and my manager was surprised when I brought it up later.\"",
+    "statement": "\"I thought my disappointment was obvious in the meeting, so I didn't say anything, and my manager was surprised when I brought it up later.\"",
     "options": {
       "A": "Illusion of Transparency",
       "B": "Spotlight Effect",
@@ -2663,7 +2663,7 @@
     "challengeId": "C141",
     "biasId": "B047",
     "biasName": "Illusion of Transparency",
-    "statement": "\"During the argument I was sure my hurt was written all over me — my partner said I looked calm.\"",
+    "statement": "\"During the argument I was sure my hurt was written all over me, my partner said I looked calm.\"",
     "options": {
       "A": "Illusion of Transparency",
       "B": "Spotlight Effect",
@@ -2682,7 +2682,7 @@
     "challengeId": "C142",
     "biasId": "B048",
     "biasName": "Hyperbolic Discounting",
-    "statement": "\"I'd rather have £40 today than £60 in a month — even though I know waiting is better.\"",
+    "statement": "\"I'd rather have £40 today than £60 in a month, even though I know waiting is better.\"",
     "options": {
       "A": "Loss Aversion",
       "B": "Hyperbolic Discounting",
@@ -2720,7 +2720,7 @@
     "challengeId": "C144",
     "biasId": "B048",
     "biasName": "Hyperbolic Discounting",
-    "statement": "\"I'll start the diet Monday — but when Monday comes, today's biscuit still wins.\"",
+    "statement": "\"I'll start the diet Monday, but when Monday comes, today's biscuit still wins.\"",
     "options": {
       "A": "Restraint Bias",
       "B": "Hyperbolic Discounting",
@@ -2777,7 +2777,7 @@
     "challengeId": "C147",
     "biasId": "B049",
     "biasName": "Ambiguity Effect",
-    "statement": "\"I skipped the new treatment because the side effects weren't fully known — and stuck with the older one I understood.\"",
+    "statement": "\"I skipped the new treatment because the side effects weren't fully known, and stuck with the older one I understood.\"",
     "options": {
       "A": "Normalcy Bias",
       "B": "Ambiguity Effect",
@@ -2796,7 +2796,7 @@
     "challengeId": "C148",
     "biasId": "B050",
     "biasName": "Identifiable Victim Effect",
-    "statement": "\"One child's story on the news moved me to donate — statistics about thousands hadn't.\"",
+    "statement": "\"One child's story on the news moved me to donate. Statistics about thousands hadn't.\"",
     "options": {
       "A": "Identifiable Victim Effect",
       "B": "Availability Heuristic",
@@ -2815,7 +2815,7 @@
     "challengeId": "C149",
     "biasId": "B050",
     "biasName": "Identifiable Victim Effect",
-    "statement": "\"The office raised money fast for a colleague's sick parent — broader charity drives rarely do as well.\"",
+    "statement": "\"The office raised money fast for a colleague's sick parent. Broader charity drives rarely do as well.\"",
     "options": {
       "A": "In-group Bias",
       "B": "Identifiable Victim Effect",
@@ -2834,7 +2834,7 @@
     "challengeId": "C150",
     "biasId": "B050",
     "biasName": "Identifiable Victim Effect",
-    "statement": "\"A campaign with one patient's photo got my attention — the chart with mortality rates did not.\"",
+    "statement": "\"A campaign with one patient's photo got my attention. The chart with mortality rates did not.\"",
     "options": {
       "A": "Framing Effect",
       "B": "Identifiable Victim Effect",
@@ -2853,7 +2853,7 @@
     "challengeId": "C151",
     "biasId": "B051",
     "biasName": "Restraint Bias",
-    "statement": "\"I bought one biscuit for later and said I'd stop at one — I ate four once I opened the pack.\"",
+    "statement": "\"I bought one biscuit for later and said I'd stop at one. I ate four once I opened the pack.\"",
     "options": {
       "A": "Hyperbolic Discounting",
       "B": "Restraint Bias",
@@ -2872,7 +2872,7 @@
     "challengeId": "C152",
     "biasId": "B051",
     "biasName": "Restraint Bias",
-    "statement": "\"I told myself I'd only check my phone once during dinner — and picked it up every few minutes.\"",
+    "statement": "\"I told myself I'd only check my phone once during dinner, and picked it up every few minutes.\"",
     "options": {
       "A": "Restraint Bias",
       "B": "Hyperbolic Discounting",
@@ -2891,7 +2891,7 @@
     "challengeId": "C153",
     "biasId": "B051",
     "biasName": "Restraint Bias",
-    "statement": "\"Before the party I said I wouldn't drink much — by midnight I'd lost count.\"",
+    "statement": "\"Before the party I said I wouldn't drink much. By midnight I'd lost count.\"",
     "options": {
       "A": "Optimism Bias",
       "B": "Restraint Bias",
@@ -2910,7 +2910,7 @@
     "challengeId": "C154",
     "biasId": "B052",
     "biasName": "Reactance",
-    "statement": "\"The moment my parent told me to tidy up, I wanted to do it less — even though I had planned to.\"",
+    "statement": "\"The moment my parent told me to tidy up, I wanted to do it less, even though I had planned to.\"",
     "options": {
       "A": "Reactance",
       "B": "Status Quo Bias",
@@ -2929,7 +2929,7 @@
     "challengeId": "C155",
     "biasId": "B052",
     "biasName": "Reactance",
-    "statement": "\"A 'limited time only' message made me want the deal more — mostly because I hated being pushed.\"",
+    "statement": "\"A 'limited time only' message made me want the deal more, mostly because I hated being pushed.\"",
     "options": {
       "A": "Loss Aversion",
       "B": "Reactance",
@@ -2948,7 +2948,7 @@
     "challengeId": "C156",
     "biasId": "B052",
     "biasName": "Reactance",
-    "statement": "\"My manager said I had to use the new form, so I dragged my feet — even though it might help.\"",
+    "statement": "\"My manager said I had to use the new form, so I dragged my feet, even though it might help.\"",
     "options": {
       "A": "Status Quo Bias",
       "B": "Reactance",
@@ -2967,7 +2967,7 @@
     "challengeId": "C157",
     "biasId": "B053",
     "biasName": "Ostrich Effect",
-    "statement": "\"I haven't opened my credit card app in weeks — the balance makes me tense.\"",
+    "statement": "\"I haven't opened my credit card app in weeks. The balance makes me tense.\"",
     "options": {
       "A": "Loss Aversion",
       "B": "Ostrich Effect",
@@ -3005,7 +3005,7 @@
     "challengeId": "C159",
     "biasId": "B053",
     "biasName": "Ostrich Effect",
-    "statement": "\"I saw the project was slipping but avoided the status meeting — hoping it would sort itself out.\"",
+    "statement": "\"I saw the project was slipping but avoided the status meeting, hoping it would sort itself out.\"",
     "options": {
       "A": "Optimism Bias",
       "B": "Ostrich Effect",
@@ -3043,7 +3043,7 @@
     "challengeId": "C161",
     "biasId": "B054",
     "biasName": "Zero-Sum Bias",
-    "statement": "\"If the other team gets more budget, I assume ours has to lose out — even in a growing company.\"",
+    "statement": "\"If the other team gets more budget, I assume ours has to lose out, even in a growing company.\"",
     "options": {
       "A": "Zero-Sum Bias",
       "B": "Framing Effect",
@@ -3062,7 +3062,7 @@
     "challengeId": "C162",
     "biasId": "B054",
     "biasName": "Zero-Sum Bias",
-    "statement": "\"My sibling's happy relationship somehow felt like a comment on mine — as if happiness were limited.\"",
+    "statement": "\"My sibling's happy relationship somehow felt like a comment on mine, as if happiness were limited.\"",
     "options": {
       "A": "Negativity Bias",
       "B": "Zero-Sum Bias",
@@ -3081,7 +3081,7 @@
     "challengeId": "C163",
     "biasId": "B055",
     "biasName": "Moral Luck",
-    "statement": "\"Two drivers rolled through the same stop sign — one got fined, one didn't. We called one reckless and one fine.\"",
+    "statement": "\"Two drivers rolled through the same stop sign. One got fined, one didn't. We called one reckless and one fine.\"",
     "options": {
       "A": "Fundamental Attribution Error",
       "B": "Moral Luck",
@@ -3119,7 +3119,7 @@
     "challengeId": "C165",
     "biasId": "B055",
     "biasName": "Moral Luck",
-    "statement": "\"A joke landed well in one room and offended in another — and we judged the teller's character differently each time.\"",
+    "statement": "\"A joke landed well in one room and offended in another, and we judged the teller's character differently each time.\"",
     "options": {
       "A": "Hostile Attribution Bias",
       "B": "Moral Luck",
@@ -3138,7 +3138,7 @@
     "challengeId": "C166",
     "biasId": "B056",
     "biasName": "Texas Sharpshooter Fallacy",
-    "statement": "\"After the fact, we pointed to three wins as proof of our strategy — ignoring all the misses.\"",
+    "statement": "\"After the fact, we pointed to three wins as proof of our strategy, ignoring all the misses.\"",
     "options": {
       "A": "Confirmation Bias",
       "B": "Texas Sharpshooter Fallacy",
@@ -3157,7 +3157,7 @@
     "challengeId": "C167",
     "biasId": "B056",
     "biasName": "Texas Sharpshooter Fallacy",
-    "statement": "\"All the best cafés seem to be on this street — but we only counted the good ones, not the weak ones nearby.\"",
+    "statement": "\"All the best cafés seem to be on this street, but we only counted the good ones, not the weak ones nearby.\"",
     "options": {
       "A": "Clustering Illusion",
       "B": "Texas Sharpshooter Fallacy",
@@ -3195,7 +3195,7 @@
     "challengeId": "C169",
     "biasId": "B057",
     "biasName": "Overconfidence Effect",
-    "statement": "\"I was 90% sure I knew the answer — and I was wrong.\"",
+    "statement": "\"I was 90% sure I knew the answer, and I was wrong.\"",
     "options": {
       "A": "Dunning-Kruger Effect",
       "B": "Overconfidence Effect",
@@ -3205,7 +3205,7 @@
     "correctAnswer": "B",
     "explanation": "Certainty ran ahead of actual accuracy.",
     "reflectionQuestion": "A time you felt completely sure and still missed?",
-    "whyHumansDoThis": "Confidence is a feeling, not a scorecard — but it often feels like proof.",
+    "whyHumansDoThis": "Confidence is a feeling, not a scorecard, but it often feels like proof.",
     "realWorldContext": "Learning",
     "difficulty": "Recognition",
     "learningObjective": "Learn to treat strong certainty as a signal to double-check, not to stop checking."
@@ -3214,7 +3214,7 @@
     "challengeId": "C170",
     "biasId": "B057",
     "biasName": "Overconfidence Effect",
-    "statement": "\"We estimated the project would definitely finish early — no one built in serious delay.\"",
+    "statement": "\"We estimated the project would definitely finish early. No one built in serious delay.\"",
     "options": {
       "A": "Planning Fallacy",
       "B": "Overconfidence Effect",
@@ -3233,7 +3233,7 @@
     "challengeId": "C171",
     "biasId": "B057",
     "biasName": "Overconfidence Effect",
-    "statement": "\"I only studied the questions I was sure about — and was surprised by the ones I 'knew' I'd get right.\"",
+    "statement": "\"I only studied the questions I was sure about, and was surprised by the ones I 'knew' I'd get right.\"",
     "options": {
       "A": "Confirmation Bias",
       "B": "Overconfidence Effect",
@@ -3271,7 +3271,7 @@
     "challengeId": "C173",
     "biasId": "B058",
     "biasName": "Pro-Innovation Bias",
-    "statement": "\"The hospital rolled out a new app for booking — but the phones worked fine and fewer older patients could use it.\"",
+    "statement": "\"The hospital rolled out a new app for booking, but the phones worked fine and fewer older patients could use it.\"",
     "options": {
       "A": "Pro-Innovation Bias",
       "B": "Semmelweis Reflex",
@@ -3290,7 +3290,7 @@
     "challengeId": "C174",
     "biasId": "B058",
     "biasName": "Pro-Innovation Bias",
-    "statement": "\"The school replaced a simple paper form with a complicated portal — because 'it's time to modernise.'\"",
+    "statement": "\"The school replaced a simple paper form with a complicated portal, because 'it's time to modernise.'\"",
     "options": {
       "A": "Pro-Innovation Bias",
       "B": "Curse of Knowledge",
@@ -3328,7 +3328,7 @@
     "challengeId": "C176",
     "biasId": "B059",
     "biasName": "Semmelweis Reflex",
-    "statement": "\"Doctors resisted handwashing at first — the idea clashed too hard with what they already believed.\"",
+    "statement": "\"Doctors resisted handwashing at first. The idea clashed too hard with what they already believed.\"",
     "options": {
       "A": "Authority Bias",
       "B": "Semmelweis Reflex",
@@ -3347,7 +3347,7 @@
     "challengeId": "C177",
     "biasId": "B059",
     "biasName": "Semmelweis Reflex",
-    "statement": "\"The office laughed off the intern's suggestion — then adopted the same idea when a senior manager repeated it.\"",
+    "statement": "\"The office laughed off the intern's suggestion, then adopted the same idea when a senior manager repeated it.\"",
     "options": {
       "A": "Authority Bias",
       "B": "Semmelweis Reflex",
@@ -3404,7 +3404,7 @@
     "challengeId": "C180",
     "biasId": "B060",
     "biasName": "Risk Compensation",
-    "statement": "\"The new handrails made the stairs feel safer — so I started texting while walking down them.\"",
+    "statement": "\"The new handrails made the stairs feel safer, so I started texting while walking down them.\"",
     "options": {
       "A": "Illusion of Control",
       "B": "Risk Compensation",
@@ -3414,7 +3414,7 @@
     "correctAnswer": "B",
     "explanation": "Added safety was partly cancelled by paying less attention.",
     "reflectionQuestion": "A safety feature that made you less careful in another way?",
-    "whyHumansDoThis": "When the environment feels safer, attention can drift — and attention is its own safety layer.",
+    "whyHumansDoThis": "When the environment feels safer, attention can drift, and attention is its own safety layer.",
     "realWorldContext": "Everyday life",
     "difficulty": "Ambiguous",
     "learningObjective": "Learn that safety improvements work best when behaviour does not loosen to match."

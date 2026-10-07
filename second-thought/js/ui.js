@@ -4,19 +4,63 @@
  */
 
 import { getCorrectFeedbackHtml, getIncorrectFeedbackHtml } from "./data-loader.js";
+import { formatBiasProgressLabel } from "./quiz-engine.js";
 
 function getRoundEncouragement(correct, total) {
   if (total === 0) return "";
-  if (correct === total) return "Sharp eye this round — you spotted them all.";
+  if (correct === total) return "Sharp eye this round. You spotted them all.";
   if (correct >= total - 1) return "Strong round. One to sit with.";
   if (correct >= Math.ceil(total / 2)) {
-    return "Good progress — noticing these patterns takes practice.";
+    return "Good progress. Noticing these patterns takes practice.";
   }
   return "Every miss is a chance to learn. No rush.";
 }
 
 function getModeLabel(playModes, mode) {
   return playModes.find((m) => m.id === mode)?.label ?? "This level";
+}
+
+/** Three-stage bar: learned / practicing / new (widths proportional to counts). */
+function renderBiasProgressBar(stages, { showLegend = false } = {}) {
+  const learned = stages?.learned || 0;
+  const practicing = stages?.practicing || 0;
+  const notStarted = stages?.new || 0;
+  const total = stages?.total || learned + practicing + notStarted;
+
+  if (total <= 0) return "";
+
+  const segments = [
+    { key: "learned", count: learned, label: "learned" },
+    { key: "practicing", count: practicing, label: "practicing" },
+    { key: "new", count: notStarted, label: "new" },
+  ].filter((seg) => seg.count > 0);
+
+  const barHtml = segments
+    .map(
+      (seg) =>
+        `<span class="bias-progress-seg is-${seg.key}" style="flex-grow:${seg.count}" title="${seg.count} ${seg.label}"></span>`
+    )
+    .join("");
+
+  const aria = segments.map((seg) => `${seg.count} ${seg.label}`).join(", ");
+
+  const legendHtml = showLegend
+    ? `<ul class="bias-progress-legend" aria-hidden="true">
+        <li><span class="bias-progress-swatch is-learned"></span> Learned</li>
+        <li><span class="bias-progress-swatch is-practicing"></span> Practicing</li>
+        <li><span class="bias-progress-swatch is-new"></span> New</li>
+      </ul>`
+    : "";
+
+  return `<div class="bias-progress-bar" role="img" aria-label="${aria}">${barHtml}</div>${legendHtml}`;
+}
+
+function renderBiasProgressBlock(modeLabel, stages, { showLegend = false } = {}) {
+  const label = formatBiasProgressLabel(modeLabel, stages);
+  return `
+    <p class="bias-progress-label">${label}</p>
+    ${renderBiasProgressBar(stages, { showLegend })}
+  `;
 }
 
 export class QuizUI {
@@ -141,7 +185,9 @@ export class QuizUI {
     this.el.quizScreen?.classList.add("hidden");
     this.el.finishScreen?.classList.add("hidden");
     this.el.footerNav?.classList.add("hidden");
-    this.el.headerTagline?.classList.remove("hidden");
+    // Welcome body already says this; keep the header line for step 2 only.
+    this.el.headerTagline?.classList.toggle("hidden", step === 1);
+    if (this.el.btnBack) this.el.btnBack.hidden = true;
     this.el.btnNext.hidden = true;
 
     this.el.onboardingStep1?.classList.toggle("hidden", step !== 1);
@@ -166,6 +212,7 @@ export class QuizUI {
     this.el.finishScreen?.classList.add("hidden");
     this.el.footerNav?.classList.add("hidden");
     this.el.headerTagline?.classList.add("hidden");
+    if (this.el.btnBack) this.el.btnBack.hidden = true;
     this.el.btnNext.hidden = true;
 
     if (!this.el.tierOptions) return;
@@ -181,14 +228,16 @@ export class QuizUI {
       const complete =
         summary.totalCount > 0 && summary.seenCount >= summary.totalCount;
 
+      const levelLabel = modeInfo?.label ?? summary.mode;
       button.innerHTML = `
         <span class="tier-option-top">
-          <span class="tier-option-label">${modeInfo?.label ?? summary.mode}</span>
+          <span class="tier-option-label">${levelLabel}</span>
           <span class="tier-option-progress">${summary.seenCount} / ${summary.totalCount}</span>
         </span>
         <span class="tier-option-subtitle">${modeInfo?.subtitle ?? ""}</span>
-        <span class="tier-option-mastery">${summary.masteryLine}</span>
-        <span class="tier-option-meta">${summary.biasCount} biases in this level</span>
+        <span class="bias-progress tier-option-bias-progress">
+          ${renderBiasProgressBlock(levelLabel, summary.stages)}
+        </span>
       `;
 
       if (complete) {
@@ -209,7 +258,13 @@ export class QuizUI {
     this.el.finishScreen.classList.add("hidden");
     this.el.footerNav?.classList.remove("hidden");
     this.el.headerTagline?.classList.add("hidden");
+    if (this.el.btnBack) this.el.btnBack.hidden = false;
     this.el.btnNext.hidden = false;
+  }
+
+  setNavState({ canGoBack = false, canGoNext = false } = {}) {
+    if (this.el.btnBack) this.el.btnBack.disabled = !canGoBack;
+    if (this.el.btnNext) this.el.btnNext.disabled = !canGoNext;
   }
 
   renderQuestion(challenge, progress) {
@@ -246,6 +301,7 @@ export class QuizUI {
 
     this.el.btnNext.disabled = true;
     this.el.btnNext.textContent = "Next →";
+    if (this.el.btnBack) this.el.btnBack.disabled = true;
 
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
@@ -258,7 +314,7 @@ export class QuizUI {
     });
   }
 
-  showFeedback(result) {
+  showFeedback(result, { animateCharacter = true } = {}) {
     const { isCorrect, selectedLetter, challenge } = result;
     const biasName = challenge.biasName;
 
@@ -294,7 +350,9 @@ export class QuizUI {
     this.el.feedback.classList.remove("hidden");
     this.el.feedback.classList.add("is-visible");
 
-    this.playCharacterReaction(isCorrect);
+    if (animateCharacter) {
+      this.playCharacterReaction(isCorrect);
+    }
     this.el.btnNext.disabled = false;
 
     requestAnimationFrame(() => {
@@ -426,6 +484,7 @@ export class QuizUI {
     this.el.finishScreen.classList.remove("hidden");
     this.el.footerNav?.classList.add("hidden");
     this.el.headerTagline?.classList.add("hidden");
+    if (this.el.btnBack) this.el.btnBack.hidden = true;
     this.el.btnNext.hidden = true;
 
     const modeLabel = getModeLabel(playModes, sessionMeta?.mode);
@@ -461,17 +520,25 @@ export class QuizUI {
     }
 
     if (this.el.finishLevelMastery) {
-      if (roundMastery?.masteryLine) {
-        this.el.finishLevelMastery.textContent = `${modeLabel} progress: ${roundMastery.masteryLine}`;
+      if (roundMastery?.stages) {
+        this.el.finishLevelMastery.innerHTML = renderBiasProgressBlock(
+          modeLabel,
+          roundMastery.stages,
+          { showLegend: true }
+        );
         this.el.finishLevelMastery.hidden = false;
       } else {
-        this.el.finishLevelMastery.textContent = "";
+        this.el.finishLevelMastery.innerHTML = "";
         this.el.finishLevelMastery.hidden = true;
       }
     }
 
+    const canRetry = Boolean(roundMastery?.practiceBiasIds?.length);
+    if (this.el.finishRetryGroup) {
+      this.el.finishRetryGroup.hidden = !canRetry;
+    }
     if (this.el.finishPracticeNote) {
-      if (roundMastery?.practiceNames?.length) {
+      if (canRetry && roundMastery?.practiceNames?.length) {
         this.el.finishPracticeNote.textContent = `Worth another look: ${roundMastery.practiceNames.join(", ")}`;
         this.el.finishPracticeNote.hidden = false;
       } else {
@@ -479,23 +546,34 @@ export class QuizUI {
         this.el.finishPracticeNote.hidden = true;
       }
     }
+    if (this.el.btnRetryMissed && canRetry) {
+      const count = roundMastery.practiceBiasIds.length;
+      this.el.btnRetryMissed.textContent =
+        count === 1 ? "Retry this" : "Retry these";
+    }
 
     if (sessionMeta && this.el.finishMessage) {
-      const { seenCount, totalCount, remainingInPool, sessionSize } = sessionMeta;
-
-      if (remainingInPool === 0) {
-        this.el.finishMessage.textContent =
-          `${modeLabel}: you've seen all ${totalCount} questions here. Next round in this level starts fresh.`;
-      } else if (remainingInPool < 5) {
-        this.el.finishMessage.textContent =
-          `${seenCount} of ${totalCount} questions seen. ${remainingInPool} new question${remainingInPool === 1 ? "" : "s"} left in this level.`;
+      if (sessionMeta.isRetry) {
+        this.el.finishMessage.textContent = canRetry
+          ? "Still a couple that slipped by. Retry again, or start a fresh round when you're ready."
+          : "Nice recovery. When you're ready, start another round for fresh questions.";
       } else {
-        this.el.finishMessage.textContent =
-          `${seenCount} of ${totalCount} questions seen in this level.`;
-      }
+        const { seenCount, totalCount, remainingInPool, sessionSize } = sessionMeta;
 
-      if (sessionSize < 5) {
-        this.el.finishMessage.textContent += ` (This round had ${sessionSize} questions.)`;
+        if (remainingInPool === 0) {
+          this.el.finishMessage.textContent =
+            `${modeLabel}: you've seen all ${totalCount} questions here. Next round in this level starts fresh.`;
+        } else if (remainingInPool < 5) {
+          this.el.finishMessage.textContent =
+            `${seenCount} of ${totalCount} questions seen. ${remainingInPool} new question${remainingInPool === 1 ? "" : "s"} left in this level.`;
+        } else {
+          this.el.finishMessage.textContent =
+            `${seenCount} of ${totalCount} questions seen in this level.`;
+        }
+
+        if (sessionSize < 5) {
+          this.el.finishMessage.textContent += ` (This round had ${sessionSize} questions.)`;
+        }
       }
     }
 

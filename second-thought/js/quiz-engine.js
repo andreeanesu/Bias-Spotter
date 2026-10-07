@@ -135,14 +135,35 @@ function getBiasStatus(record, challengeIdsForBias) {
   return "practicing";
 }
 
+/** Collapse familiar into practicing for a clear 3-stage view. */
+function toDisplayStages(counts) {
+  const learned = counts.learned || 0;
+  const practicing = (counts.practicing || 0) + (counts.familiar || 0);
+  const notStarted = counts.new || 0;
+  const total = counts.total || learned + practicing + notStarted;
+
+  return {
+    learned,
+    practicing,
+    new: notStarted,
+    total,
+  };
+}
+
 function formatMasteryCounts(counts) {
+  const stages = toDisplayStages(counts);
   const parts = [];
-  if (counts.learned) parts.push(`${counts.learned} learned`);
-  if (counts.familiar) parts.push(`${counts.familiar} familiar`);
-  if (counts.practicing) parts.push(`${counts.practicing} practicing`);
-  if (counts.new) parts.push(`${counts.new} new`);
-  if (parts.length === 0) return "No biases in this level yet";
+  if (stages.learned) parts.push(`${stages.learned} learned`);
+  if (stages.practicing) parts.push(`${stages.practicing} practicing`);
+  if (stages.new) parts.push(`${stages.new} new`);
+  if (parts.length === 0) {
+    return stages.total > 0 ? `${stages.total} new` : "No biases in this level yet";
+  }
   return parts.join(" · ");
+}
+
+function formatBiasProgressLabel(modeLabel, counts) {
+  return `${modeLabel} biases: ${formatMasteryCounts(counts)}`;
 }
 
 export class QuizEngine {
@@ -201,6 +222,7 @@ export class QuizEngine {
     const seenInPool = pool.filter((c) => this.seenIds.has(c.challengeId)).length;
     const biasCount = new Set(pool.map((c) => c.biasId)).size;
     const mastery = this.getMasteryCounts(mode);
+    const stages = toDisplayStages(mastery);
 
     return {
       mode,
@@ -209,6 +231,7 @@ export class QuizEngine {
       biasCount,
       remainingCount: pool.length - seenInPool,
       mastery,
+      stages,
       masteryLine: formatMasteryCounts(mastery),
     };
   }
@@ -302,28 +325,117 @@ export class QuizEngine {
     };
   }
 
+  getMissedBiasIdsFromSession() {
+    const missed = [];
+    const seen = new Set();
+    this.sessionResults.forEach((result) => {
+      if (!result.isCorrect && result.biasId && !seen.has(result.biasId)) {
+        seen.add(result.biasId);
+        missed.push(result.biasId);
+      }
+    });
+    return missed;
+  }
+
   getRoundMasterySummary() {
     const spotted = this.sessionResults.filter((r) => r.isCorrect).length;
     const practiceItems = [];
+    const practiceBiasIds = [];
     const seenPractice = new Set();
 
     this.sessionResults.forEach((result) => {
       if (!result.isCorrect && !seenPractice.has(result.biasId)) {
         seenPractice.add(result.biasId);
         practiceItems.push(result.biasName);
+        practiceBiasIds.push(result.biasId);
       }
     });
 
     const mastery = this.getMasteryCounts(this.mode);
+    const stages = toDisplayStages(mastery);
 
     return {
       spotted,
       toPractice: practiceItems.length,
       practiceNames: practiceItems,
+      practiceBiasIds,
       mastery,
+      stages,
       masteryLine: formatMasteryCounts(mastery),
       mode: this.mode,
+      isRetry: Boolean(this.sessionMeta?.isRetry),
     };
+  }
+
+  /**
+   * Short follow-up round: one question per bias missed in the round just finished.
+   * Prefers a different / unseen challenge for that bias when possible.
+   */
+  startRetrySession() {
+    if (!this.mode) throw new Error("Play mode not selected");
+
+    const missedBiasIds = this.getMissedBiasIdsFromSession().slice(0, SESSION_SIZE);
+    if (missedBiasIds.length === 0) {
+      return false;
+    }
+
+    const justAsked = new Set(
+      this.sessionChallenges.map((challenge) => challenge.challengeId)
+    );
+    const picked = [];
+
+    missedBiasIds.forEach((biasId) => {
+      const candidates = this.allChallenges.filter(
+        (challenge) => challenge.biasId === biasId
+      );
+      if (candidates.length === 0) return;
+
+      const preferred = candidates.filter(
+        (challenge) =>
+          !justAsked.has(challenge.challengeId) &&
+          !this.seenIds.has(challenge.challengeId)
+      );
+      const freshOther = candidates.filter(
+        (challenge) => !justAsked.has(challenge.challengeId)
+      );
+      const pool =
+        preferred.length > 0
+          ? preferred
+          : freshOther.length > 0
+            ? freshOther
+            : candidates;
+
+      const choice = shuffleArray(pool)[0];
+      if (choice) picked.push(choice);
+    });
+
+    if (picked.length === 0) return false;
+
+    picked.forEach((challenge) => {
+      this.seenIds.add(challenge.challengeId);
+    });
+    saveSeenIds(this.seenIds);
+
+    const pool = this.getPoolForMode(this.mode);
+    const seenInPool = pool.filter((c) => this.seenIds.has(c.challengeId)).length;
+
+    this.sessionChallenges = picked;
+    this.sessionMeta = {
+      mode: this.mode,
+      isRetry: true,
+      poolReset: false,
+      seenCount: seenInPool,
+      totalCount: pool.length,
+      remainingInPool: pool.length - seenInPool,
+      sessionSize: picked.length,
+    };
+
+    this.currentIndex = 0;
+    this.hasAnswered = false;
+    this.selectedLetter = null;
+    this.correctCount = 0;
+    this.sessionResults = [];
+    return true;
   }
 
   getSessionMeta() {
@@ -352,9 +464,11 @@ export class QuizEngine {
 
     this.recordBiasResult(challenge, isCorrect);
     this.sessionResults.push({
+      challengeId: challenge.challengeId,
       biasId: challenge.biasId,
       biasName: challenge.biasName,
       isCorrect,
+      selectedLetter: letter,
     });
 
     return {
@@ -367,17 +481,73 @@ export class QuizEngine {
     };
   }
 
+  getAnswerForIndex(index) {
+    const challenge = this.sessionChallenges[index];
+    if (!challenge) return null;
+    return (
+      this.sessionResults.find((r) => r.challengeId === challenge.challengeId) ??
+      null
+    );
+  }
+
+  getAnswerForCurrent() {
+    return this.getAnswerForIndex(this.currentIndex);
+  }
+
+  /** Rebuild a feedback payload for an already-answered question (review). */
+  getFeedbackForIndex(index) {
+    const challenge = this.sessionChallenges[index];
+    const prior = this.getAnswerForIndex(index);
+    if (!challenge || !prior) return null;
+
+    return {
+      isCorrect: prior.isCorrect,
+      selectedLetter: prior.selectedLetter,
+      selectedText: challenge.options[prior.selectedLetter],
+      correctLetter: challenge.correctAnswer,
+      correctText: challenge.correctOptionText,
+      challenge,
+    };
+  }
+
   canGoNext() {
     return this.hasAnswered;
+  }
+
+  canGoBack() {
+    return this.currentIndex > 0;
   }
 
   goNext() {
     if (!this.hasAnswered) return false;
 
     this.currentIndex += 1;
-    this.hasAnswered = false;
-    this.selectedLetter = null;
 
+    if (this.currentIndex >= this.sessionChallenges.length) {
+      this.hasAnswered = false;
+      this.selectedLetter = null;
+      return true;
+    }
+
+    const prior = this.getAnswerForCurrent();
+    if (prior) {
+      this.hasAnswered = true;
+      this.selectedLetter = prior.selectedLetter;
+    } else {
+      this.hasAnswered = false;
+      this.selectedLetter = null;
+    }
+
+    return true;
+  }
+
+  goBack() {
+    if (!this.canGoBack()) return false;
+
+    this.currentIndex -= 1;
+    const prior = this.getAnswerForCurrent();
+    this.hasAnswered = Boolean(prior);
+    this.selectedLetter = prior?.selectedLetter ?? null;
     return true;
   }
 
@@ -394,4 +564,4 @@ export class QuizEngine {
   }
 }
 
-export { SESSION_SIZE, formatMasteryCounts, getBiasStatus };
+export { SESSION_SIZE, formatMasteryCounts, formatBiasProgressLabel, getBiasStatus, toDisplayStages };
