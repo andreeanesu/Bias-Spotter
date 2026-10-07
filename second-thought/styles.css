@@ -18,7 +18,7 @@
   --btn-disabled: #b8b8b8;
   --btn-enabled: #6f6f6f;
   --max-width: 640px;
-  --footer-nav-height: 72px;
+  --footer-nav-height: 88px;
 }
 
 html {
@@ -850,17 +850,23 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: 40;
   display: flex;
   justify-content: center;
-  padding: 0.85rem 1.25rem 1.1rem;
-  background: linear-gradient(to top, var(--bg) 70%, transparent);
+  padding: 0.75rem 1.25rem calc(0.85rem + env(safe-area-inset-bottom, 0px));
+  background: linear-gradient(
+    to top,
+    var(--bg) 0%,
+    var(--bg) 62%,
+    rgba(242, 242, 242, 0)
+  );
   pointer-events: none;
 }
 
 .footer-nav-inner {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: stretch;
   gap: 0.65rem;
   width: 100%;
   max-width: var(--max-width);
@@ -882,9 +888,10 @@ body {
 }
 
 .btn-back {
-  min-width: 7.5rem;
+  flex: 0 0 auto;
+  min-width: 7rem;
   border: 1.5px solid var(--border-soft);
-  background: transparent;
+  background: rgba(255, 255, 255, 0.92);
   color: var(--text-muted);
   cursor: not-allowed;
   opacity: 0.45;
@@ -906,11 +913,24 @@ body {
 }
 
 .btn-next {
-  min-width: 180px;
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 220px;
   border: none;
   background: var(--btn-disabled);
   color: #fff;
   cursor: not-allowed;
+}
+
+@media (max-width: 420px) {
+  .btn-back,
+  .btn-next {
+    padding: 0.85rem 1.1rem;
+  }
+
+  .btn-back {
+    min-width: 5.75rem;
+  }
 }
 
 .btn-next:not(:disabled) {
