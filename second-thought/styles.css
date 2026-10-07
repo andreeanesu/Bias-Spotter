@@ -306,11 +306,109 @@ body {
   color: var(--text);
 }
 
+.tier-option-bias-progress {
+  width: 100%;
+  text-align: left;
+}
+
+.tier-option-bias-progress .bias-progress-label {
+  margin: 0 0 0.4rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--text);
+}
+
+.tier-option-bias-progress .bias-progress-bar {
+  height: 6px;
+}
+
 .tier-option-meta {
   font-size: 0.72rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--text-muted);
+}
+
+/* Bias mastery: learned / practicing / new */
+.bias-progress {
+  width: 100%;
+  max-width: 28rem;
+}
+
+.bias-progress-label {
+  margin: 0 0 0.55rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.bias-progress-bar {
+  display: flex;
+  width: 100%;
+  height: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border-soft);
+  border-radius: 2px;
+  background: #e8e8e8;
+}
+
+.bias-progress-seg {
+  min-width: 0;
+  flex-shrink: 1;
+}
+
+.bias-progress-seg.is-learned {
+  background: var(--accent-correct);
+}
+
+.bias-progress-seg.is-practicing {
+  background: #c48a3a;
+}
+
+.bias-progress-seg.is-new {
+  background: #d4d4d4;
+}
+
+.bias-progress-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem 1rem;
+  margin: 0.55rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.bias-progress-legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.bias-progress-swatch {
+  display: inline-block;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 1px;
+}
+
+.bias-progress-swatch.is-learned {
+  background: var(--accent-correct);
+}
+
+.bias-progress-swatch.is-practicing {
+  background: #c48a3a;
+}
+
+.bias-progress-swatch.is-new {
+  background: #d4d4d4;
+  border: 1px solid var(--border-soft);
 }
 
 .btn-change-tier {
@@ -929,14 +1027,24 @@ body {
   line-height: 1.65;
 }
 
-.finish-round-mastery,
-.finish-level-mastery {
+.finish-round-mastery {
   margin: 0 auto 0.45rem;
   max-width: 38ch;
   font-size: 0.95rem;
   font-weight: 500;
   line-height: 1.5;
   color: var(--text);
+}
+
+.finish-level-mastery {
+  margin: 0.35rem auto 0.85rem;
+  max-width: 28rem;
+  text-align: center;
+}
+
+.finish-level-mastery .bias-progress-label {
+  margin: 0 auto 0.55rem;
+  max-width: 38ch;
 }
 
 .finish-practice-note {

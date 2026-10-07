@@ -135,14 +135,35 @@ function getBiasStatus(record, challengeIdsForBias) {
   return "practicing";
 }
 
+/** Collapse familiar into practicing for a clear 3-stage view. */
+function toDisplayStages(counts) {
+  const learned = counts.learned || 0;
+  const practicing = (counts.practicing || 0) + (counts.familiar || 0);
+  const notStarted = counts.new || 0;
+  const total = counts.total || learned + practicing + notStarted;
+
+  return {
+    learned,
+    practicing,
+    new: notStarted,
+    total,
+  };
+}
+
 function formatMasteryCounts(counts) {
+  const stages = toDisplayStages(counts);
   const parts = [];
-  if (counts.learned) parts.push(`${counts.learned} learned`);
-  if (counts.familiar) parts.push(`${counts.familiar} familiar`);
-  if (counts.practicing) parts.push(`${counts.practicing} practicing`);
-  if (counts.new) parts.push(`${counts.new} new`);
-  if (parts.length === 0) return "No biases in this level yet";
+  if (stages.learned) parts.push(`${stages.learned} learned`);
+  if (stages.practicing) parts.push(`${stages.practicing} practicing`);
+  if (stages.new) parts.push(`${stages.new} new`);
+  if (parts.length === 0) {
+    return stages.total > 0 ? `${stages.total} new` : "No biases in this level yet";
+  }
   return parts.join(" · ");
+}
+
+function formatBiasProgressLabel(modeLabel, counts) {
+  return `${modeLabel} biases: ${formatMasteryCounts(counts)}`;
 }
 
 export class QuizEngine {
@@ -201,6 +222,7 @@ export class QuizEngine {
     const seenInPool = pool.filter((c) => this.seenIds.has(c.challengeId)).length;
     const biasCount = new Set(pool.map((c) => c.biasId)).size;
     const mastery = this.getMasteryCounts(mode);
+    const stages = toDisplayStages(mastery);
 
     return {
       mode,
@@ -209,6 +231,7 @@ export class QuizEngine {
       biasCount,
       remainingCount: pool.length - seenInPool,
       mastery,
+      stages,
       masteryLine: formatMasteryCounts(mastery),
     };
   }
@@ -315,12 +338,14 @@ export class QuizEngine {
     });
 
     const mastery = this.getMasteryCounts(this.mode);
+    const stages = toDisplayStages(mastery);
 
     return {
       spotted,
       toPractice: practiceItems.length,
       practiceNames: practiceItems,
       mastery,
+      stages,
       masteryLine: formatMasteryCounts(mastery),
       mode: this.mode,
     };
@@ -394,4 +419,4 @@ export class QuizEngine {
   }
 }
 
-export { SESSION_SIZE, formatMasteryCounts, getBiasStatus };
+export { SESSION_SIZE, formatMasteryCounts, formatBiasProgressLabel, getBiasStatus, toDisplayStages };

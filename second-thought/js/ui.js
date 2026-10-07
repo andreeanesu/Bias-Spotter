@@ -4,6 +4,7 @@
  */
 
 import { getCorrectFeedbackHtml, getIncorrectFeedbackHtml } from "./data-loader.js";
+import { formatBiasProgressLabel } from "./quiz-engine.js";
 
 function getRoundEncouragement(correct, total) {
   if (total === 0) return "";
@@ -17,6 +18,49 @@ function getRoundEncouragement(correct, total) {
 
 function getModeLabel(playModes, mode) {
   return playModes.find((m) => m.id === mode)?.label ?? "This level";
+}
+
+/** Three-stage bar: learned / practicing / new (widths proportional to counts). */
+function renderBiasProgressBar(stages, { showLegend = false } = {}) {
+  const learned = stages?.learned || 0;
+  const practicing = stages?.practicing || 0;
+  const notStarted = stages?.new || 0;
+  const total = stages?.total || learned + practicing + notStarted;
+
+  if (total <= 0) return "";
+
+  const segments = [
+    { key: "learned", count: learned, label: "learned" },
+    { key: "practicing", count: practicing, label: "practicing" },
+    { key: "new", count: notStarted, label: "new" },
+  ].filter((seg) => seg.count > 0);
+
+  const barHtml = segments
+    .map(
+      (seg) =>
+        `<span class="bias-progress-seg is-${seg.key}" style="flex-grow:${seg.count}" title="${seg.count} ${seg.label}"></span>`
+    )
+    .join("");
+
+  const aria = segments.map((seg) => `${seg.count} ${seg.label}`).join(", ");
+
+  const legendHtml = showLegend
+    ? `<ul class="bias-progress-legend" aria-hidden="true">
+        <li><span class="bias-progress-swatch is-learned"></span> Learned</li>
+        <li><span class="bias-progress-swatch is-practicing"></span> Practicing</li>
+        <li><span class="bias-progress-swatch is-new"></span> New</li>
+      </ul>`
+    : "";
+
+  return `<div class="bias-progress-bar" role="img" aria-label="${aria}">${barHtml}</div>${legendHtml}`;
+}
+
+function renderBiasProgressBlock(modeLabel, stages, { showLegend = false } = {}) {
+  const label = formatBiasProgressLabel(modeLabel, stages);
+  return `
+    <p class="bias-progress-label">${label}</p>
+    ${renderBiasProgressBar(stages, { showLegend })}
+  `;
 }
 
 export class QuizUI {
@@ -181,14 +225,16 @@ export class QuizUI {
       const complete =
         summary.totalCount > 0 && summary.seenCount >= summary.totalCount;
 
+      const levelLabel = modeInfo?.label ?? summary.mode;
       button.innerHTML = `
         <span class="tier-option-top">
-          <span class="tier-option-label">${modeInfo?.label ?? summary.mode}</span>
+          <span class="tier-option-label">${levelLabel}</span>
           <span class="tier-option-progress">${summary.seenCount} / ${summary.totalCount}</span>
         </span>
         <span class="tier-option-subtitle">${modeInfo?.subtitle ?? ""}</span>
-        <span class="tier-option-mastery">${summary.masteryLine}</span>
-        <span class="tier-option-meta">${summary.biasCount} biases in this level</span>
+        <span class="bias-progress tier-option-bias-progress">
+          ${renderBiasProgressBlock(levelLabel, summary.stages)}
+        </span>
       `;
 
       if (complete) {
@@ -461,11 +507,15 @@ export class QuizUI {
     }
 
     if (this.el.finishLevelMastery) {
-      if (roundMastery?.masteryLine) {
-        this.el.finishLevelMastery.textContent = `${modeLabel} progress: ${roundMastery.masteryLine}`;
+      if (roundMastery?.stages) {
+        this.el.finishLevelMastery.innerHTML = renderBiasProgressBlock(
+          modeLabel,
+          roundMastery.stages,
+          { showLegend: true }
+        );
         this.el.finishLevelMastery.hidden = false;
       } else {
-        this.el.finishLevelMastery.textContent = "";
+        this.el.finishLevelMastery.innerHTML = "";
         this.el.finishLevelMastery.hidden = true;
       }
     }
