@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
     <title>Second Thought</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32" />
@@ -213,14 +216,24 @@
       </main>
 
       <nav class="footer-nav hidden" id="footer-nav" aria-label="Quiz navigation">
-        <button
-          type="button"
-          class="btn-next"
-          id="btn-next"
-          disabled
-        >
-          Next →
-        </button>
+        <div class="footer-nav-inner">
+          <button
+            type="button"
+            class="btn-back"
+            id="btn-back"
+            disabled
+          >
+            ← Back
+          </button>
+          <button
+            type="button"
+            class="btn-next"
+            id="btn-next"
+            disabled
+          >
+            Next →
+          </button>
+        </div>
       </nav>
     </div>
 
