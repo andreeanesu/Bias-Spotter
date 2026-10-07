@@ -142,6 +142,7 @@ export class QuizUI {
     this.el.finishScreen?.classList.add("hidden");
     this.el.footerNav?.classList.add("hidden");
     this.el.headerTagline?.classList.remove("hidden");
+    if (this.el.btnBack) this.el.btnBack.hidden = true;
     this.el.btnNext.hidden = true;
 
     this.el.onboardingStep1?.classList.toggle("hidden", step !== 1);
@@ -166,6 +167,7 @@ export class QuizUI {
     this.el.finishScreen?.classList.add("hidden");
     this.el.footerNav?.classList.add("hidden");
     this.el.headerTagline?.classList.add("hidden");
+    if (this.el.btnBack) this.el.btnBack.hidden = true;
     this.el.btnNext.hidden = true;
 
     if (!this.el.tierOptions) return;
@@ -209,7 +211,13 @@ export class QuizUI {
     this.el.finishScreen.classList.add("hidden");
     this.el.footerNav?.classList.remove("hidden");
     this.el.headerTagline?.classList.add("hidden");
+    if (this.el.btnBack) this.el.btnBack.hidden = false;
     this.el.btnNext.hidden = false;
+  }
+
+  setNavState({ canGoBack = false, canGoNext = false } = {}) {
+    if (this.el.btnBack) this.el.btnBack.disabled = !canGoBack;
+    if (this.el.btnNext) this.el.btnNext.disabled = !canGoNext;
   }
 
   renderQuestion(challenge, progress) {
@@ -246,6 +254,7 @@ export class QuizUI {
 
     this.el.btnNext.disabled = true;
     this.el.btnNext.textContent = "Next →";
+    if (this.el.btnBack) this.el.btnBack.disabled = true;
 
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
@@ -258,7 +267,7 @@ export class QuizUI {
     });
   }
 
-  showFeedback(result) {
+  showFeedback(result, { animateCharacter = true } = {}) {
     const { isCorrect, selectedLetter, challenge } = result;
     const biasName = challenge.biasName;
 
@@ -294,7 +303,9 @@ export class QuizUI {
     this.el.feedback.classList.remove("hidden");
     this.el.feedback.classList.add("is-visible");
 
-    this.playCharacterReaction(isCorrect);
+    if (animateCharacter) {
+      this.playCharacterReaction(isCorrect);
+    }
     this.el.btnNext.disabled = false;
 
     requestAnimationFrame(() => {
@@ -426,6 +437,7 @@ export class QuizUI {
     this.el.finishScreen.classList.remove("hidden");
     this.el.footerNav?.classList.add("hidden");
     this.el.headerTagline?.classList.add("hidden");
+    if (this.el.btnBack) this.el.btnBack.hidden = true;
     this.el.btnNext.hidden = true;
 
     const modeLabel = getModeLabel(playModes, sessionMeta?.mode);

@@ -352,9 +352,11 @@ export class QuizEngine {
 
     this.recordBiasResult(challenge, isCorrect);
     this.sessionResults.push({
+      challengeId: challenge.challengeId,
       biasId: challenge.biasId,
       biasName: challenge.biasName,
       isCorrect,
+      selectedLetter: letter,
     });
 
     return {
@@ -367,17 +369,73 @@ export class QuizEngine {
     };
   }
 
+  getAnswerForIndex(index) {
+    const challenge = this.sessionChallenges[index];
+    if (!challenge) return null;
+    return (
+      this.sessionResults.find((r) => r.challengeId === challenge.challengeId) ??
+      null
+    );
+  }
+
+  getAnswerForCurrent() {
+    return this.getAnswerForIndex(this.currentIndex);
+  }
+
+  /** Rebuild a feedback payload for an already-answered question (review). */
+  getFeedbackForIndex(index) {
+    const challenge = this.sessionChallenges[index];
+    const prior = this.getAnswerForIndex(index);
+    if (!challenge || !prior) return null;
+
+    return {
+      isCorrect: prior.isCorrect,
+      selectedLetter: prior.selectedLetter,
+      selectedText: challenge.options[prior.selectedLetter],
+      correctLetter: challenge.correctAnswer,
+      correctText: challenge.correctOptionText,
+      challenge,
+    };
+  }
+
   canGoNext() {
     return this.hasAnswered;
+  }
+
+  canGoBack() {
+    return this.currentIndex > 0;
   }
 
   goNext() {
     if (!this.hasAnswered) return false;
 
     this.currentIndex += 1;
-    this.hasAnswered = false;
-    this.selectedLetter = null;
 
+    if (this.currentIndex >= this.sessionChallenges.length) {
+      this.hasAnswered = false;
+      this.selectedLetter = null;
+      return true;
+    }
+
+    const prior = this.getAnswerForCurrent();
+    if (prior) {
+      this.hasAnswered = true;
+      this.selectedLetter = prior.selectedLetter;
+    } else {
+      this.hasAnswered = false;
+      this.selectedLetter = null;
+    }
+
+    return true;
+  }
+
+  goBack() {
+    if (!this.canGoBack()) return false;
+
+    this.currentIndex -= 1;
+    const prior = this.getAnswerForCurrent();
+    this.hasAnswered = Boolean(prior);
+    this.selectedLetter = prior?.selectedLetter ?? null;
     return true;
   }
 
