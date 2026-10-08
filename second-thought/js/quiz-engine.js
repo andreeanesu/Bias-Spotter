@@ -177,6 +177,7 @@ export class QuizEngine {
     this.sessionMeta = null;
     this.correctCount = 0;
     this.sessionResults = [];
+    this.sessionPromotions = [];
     this.seenIds = loadSeenIds();
     this.mastery = loadMastery();
   }
@@ -289,10 +290,14 @@ export class QuizEngine {
     this.selectedLetter = null;
     this.correctCount = 0;
     this.sessionResults = [];
+    this.sessionPromotions = [];
   }
 
   recordBiasResult(challenge, isCorrect) {
-    if (!challenge?.biasId) return;
+    if (!challenge?.biasId) return null;
+
+    const challengeIds = this.getChallengeIdsForBias(challenge.biasId);
+    const before = getBiasStatus(this.mastery[challenge.biasId], challengeIds);
 
     const current = this.mastery[challenge.biasId] || {
       correctIds: [],
@@ -316,6 +321,24 @@ export class QuizEngine {
     }
 
     saveMastery(this.mastery);
+
+    const after = getBiasStatus(this.mastery[challenge.biasId], challengeIds);
+    if (after === "learned" && before !== "learned") {
+      const alreadyLogged = this.sessionPromotions.some(
+        (item) => item.biasId === challenge.biasId && item.to === "learned"
+      );
+      if (!alreadyLogged) {
+        this.sessionPromotions.push({
+          biasId: challenge.biasId,
+          biasName: challenge.biasName,
+          from: before,
+          to: "learned",
+        });
+      }
+      return { before, after, learned: true };
+    }
+
+    return { before, after, learned: false };
   }
 
   getRoundScore() {
@@ -354,11 +377,21 @@ export class QuizEngine {
     const mastery = this.getMasteryCounts(this.mode);
     const stages = toDisplayStages(mastery);
 
+    const learnedNames = [];
+    const seenLearned = new Set();
+    this.sessionPromotions.forEach((item) => {
+      if (item.to === "learned" && !seenLearned.has(item.biasId)) {
+        seenLearned.add(item.biasId);
+        learnedNames.push(item.biasName);
+      }
+    });
+
     return {
       spotted,
       toPractice: practiceItems.length,
       practiceNames: practiceItems,
       practiceBiasIds,
+      learnedNames,
       mastery,
       stages,
       masteryLine: formatMasteryCounts(mastery),
@@ -435,6 +468,7 @@ export class QuizEngine {
     this.selectedLetter = null;
     this.correctCount = 0;
     this.sessionResults = [];
+    this.sessionPromotions = [];
     return true;
   }
 
@@ -462,7 +496,7 @@ export class QuizEngine {
     const isCorrect = letter === challenge.correctAnswer;
     if (isCorrect) this.correctCount += 1;
 
-    this.recordBiasResult(challenge, isCorrect);
+    const masteryChange = this.recordBiasResult(challenge, isCorrect);
     this.sessionResults.push({
       challengeId: challenge.challengeId,
       biasId: challenge.biasId,
@@ -478,6 +512,7 @@ export class QuizEngine {
       correctLetter: challenge.correctAnswer,
       correctText: challenge.correctOptionText,
       challenge,
+      justLearned: Boolean(masteryChange?.learned),
     };
   }
 
