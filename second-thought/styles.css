@@ -457,11 +457,6 @@ body {
   animation: character-ponder 0.75s ease;
 }
 
-.quiz-character.is-celebrate,
-.finish-character.is-celebrate {
-  animation: character-celebrate 0.85s ease;
-}
-
 .finish-character.is-settle {
   animation: character-settle 1s ease;
 }
@@ -499,32 +494,12 @@ body {
   }
 }
 
-@keyframes character-celebrate {
-  0%,
-  100% {
-    transform: translateY(0) scale(1);
-  }
-  30% {
-    transform: translateY(-7px) scale(1.04);
-  }
-  55% {
-    transform: translateY(-2px) scale(1.02);
-  }
-  75% {
-    transform: translateY(-4px) scale(1.03);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .quiz-character.is-nod,
   .quiz-character.is-ponder,
-  .quiz-character.is-celebrate,
   .finish-character.is-nod,
   .finish-character.is-settle,
-  .finish-character.is-celebrate,
-  .feedback.is-visible,
-  .feedback-learned.is-visible,
-  .finish-celebration.is-visible {
+  .feedback.is-visible {
     animation: none;
   }
 }
@@ -732,38 +707,6 @@ body {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-muted);
-}
-
-.feedback-learned {
-  margin: -0.65rem 0 1.25rem;
-  padding: 0.45rem 0.7rem;
-  max-width: fit-content;
-  border-left: 2px solid var(--accent-correct);
-  background: var(--accent-correct-bg);
-  color: var(--accent-correct);
-  font-size: 0.88rem;
-  font-weight: 600;
-  line-height: 1.4;
-}
-
-.feedback-learned[hidden],
-.feedback-learned.hidden {
-  display: none;
-}
-
-.feedback-learned.is-visible {
-  animation: learned-enter 0.45s ease;
-}
-
-@keyframes learned-enter {
-  from {
-    opacity: 0;
-    transform: translateY(4px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .feedback-body {
@@ -1155,28 +1098,6 @@ body {
   line-height: 1.65;
 }
 
-.finish-celebration {
-  margin: 0 auto 0.85rem;
-  padding: 0.55rem 0.9rem;
-  max-width: 36ch;
-  border-left: 2px solid var(--accent-correct);
-  background: var(--accent-correct-bg);
-  color: var(--accent-correct);
-  font-size: 0.95rem;
-  font-weight: 600;
-  line-height: 1.45;
-  text-align: left;
-}
-
-.finish-celebration[hidden],
-.finish-celebration.hidden {
-  display: none;
-}
-
-.finish-celebration.is-visible {
-  animation: learned-enter 0.5s ease;
-}
-
 .finish-round-mastery {
   margin: 0 auto 0.45rem;
   max-width: 38ch;
@@ -1184,11 +1105,6 @@ body {
   font-weight: 500;
   line-height: 1.5;
   color: var(--text);
-}
-
-.finish-celebration[hidden] + .finish-round-mastery,
-.finish-celebration.hidden + .finish-round-mastery {
-  margin-top: 0;
 }
 
 .finish-level-mastery {

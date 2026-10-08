@@ -6,32 +6,14 @@
 import { getCorrectFeedbackHtml, getIncorrectFeedbackHtml } from "./data-loader.js";
 import { formatBiasProgressLabel } from "./quiz-engine.js";
 
-function getRoundEncouragement(correct, total, learnedCount = 0) {
+function getRoundEncouragement(correct, total) {
   if (total === 0) return "";
-  if (learnedCount > 0) {
-    if (correct === total) {
-      return learnedCount === 1
-        ? "Clean sweep, and you locked in a new bias."
-        : `Clean sweep, and you locked in ${learnedCount} biases.`;
-    }
-    return learnedCount === 1
-      ? "Nice work. You locked in a new bias this round."
-      : `Nice work. You locked in ${learnedCount} biases this round.`;
-  }
   if (correct === total) return "Sharp eye this round. You spotted them all.";
   if (correct >= total - 1) return "Strong round. One to sit with.";
   if (correct >= Math.ceil(total / 2)) {
     return "Good progress. Noticing these patterns takes practice.";
   }
   return "Every miss is a chance to learn. No rush.";
-}
-
-function formatLearnedCelebration(names) {
-  if (!names?.length) return "";
-  if (names.length === 1) return `Learned: ${names[0]}`;
-  if (names.length === 2) return `Learned: ${names[0]} and ${names[1]}`;
-  const head = names.slice(0, -1).join(", ");
-  return `Learned: ${head}, and ${names[names.length - 1]}`;
 }
 
 function getModeLabel(playModes, mode) {
@@ -296,7 +278,6 @@ export class QuizUI {
     this.el.feedback.classList.remove("is-visible");
     this.el.feedbackVerdict.textContent = "";
     if (this.el.feedbackCategory) this.el.feedbackCategory.textContent = "";
-    this.clearLearnedCelebration();
     this.el.feedbackWhyHumans.textContent = "";
     this.el.feedbackReflection.textContent = "";
     this.resetLearnMore();
@@ -334,7 +315,7 @@ export class QuizUI {
   }
 
   showFeedback(result, { animateCharacter = true } = {}) {
-    const { isCorrect, selectedLetter, challenge, justLearned } = result;
+    const { isCorrect, selectedLetter, challenge } = result;
     const biasName = challenge.biasName;
 
     this.el.answers.querySelectorAll(".answer").forEach((button) => {
@@ -363,7 +344,6 @@ export class QuizUI {
     if (this.el.feedbackCategory) {
       this.el.feedbackCategory.textContent = challenge.biasCategory || "";
     }
-    this.renderLearnedCelebration(justLearned ? biasName : null);
     this.el.feedbackWhyHumans.textContent = challenge.whyHumansDoThis;
     this.el.feedbackReflection.textContent = challenge.reflectionQuestion;
     this.renderLearnMore(challenge);
@@ -371,36 +351,13 @@ export class QuizUI {
     this.el.feedback.classList.add("is-visible");
 
     if (animateCharacter) {
-      this.playCharacterReaction(isCorrect, { celebrate: Boolean(justLearned) });
+      this.playCharacterReaction(isCorrect);
     }
     this.el.btnNext.disabled = false;
 
     requestAnimationFrame(() => {
       this.el.feedback.scrollIntoView({ behavior: "smooth", block: "start" });
     });
-  }
-
-  clearLearnedCelebration() {
-    if (!this.el.feedbackLearned) return;
-    this.el.feedbackLearned.textContent = "";
-    this.el.feedbackLearned.hidden = true;
-    this.el.feedbackLearned.classList.add("hidden");
-    this.el.feedbackLearned.classList.remove("is-visible");
-  }
-
-  renderLearnedCelebration(biasName) {
-    if (!this.el.feedbackLearned) return;
-    if (!biasName) {
-      this.clearLearnedCelebration();
-      return;
-    }
-
-    this.el.feedbackLearned.textContent = `Learned: ${biasName}`;
-    this.el.feedbackLearned.hidden = false;
-    this.el.feedbackLearned.classList.remove("hidden");
-    this.el.feedbackLearned.classList.remove("is-visible");
-    void this.el.feedbackLearned.offsetWidth;
-    this.el.feedbackLearned.classList.add("is-visible");
   }
 
   resetLearnMore() {
@@ -490,20 +447,16 @@ export class QuizUI {
     }
   }
 
-  playCharacterReaction(isCorrect, { celebrate = false } = {}) {
+  playCharacterReaction(isCorrect) {
     const character = this.el.quizCharacter;
     if (!character) return;
 
-    character.classList.remove("is-nod", "is-ponder", "is-celebrate");
+    character.classList.remove("is-nod", "is-ponder");
     void character.offsetWidth;
-    if (celebrate) {
-      character.classList.add("is-celebrate");
-    } else {
-      character.classList.add(isCorrect ? "is-nod" : "is-ponder");
-    }
+    character.classList.add(isCorrect ? "is-nod" : "is-ponder");
 
     const clear = () => {
-      character.classList.remove("is-nod", "is-ponder", "is-celebrate");
+      character.classList.remove("is-nod", "is-ponder");
       character.removeEventListener("animationend", clear);
     };
     character.addEventListener("animationend", clear);
@@ -535,8 +488,6 @@ export class QuizUI {
     this.el.btnNext.hidden = true;
 
     const modeLabel = getModeLabel(playModes, sessionMeta?.mode);
-    const learnedNames = roundMastery?.learnedNames || [];
-    const learnedCount = learnedNames.length;
 
     if (roundScore && this.el.finishScore) {
       const { correct, total } = roundScore;
@@ -550,42 +501,17 @@ export class QuizUI {
     if (this.el.finishTitle) {
       this.el.finishTitle.textContent = getRoundEncouragement(
         roundScore?.correct ?? 0,
-        roundScore?.total ?? 0,
-        learnedCount
+        roundScore?.total ?? 0
       );
-    }
-
-    if (this.el.finishCelebration) {
-      const celebration = formatLearnedCelebration(learnedNames);
-      if (celebration) {
-        this.el.finishCelebration.textContent = celebration;
-        this.el.finishCelebration.hidden = false;
-        this.el.finishCelebration.classList.remove("hidden");
-        this.el.finishCelebration.classList.remove("is-visible");
-        void this.el.finishCelebration.offsetWidth;
-        this.el.finishCelebration.classList.add("is-visible");
-      } else {
-        this.el.finishCelebration.textContent = "";
-        this.el.finishCelebration.hidden = true;
-        this.el.finishCelebration.classList.add("hidden");
-        this.el.finishCelebration.classList.remove("is-visible");
-      }
     }
 
     if (this.el.finishRoundMastery) {
       if (roundMastery) {
-        const bits = [`${roundMastery.spotted} spotted`];
-        if (learnedCount > 0) {
-          bits.push(
-            learnedCount === 1 ? "1 newly learned" : `${learnedCount} newly learned`
-          );
-        }
-        if (roundMastery.toPractice > 0) {
-          bits.push(`${roundMastery.toPractice} to practice again`);
-        } else if (learnedCount === 0) {
-          bits.push("none to practice again");
-        }
-        this.el.finishRoundMastery.textContent = `This round: ${bits.join(" · ")}`;
+        const practiceBit =
+          roundMastery.toPractice > 0
+            ? `${roundMastery.toPractice} to practice again`
+            : "none to practice again";
+        this.el.finishRoundMastery.textContent = `This round: ${roundMastery.spotted} spotted · ${practiceBit}`;
         this.el.finishRoundMastery.hidden = false;
       } else {
         this.el.finishRoundMastery.textContent = "";
@@ -651,22 +577,20 @@ export class QuizUI {
       }
     }
 
-    this.playFinishCharacterReaction(roundScore, learnedCount);
+    this.playFinishCharacterReaction(roundScore);
 
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
-  playFinishCharacterReaction(roundScore, learnedCount = 0) {
+  playFinishCharacterReaction(roundScore) {
     const character = this.el.finishCharacter;
     if (!character || !roundScore) return;
 
     const ratio = roundScore.total ? roundScore.correct / roundScore.total : 0;
-    character.classList.remove("is-nod", "is-settle", "is-celebrate");
+    character.classList.remove("is-nod", "is-settle");
     void character.offsetWidth;
 
-    if (learnedCount > 0) {
-      character.classList.add("is-celebrate");
-    } else if (ratio >= 0.8) {
+    if (ratio >= 0.8) {
       character.classList.add("is-nod");
     } else {
       character.classList.add("is-settle");
