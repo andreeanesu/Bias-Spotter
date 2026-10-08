@@ -7,7 +7,8 @@ import { loadQuizData, getPlayModes } from "./data-loader.js";
 import { QuizEngine } from "./quiz-engine.js";
 import { QuizUI } from "./ui.js";
 
-const ONBOARDING_KEY = "second-thought-onboarding-done";
+const ONBOARDING_KEY = "bias-spotter-onboarding-done";
+const LEGACY_ONBOARDING_KEY = "second-thought-onboarding-done";
 
 const elements = {
   main: document.getElementById("main"),
@@ -66,7 +67,13 @@ let engine;
 
 function hasCompletedOnboarding() {
   try {
-    return localStorage.getItem(ONBOARDING_KEY) === "1";
+    if (localStorage.getItem(ONBOARDING_KEY) === "1") return true;
+    if (localStorage.getItem(LEGACY_ONBOARDING_KEY) === "1") {
+      localStorage.setItem(ONBOARDING_KEY, "1");
+      localStorage.removeItem(LEGACY_ONBOARDING_KEY);
+      return true;
+    }
+    return false;
   } catch {
     return false;
   }
@@ -75,6 +82,7 @@ function hasCompletedOnboarding() {
 function markOnboardingDone() {
   try {
     localStorage.setItem(ONBOARDING_KEY, "1");
+    localStorage.removeItem(LEGACY_ONBOARDING_KEY);
   } catch {
     // Ignore storage failures; user can still continue.
   }

@@ -1,6 +1,6 @@
 {
   "rewrites": [
-    { "source": "/", "destination": "/second-thought/index.html" },
-    { "source": "/:path*", "destination": "/second-thought/:path*" }
+    { "source": "/", "destination": "/bias-spotter/index.html" },
+    { "source": "/:path*", "destination": "/bias-spotter/:path*" }
   ]
 }

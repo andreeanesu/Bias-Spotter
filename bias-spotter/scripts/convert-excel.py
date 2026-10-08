@@ -3,7 +3,7 @@
 Convert cognitive_bias_trainer.xlsx → JSON files in data/.
 
 Run from repo root:
-  python3 second-thought/scripts/convert-excel.py
+  python3 bias-spotter/scripts/convert-excel.py
 """
 
 from __future__ import annotations

@@ -7,9 +7,11 @@
  */
 
 const SESSION_SIZE = 5;
-const PROGRESS_KEY = "second-thought-tier-progress";
-const MASTERY_KEY = "second-thought-bias-mastery";
+const PROGRESS_KEY = "bias-spotter-tier-progress";
+const MASTERY_KEY = "bias-spotter-bias-mastery";
 const LEGACY_PROGRESS_KEY = "second-thought-seen-challenges";
+const LEGACY_PROGRESS_KEY_V2 = "second-thought-tier-progress";
+const LEGACY_MASTERY_KEY = "second-thought-bias-mastery";
 
 export const PLAY_MODES = ["1", "2", "3", "mix"];
 
@@ -22,28 +24,46 @@ function shuffleArray(items) {
   return copy;
 }
 
+function parseSeenFromRaw(raw) {
+  const seen = new Set();
+  if (!raw) return seen;
+
+  const parsed = JSON.parse(raw);
+  if (!parsed || typeof parsed !== "object") return seen;
+
+  if (Array.isArray(parsed.seen)) {
+    parsed.seen.forEach((id) => seen.add(id));
+    return seen;
+  }
+
+  // Legacy per-mode arrays → one shared set
+  PLAY_MODES.forEach((mode) => {
+    const ids = parsed[mode];
+    if (Array.isArray(ids)) ids.forEach((id) => seen.add(id));
+  });
+  return seen;
+}
+
 function loadSeenIds() {
   const seen = new Set();
 
   try {
-    const raw = localStorage.getItem(PROGRESS_KEY);
-    if (raw) {
-      const parsed = JSON.parse(raw);
-      if (parsed && typeof parsed === "object") {
-        if (Array.isArray(parsed.seen)) {
-          parsed.seen.forEach((id) => seen.add(id));
-          return seen;
-        }
-
-        // Legacy per-mode arrays → one shared set
-        PLAY_MODES.forEach((mode) => {
-          const ids = parsed[mode];
-          if (Array.isArray(ids)) ids.forEach((id) => seen.add(id));
-        });
-      }
-    }
+    const current = parseSeenFromRaw(localStorage.getItem(PROGRESS_KEY));
+    current.forEach((id) => seen.add(id));
   } catch {
     // fall through
+  }
+
+  if (seen.size === 0) {
+    try {
+      const renamed = parseSeenFromRaw(localStorage.getItem(LEGACY_PROGRESS_KEY_V2));
+      renamed.forEach((id) => seen.add(id));
+      if (renamed.size > 0) {
+        localStorage.removeItem(LEGACY_PROGRESS_KEY_V2);
+      }
+    } catch {
+      // ignore
+    }
   }
 
   try {
@@ -76,37 +96,47 @@ function isLegacyMasteryShape(parsed) {
   );
 }
 
+function normalizeMastery(parsed) {
+  if (!parsed || typeof parsed !== "object") return null;
+
+  if (isLegacyMasteryShape(parsed)) {
+    const merged = {};
+    PLAY_MODES.forEach((mode) => {
+      const modeData = parsed[mode];
+      if (!modeData || typeof modeData !== "object") return;
+
+      Object.entries(modeData).forEach(([biasId, record]) => {
+        const existing = merged[biasId] || {
+          correctIds: [],
+          missed: false,
+        };
+        const correctIds = new Set([
+          ...(Array.isArray(existing.correctIds) ? existing.correctIds : []),
+          ...(Array.isArray(record?.correctIds) ? record.correctIds : []),
+        ]);
+        merged[biasId] = {
+          correctIds: [...correctIds],
+          missed: Boolean(existing.missed || record?.missed),
+        };
+      });
+    });
+    return merged;
+  }
+
+  return parsed;
+}
+
 function loadMastery() {
   try {
-    const raw = localStorage.getItem(MASTERY_KEY);
+    const raw =
+      localStorage.getItem(MASTERY_KEY) ||
+      localStorage.getItem(LEGACY_MASTERY_KEY);
     if (raw) {
-      const parsed = JSON.parse(raw);
-      if (parsed && typeof parsed === "object") {
-        if (isLegacyMasteryShape(parsed)) {
-          const merged = {};
-          PLAY_MODES.forEach((mode) => {
-            const modeData = parsed[mode];
-            if (!modeData || typeof modeData !== "object") return;
-
-            Object.entries(modeData).forEach(([biasId, record]) => {
-              const existing = merged[biasId] || {
-                correctIds: [],
-                missed: false,
-              };
-              const correctIds = new Set([
-                ...(Array.isArray(existing.correctIds) ? existing.correctIds : []),
-                ...(Array.isArray(record?.correctIds) ? record.correctIds : []),
-              ]);
-              merged[biasId] = {
-                correctIds: [...correctIds],
-                missed: Boolean(existing.missed || record?.missed),
-              };
-            });
-          });
-          saveMastery(merged);
-          return merged;
-        }
-        return parsed;
+      const normalized = normalizeMastery(JSON.parse(raw));
+      if (normalized) {
+        saveMastery(normalized);
+        localStorage.removeItem(LEGACY_MASTERY_KEY);
+        return normalized;
       }
     }
   } catch {
@@ -117,6 +147,7 @@ function loadMastery() {
 
 function saveMastery(mastery) {
   localStorage.setItem(MASTERY_KEY, JSON.stringify(mastery));
+  localStorage.removeItem(LEGACY_MASTERY_KEY);
 }
 
 function getBiasStatus(record, challengeIdsForBias) {

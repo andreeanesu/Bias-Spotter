@@ -1,6 +1,6 @@
 # Learn more: content draft (all 60 biases)
 
-Source: `second-thought/data/source/cognitive_bias_trainer.xlsx` → **Bias Library**
+Source: `bias-spotter/data/source/cognitive_bias_trainer.xlsx` → **Bias Library**
 
 Learn more fields:
 - **Definition**
