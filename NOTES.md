@@ -16,7 +16,7 @@
 | **GitHub repo** | `andreeanesu/Bias-Spotter` |
 | **Production branch** | `main` |
 | **App folder (Vercel Root Directory)** | `bias-spotter` |
-| **Live URL** | _Update this:_ `https://second-thought-steel.vercel.app` |
+| **Live URL** | `https://second-thought-pi.vercel.app` |
 | **Vercel** | Framework: **Other**, Build Command: **empty**, auto-deploy on push to `main` |
 
 After code changes: push to `main` → wait ~1–2 min → refresh Vercel URL.

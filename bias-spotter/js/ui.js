@@ -300,7 +300,8 @@ export class QuizUI {
     });
 
     this.el.btnNext.disabled = true;
-    this.el.btnNext.textContent = "Next →";
+    this.el.btnNext.textContent =
+      progress.current >= progress.total ? "Finish →" : "Next →";
     if (this.el.btnBack) this.el.btnBack.disabled = true;
 
     window.scrollTo({ top: 0, behavior: "smooth" });

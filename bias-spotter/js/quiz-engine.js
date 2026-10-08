@@ -84,10 +84,14 @@ function loadSeenIds() {
 }
 
 function saveSeenIds(seenIds) {
-  localStorage.setItem(
-    PROGRESS_KEY,
-    JSON.stringify({ version: 2, seen: [...seenIds] })
-  );
+  try {
+    localStorage.setItem(
+      PROGRESS_KEY,
+      JSON.stringify({ version: 2, seen: [...seenIds] })
+    );
+  } catch {
+    // Private mode / quota: keep in-memory progress for this visit.
+  }
 }
 
 function isLegacyMasteryShape(parsed) {
@@ -146,8 +150,12 @@ function loadMastery() {
 }
 
 function saveMastery(mastery) {
-  localStorage.setItem(MASTERY_KEY, JSON.stringify(mastery));
-  localStorage.removeItem(LEGACY_MASTERY_KEY);
+  try {
+    localStorage.setItem(MASTERY_KEY, JSON.stringify(mastery));
+    localStorage.removeItem(LEGACY_MASTERY_KEY);
+  } catch {
+    // Private mode / quota: keep in-memory mastery for this visit.
+  }
 }
 
 function getBiasStatus(record, challengeIdsForBias) {
@@ -299,10 +307,9 @@ export class QuizEngine {
     const sessionCount = Math.min(SESSION_SIZE, available.length);
     this.sessionChallenges = shuffled.slice(0, sessionCount);
 
-    this.sessionChallenges.forEach((challenge) => {
-      this.seenIds.add(challenge.challengeId);
-    });
-    saveSeenIds(this.seenIds);
+    // Mark questions seen when answered, not when the round starts,
+    // so a refresh mid-round does not burn unanswered items.
+    if (poolReset) saveSeenIds(this.seenIds);
 
     const seenInPool = pool.filter((c) => this.seenIds.has(c.challengeId)).length;
 
@@ -442,11 +449,6 @@ export class QuizEngine {
 
     if (picked.length === 0) return false;
 
-    picked.forEach((challenge) => {
-      this.seenIds.add(challenge.challengeId);
-    });
-    saveSeenIds(this.seenIds);
-
     const pool = this.getPoolForMode(this.mode);
     const seenInPool = pool.filter((c) => this.seenIds.has(c.challengeId)).length;
 
@@ -470,7 +472,21 @@ export class QuizEngine {
   }
 
   getSessionMeta() {
-    return this.sessionMeta;
+    if (!this.sessionMeta || !this.mode) return this.sessionMeta;
+
+    const pool = this.getPoolForMode(this.mode);
+    const seenInPool = pool.filter((c) => this.seenIds.has(c.challengeId)).length;
+    return {
+      ...this.sessionMeta,
+      seenCount: seenInPool,
+      remainingInPool: Math.max(0, pool.length - seenInPool),
+    };
+  }
+
+  markChallengeSeen(challengeId) {
+    if (!challengeId || this.seenIds.has(challengeId)) return;
+    this.seenIds.add(challengeId);
+    saveSeenIds(this.seenIds);
   }
 
   get sessionSize() {
@@ -493,6 +509,7 @@ export class QuizEngine {
     const isCorrect = letter === challenge.correctAnswer;
     if (isCorrect) this.correctCount += 1;
 
+    this.markChallengeSeen(challenge.challengeId);
     this.recordBiasResult(challenge, isCorrect);
     this.sessionResults.push({
       challengeId: challenge.challengeId,

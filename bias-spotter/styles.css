@@ -193,14 +193,6 @@ body {
   font-weight: 700;
 }
 
-.onboarding-note {
-  margin: 0 auto 1.5rem;
-  max-width: 34ch;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  color: var(--text-muted);
-}
-
 .btn-onboarding-primary {
   padding: 0.85rem 1.75rem;
   border: 1.5px solid var(--border);
@@ -311,13 +303,6 @@ body {
   color: #333;
 }
 
-.tier-option-mastery {
-  font-size: 0.82rem;
-  font-weight: 500;
-  line-height: 1.4;
-  color: var(--text);
-}
-
 .tier-option-bias-progress {
   width: 100%;
   text-align: left;
@@ -333,13 +318,6 @@ body {
 
 .tier-option-bias-progress .bias-progress-bar {
   height: 6px;
-}
-
-.tier-option-meta {
-  font-size: 0.72rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--text-muted);
 }
 
 /* Bias mastery: learned / practicing / new */
