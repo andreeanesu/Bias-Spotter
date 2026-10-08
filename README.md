@@ -48,7 +48,7 @@ Bias Spotter is a static site (HTML + JSON), which is ideal for [Vercel](https:/
 
 1. Create a free account at [vercel.com](https://vercel.com) and sign in with **GitHub**.
 2. Push your latest code to GitHub (or merge to `main`).
-3. In Vercel: **Add New → Project → Import** your `Second-Thought-` repository.
+3. In Vercel: **Add New → Project → Import** your `Bias-Spotter` repository.
 4. **Important:** open **Configure Project** and set:
    - **Root Directory:** `bias-spotter` ← most important setting
    - **Framework Preset:** Other

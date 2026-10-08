@@ -13,7 +13,7 @@
 
 | Item | Value |
 |------|--------|
-| **GitHub repo** | `andreeanesu/Second-Thought-` |
+| **GitHub repo** | `andreeanesu/Bias-Spotter` |
 | **Production branch** | `main` |
 | **App folder (Vercel Root Directory)** | `bias-spotter` |
 | **Live URL** | _Update this:_ `https://second-thought-steel.vercel.app` |
@@ -103,7 +103,7 @@ bias-spotter/
 Copy, fill in, start a **new** chat (saves tokens):
 
 ```
-Repo: andreeanesu/Second-Thought-, branch main.
+Repo: andreeanesu/Bias-Spotter, branch main.
 Read NOTES.md and bias-spotter/ before changing code.
 Task: [one specific thing].
 Constraints: beginner owner, light tone, minimal diff, push to main when done.
@@ -112,7 +112,7 @@ Live check: Vercel URL in NOTES.md.
 
 ## Changelog (high level)
 
-- Renamed product from Second Thought → Bias Spotter (app folder `bias-spotter`)
+- Renamed product from Second Thought → Bias Spotter (app folder `bias-spotter`, GitHub repo `Bias-Spotter`)
 - Tier start screen + per-tier progress in localStorage
 - Expanded from 20 → 60 biases, 60 → 180 questions
 - Merged to `main`; Vercel deploy with Root Directory `bias-spotter`
